@@ -1,0 +1,104 @@
+commit 81f4e89c4b798e6839bce104823626e9db4a0a8e
+Author: gitjms <46410240+gitjms@users.noreply.github.com>
+Date:   Thu Mar 12 20:00:12 2020 +0200
+
+    muutos lisäys
+
+ tiedostoja/file2             | 22 ----------------------
+ tiedostoja/{file1 => file22} |  0
+ 2 files changed, 22 deletions(-)
+
+commit 098d895ce6324bf7b5c74b5ab2fb8e1422e48829
+Author: gitjms <46410240+gitjms@users.noreply.github.com>
+Date:   Thu Mar 12 19:55:06 2020 +0200
+
+    lisäys
+
+ tiedostoja/file1 | 22 ++++++++++++++++++++++
+ tiedostoja/file2 | 22 ++++++++++++++++++++++
+ tiedostoja/file3 | 22 ++++++++++++++++++++++
+ 3 files changed, 66 insertions(+)
+
+commit 1cecc3cd341cd5388cebc5f017ddbaadef3fc328
+Author: gitjms <46410240+gitjms@users.noreply.github.com>
+Date:   Thu Mar 12 19:49:42 2020 +0200
+
+    muutos
+
+ eka.txt    | 85 +-------------------------------------------------------------
+ kolmas.txt |  1 +
+ 2 files changed, 2 insertions(+), 84 deletions(-)
+
+commit 270d1cffeaec3e381dfed8d26f2cadc14c59ee71
+Author: gitjms <46410240+gitjms@users.noreply.github.com>
+Date:   Thu Mar 12 19:47:50 2020 +0200
+
+    muutos
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit d502f9b69f29f7b50a6bcba67e39a8a8326179d5
+Author: gitjms <46410240+gitjms@users.noreply.github.com>
+Date:   Thu Mar 12 19:45:11 2020 +0200
+
+    muutos
+
+ toinen.txt | 21 ---------------------
+ 1 file changed, 21 deletions(-)
+
+commit 2c8eb2aca615be602149941c1306e8f62f08fc1f
+Author: gitjms <46410240+gitjms@users.noreply.github.com>
+Date:   Thu Mar 12 19:42:34 2020 +0200
+
+    muutos
+
+ tiedosto.txt | 84 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 84 insertions(+)
+
+commit 2521f106c883470ff2eaee6d8abd79f8e53bdc65
+Author: gitjms <46410240+gitjms@users.noreply.github.com>
+Date:   Thu Mar 12 19:38:05 2020 +0200
+
+    lisäys
+
+ stuff/jokintiedosto.txt | 21 +++++++++++++++++++++
+ 1 file changed, 21 insertions(+)
+
+commit c096e2fe9cc103c1a4d526dc206d2eb1222075fc
+Author: gitjms <46410240+gitjms@users.noreply.github.com>
+Date:   Thu Mar 12 19:36:46 2020 +0200
+
+    muutos
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 3413e20839bd8e4b640650f0d1dc782b691c61f8
+Author: gitjms <46410240+gitjms@users.noreply.github.com>
+Date:   Thu Mar 12 19:35:45 2020 +0200
+
+    lisäys
+
+ kolmas.txt | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)
+
+commit 9bd9dbc56f5a69110b73857cfc6d98c19febc9da
+Author: gitjms <46410240+gitjms@users.noreply.github.com>
+Date:   Thu Mar 12 19:33:41 2020 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt |  1 +
+ toinen.txt   | 20 ++++++++++++++++++++
+ 2 files changed, 21 insertions(+)
+
+commit fd1f7816ea688fda3ea506bb827f78f00c110a55
+Author: gitjms <46410240+gitjms@users.noreply.github.com>
+Date:   Thu Mar 12 19:31:44 2020 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)
