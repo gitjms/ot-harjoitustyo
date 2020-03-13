@@ -1,0 +1,27 @@
+[Monopoly|Aloitusruutu:int;Vankila:int]-2..8[Pelaaja|nimi:string;rahat:int]
+
+[Monopoly|Aloitusruutu:int;Vankila:int]-1[Pelilauta]
+
+[Pelaaja|nimi:string;rahat:int]2..8-1[Peliruutu|seuraava ruutu:int]
+
+[Peliruutu]40-1[Pelilauta]
+
+[Pelaaja|nimi:string;rahat:int]2..8-1[Pelinappula|ruutu:int;arvo:int]
+
+[Peliruutu]40-1[Pelinappula|ruutu:int;arvo:int]
+
+[Peliruutu]-[Aloitusruutu|toiminto()]
+[Peliruutu]-[Vankila|toiminto()]
+[Peliruutu]-[Sattuma ja yhteismaa|toiminto()]
+[Peliruutu]-[Asemat ja laitokset|toiminto()]
+[Peliruutu]-[Normaalit kadut|toiminto()]
+
+[Sattuma ja yhteismaa|toiminto()]-[Kortti|toiminto()]
+
+[Pelaaja|nimi:string;raha:int]2..8-[Pelaajan katu|nimi:string]
+
+[Pelaajan katu|nimi:string]-[Normaalit kadut|toiminto()]
+
+[Pelaajan katu|nimi:string]-4[Talo]
+
+[Pelaajan katu|nimi:string]-1[Hotelli]

@@ -1,0 +1,24 @@
+main->HKLLaitehallinto: new HKLLaitehallinto()
+
+main->lataajalaite: new Lataajalaite()
+
+main->lukijalaite: new Lukijalaite()
+
+main->HKLLaitehallinto: lisaaLataaja(rautatietori)
+main->HKLLaitehallinto: lisaaLukija(ratikka6)
+main->HKLLaitehallinto: lisaaLukija(bussi244)
+
+main->kioski: new Kioski(()
+main->kioski: ostaMatkakortti("Arto")
+kioski-->main: uusiKortti
+
+main->lataajalaite: lataaArvoa(artonKortti, 3)
+lataajalaite->matkakortti: kasvataArvoa(3)
+
+main->lukijalaite: ostaLippu(artonKortti, 0)
+lukijalaite->matkakortti: vahennaArvoa(1.5)
+matkakortti-->lukijalaite: true
+
+main->lukijalaite: ostaLippu(artonKortti, 2)
+lukijalaite->matkakortti: getArvo()
+matkakortti-->lukijalaite: false
