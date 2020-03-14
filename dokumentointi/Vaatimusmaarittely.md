@@ -16,9 +16,14 @@ Peli näkee pelaajat vain ristien ja nollien edustajina.
 
 ## Suunnitellut toiminnallisuudet
 
-Peli tallentaa pelattujen pelien määrän sekä ristien ja nollien voitot tietokantaan.
-Ristien ja nollien voittostatistiikka näkyy pelilaudan yläkulmissa. Keskellä ylhäällä on infolaatikko, jossa ilmoitetaan pelattavan symbolin vuoro sekä voittaja.
-Keskellä ikkunaa on isoin laatikko, jossa on itse peliruudukko.
-Alhaalla vasemmalla on uuden pelin avaava nappula, ja oikealla nappula jolla suljetaan peli.
+* Peli tallentaa pelattujen pelien määrän sekä ristien ja nollien voitot tietokantaan.
+* Ristien ja nollien voittostatistiikka näkyy pelilaudan yläkulmissa. Keskellä ylhäällä on infolaatikko, jossa ilmoitetaan pelattavan symbolin vuoro sekä voittaja.
+* Keskellä ikkunaa on isoin laatikko, jossa on itse peliruudukko.
+* Alhaalla vasemmalla on uuden pelin avaava nappula, ja oikealla nappula jolla suljetaan peli.
 
+## Jatkokehitysideat
 
+* Pelaajien identifiointi, eli sisäänkirjautuminen tai uuden pelaajatilin luominen.
+Tällöin pelistatistiikka (pelit, voitot, häviöt) tallentuu kunkin pelaajan osalta.
+* Vaihtoehtona pelata tietokonetta vastaan.
+* Isompia pelilautoja kuin 3x3, vapaasti pelaajan valittavissa.
