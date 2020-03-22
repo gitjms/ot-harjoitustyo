@@ -5,9 +5,9 @@
 Ristinollasovellus on pieni 3x3 -kokoinen pelilauta, jossa käyttäjä/käyttäjät pelaavat ristinollaa.
 Käyttäjää ei identifioida, eli ei ole sisäänkirjautumista.
 
-## Käyttöliittymäluonnos
+## Käyttöliittymäluonnoss
 
-<img src="https://user-images.githubusercontent.com/46410240/76624792-9f1bd300-653e-11ea-8de6-c35aadddc987.png" alt="Käyttöliittymäluonnos" width="612" >
+<img src="https://user-images.githubusercontent.com/46410240/76624792-9f1bd300-653e-11ea-8de6-c35aadddc987.png" alt="Käyttöliittymäluonnos" width="450" >
 
 ## Käyttäjät
 
@@ -16,8 +16,8 @@ Peli näkee pelaajat vain ristien ja nollien edustajina.
 
 ## Suunnitellut toiminnallisuudet
 
-* Peli tallentaa pelattujen pelien määrän sekä ristien ja nollien voitot tietokoneelle (käytännossä resurssitiedostoon)
-* Ristien ja nollien voittostatistiikka näkyy pelilaudan yläkulmissa. Keskellä ylhäällä on infolaatikko, jossa ilmoitetaan pelattavan symbolin vuoro sekä voittaja.
+* Peli tallentaa pelattujen pelien määrän sekä ristien ja nollien voitot tietokoneelle (käytännossä resurssitiedostoon tai tietokantaan)
+* Ristien ja nollien voittostatistiikka näkyy ylimpänä pelilaudan kulmissa. Seuraavaksi ylimpänä on teksti, joka ilmoittaa kulloisenkin pelin numeron. Tämän alla on teksti, jossa ilmoitetaan pelattavan symbolin vuoro sekä pelin loputulos.
 * Keskellä ikkunaa on isoin laatikko, jossa on itse peliruudukko.
 * Alhaalla vasemmalla on uuden pelin avaava nappula, ja oikealla nappula jolla suljetaan peli.
 

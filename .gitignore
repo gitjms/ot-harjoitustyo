@@ -1,8 +1,7 @@
-Ristinolla/target
-/laskarit/viikko2/Maksukortti/nbproject/
-/laskarit/viikko2/Maksukortti/target/
-/laskarit/viikko2/Unicafe/nbactions.xml
-/laskarit/viikko2/Unicafe/.settings
-/laskarit/viikko2/Unicafe/.classpath
-/laskarit/viikko2/Unicafe/.project
-/laskarit/viikko2/Unicafe/target/
+target/
+nbproject/
+nbactions.xml
+.settings/
+.classpath
+.project
+*.jar
