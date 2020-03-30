@@ -1,21 +1,16 @@
 package jms.tictactoe.domain;
 
-import jms.tictactoe.domain.Game;
-import jms.tictactoe.domain.GameSquare;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.effect.Bloom;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.TextAlignment;
+import jms.tictactoe.dao.FileScoreDao;
 
 /**
  * Class for creating a game area.
@@ -25,41 +20,42 @@ public final class Gamebox {
     
     private GameSquare gameSquare;
     private final GridPane gridPane;
-    private final Label label;
-    private final Label gameLabel;
+    private Game game;
     
-    public Gamebox(Game game) {
+    public Gamebox(Game game, ScoreService scoreService,FileScoreDao fileScoreDao) {
+        this.game = game;
         this.gridPane = new GridPane();
         this.setGridpane();
-        this.label = new Label("X:s turn");
-        this.gameLabel = new Label("Game "+game.getId());
     }
     
     /**
      * Method for creating the VBox for game area main components:
-     * top:     Text Label for scores
+     * top:     Text Label for game number
      * middle:  Text Label for whose turn/who wins
      * bottom:  GridPane for X and O squares
-     * @param game
+     * @param textLabel
      * @param gameLabel
+     * @param scoreService
+     * @param fileScoreDao
      * @return gameBox
+     * @throws java.lang.Exception
      */
-    public VBox createBox(Game game, Label gameLabel){
+    public VBox createBox(Label textLabel,Label gameLabel,ScoreService scoreService,FileScoreDao fileScoreDao) throws Exception {
         // actual squares for X and O markings
         String[][] squares = new String[3][3];
         for(int x=0;x<3;x++) {
             for(int y=0;y<3;y++){
                 // get square button from the class GameSquare
-                this.gameSquare = new GameSquare(this.getTextLabel(game),this.getGameLabel(game));
+                this.gameSquare = new GameSquare(textLabel,this.game,scoreService,fileScoreDao);
                 String id = Integer.toString(y)+" "+Integer.toString(x);
                 squares[x][y]=id;
-                Button newSquare = this.gameSquare.createSquare(game,this.getTextLabel(game),this.getGameLabel(game),squares,id);
-                this.gridPane.add(newSquare, x, y);
+                Button newSquare = this.gameSquare.createSquare(squares,id);
+                this.getGridpane().add(newSquare, x, y);
             }
         }
         
         // both components into one box to be sent back to caller in class TicTacToeUI
-        VBox gameBox = new VBox(this.getGameLabel(game),this.getTextLabel(game),this.gridPane);
+        VBox gameBox = new VBox(gameLabel,textLabel,this.getGridpane());
         gameBox.setAlignment(Pos.CENTER);
         
         return gameBox;
@@ -75,43 +71,10 @@ public final class Gamebox {
         this.gridPane.setVgap(10);
         this.gridPane.setHgap(10);
     }
-
-    /**
-     * Method for getting stylized Label for turn/win indication.
-     * @param game
-     * @return 
-     */
-    public Label getTextLabel(Game game) {
-        this.label.setTextFill(Color.LIGHTPINK);
-        this.label.setAlignment(Pos.CENTER);
-        this.label.setEffect(this.getBloomEffect());
-        this.label.setFont(Font.font("Cambria", FontWeight.BOLD, 40));
-        this.label.setTextAlignment(TextAlignment.CENTER);
-        return this.label;
+    
+    
+    public GridPane getGridpane(){
+        return this.gridPane;
     }
     
-    /**
-     * Method for getting stylized Label for current game indication.
-     * @param game
-     * @return 
-     */
-    public Label getGameLabel(Game game) {
-        this.gameLabel.setTextFill(Color.LIGHTGREEN);
-        this.gameLabel.setAlignment(Pos.CENTER);
-        this.gameLabel.setEffect(this.getBloomEffect());
-        this.gameLabel.setFont(Font.font("Cambria", FontWeight.BOLD, 30));
-        this.gameLabel.setTextAlignment(TextAlignment.CENTER);
-        return this.gameLabel;
-    }
-    
-    /**
-     * Method for stylizing text
-     * @return 
-     */
-    public Bloom getBloomEffect() {
-        Bloom bloomEffect = new Bloom();
-        bloomEffect.setThreshold(0.75);
-        
-        return bloomEffect;
-    }
 }

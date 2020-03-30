@@ -1,20 +1,28 @@
 package jms.tictactoe.domain;
 
+import de.saxsys.javafx.test.JfxRunner;
+import java.io.FileInputStream;
+import java.util.Properties;
+import jms.tictactoe.dao.FileScoreDao;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.runner.RunWith;
 
 /**
  *
  * @author jaris
  */
+@RunWith(JfxRunner.class)
 public class GameTest {
     
-    public Game instance;
-    public Game instance2;
+    private Game instance;
+    private Game instance2;
+    private FileScoreDao fileScoreDao;
+    private ScoreService scoreService;
     
     public GameTest() {
     }
@@ -28,8 +36,14 @@ public class GameTest {
     }
     
     @Before
-    public void setUp() {
-        this.instance = new Game(1);
+    public void setUp() throws Exception {
+        Properties properties = new Properties();
+        properties.load(new FileInputStream("config.properties"));
+        String scoreFile = properties.getProperty("scoreFile");
+        this.fileScoreDao = new FileScoreDao(scoreFile);
+        this.scoreService = new ScoreService(this.fileScoreDao);
+        
+        this.instance = new Game(1,this.scoreService);
         this.instance2 = new Game();
     }
     
@@ -38,48 +52,17 @@ public class GameTest {
     }
 
     /**
-     * Test of top constructor, of class Game.
+     * Test of getId method, of class Game.
      */
     @Test
-    public void testTopConstructor() {
-        System.out.println("Testing: top constructor");
-        this.instance2.setId(5);
-        int result = this.instance2.getId();
-        assertEquals(5, result);
-    }
-
-    /**
-     * Test of setId method, of class Game.
-     */
-    @Test
-    public void testSetId() {
-        System.out.println("Testing: set and get Id");
+    public void testSetAndGetIdReturnsId() {
+        System.out.println("Game TEST SUCCESS: setId and getId returns Id");
         this.instance.setId(5);
         int result = this.instance.getId();
         assertEquals(5, result);
-    }
-
-    /**
-     * Test of setWinner and getWinner method, of class Game.
-     */
-    @Test(expected=NullPointerException.class)
-    public void testSetAndGetNullWinner() {
-        System.out.println("Testing: set and get null winner");
-        this.instance.setWinner(null);
-        String result = this.instance.getWinner();
-        fail(String.valueOf(result));
-    }
-
-    /**
-     * Test of setWinner and getWinner method, of class Game.
-     */
-    @Test
-    public void testSetAndGetWinner() {
-        System.out.println("Testing: set and get winner");
-        this.instance.setWinner("X");
-        String expResult = "X";
-        String result = this.instance.getWinner();
-        assertEquals(expResult, result);
+        this.instance2.setId(5);
+        int result2 = this.instance2.getId();
+        assertEquals(5, result2);
     }
 
     /**
@@ -87,35 +70,53 @@ public class GameTest {
      */
     @Test(expected=NullPointerException.class)
     public void testGetNullScore() {
-        System.out.println("Testing: get null score");
-        String player = "";
-        int result = this.instance.getScore(player);
+        System.out.println("Game TEST SUCCESS: get null score returns fail");
+        int result = this.instance.getScore("");
         fail(String.valueOf(result));
+        int result2 = this.instance2.getScore("");
+        fail(String.valueOf(result2));
     }
 
     /**
      * Test of getScore method, of class Game.
      */
     @Test
-    public void testGetScore() {
-        System.out.println("Testing: get score");
+    public void testAddScoreAndGetScoreReturnsScore() {
+        System.out.println("Game TEST SUCCESS: add score and get score returns score");
         this.instance.setWinner("X");
+        int resultBefore = this.instance.getScore("X");
         this.instance.setWinner("X");
-        this.instance.setWinner("X");
-        int result = this.instance.getScore("X");
-        assertEquals(3, result);
+        int resultAfter = this.instance.getScore("X");
+        int result = resultAfter-resultBefore;
+        assertEquals(1,result);
     }
 
-//    /**
-//     * Test of equals method, of class Game.
-//     */
-//    @Test
-//    public void testEquals() {
-//        System.out.println("Testing: equals");
-//        Object obj = null;
-//        boolean expResult = false;
-//        boolean result = this.instance.equals(obj);
-//        assertEquals(expResult, result);
-//    }
+    /**
+     * Test of getScore method, of class Game.
+     */
+    @Test
+    public void testSetDrawAddsNoScore() {
+        System.out.println("Game TEST SUCCESS: setDraw adds no score");
+        this.instance.setWinner("X");
+        int resultBefore = this.instance.getScore("X");
+        this.instance.setDraw();
+        int resultAfter = this.instance.getScore("X");
+        int result = resultAfter-resultBefore;
+        assertEquals(0,result);
+    }
+
+    /**
+     * Test of setDraw method, of class Game.
+     */
+    @Test
+    public void testSetDrawAddsGames() {
+        System.out.println("Game TEST SUCCESS: setDraw adds games");
+        this.instance.setWinner("X");
+        int resultBefore = this.instance.getGames("X");
+        this.instance.setDraw();
+        int resultAfter = this.instance.getGames("X");
+        int result = resultAfter-resultBefore;
+        assertEquals(1,result);
+    }
     
 }

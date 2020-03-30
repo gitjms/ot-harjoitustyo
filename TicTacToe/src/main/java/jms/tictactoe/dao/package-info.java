@@ -1,5 +1,5 @@
 /**
- * Permanent recording for game data
+ * Data storage handling.
  */
 
 package jms.tictactoe.dao;

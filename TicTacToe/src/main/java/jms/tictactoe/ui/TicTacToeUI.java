@@ -1,15 +1,17 @@
 package jms.tictactoe.ui;
 
-import jms.tictactoe.domain.Gamebox;
-import jms.tictactoe.domain.Game;
+import java.io.FileInputStream;
+import java.util.Properties;
 import javafx.application.Application;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import javafx.scene.effect.DropShadow;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.effect.Bloom;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
@@ -19,40 +21,56 @@ import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
+import javafx.util.Pair;
+import jms.tictactoe.dao.FileScoreDao;
+import jms.tictactoe.domain.ScoreService;
+import jms.tictactoe.domain.Game;
+import jms.tictactoe.domain.Gamebox;
 
 /**
- * Main class for GUI generation
+ *Main class for GUI generation.
  * @author jaris
  */
 public class TicTacToeUI extends Application {
-
-    private DropShadow shadow;
-    private BorderPane mainPane;
+    
+    private FileScoreDao fileScoreDao;
+    private ScoreService scoreService;
+    private GameComponents gameComponents;
     private Gamebox gameBox;
     private VBox gameArea;
-    private Label scoreLabelLeft;
-    private Label scoreLabelRight;
+    private DropShadow shadow;
+    private BorderPane mainPane;
     private Scene gameView;
     private Game game;
-
+    
     /**
-     * Initiate class instances.
+     * Initiate instances for class and some component.
+     * @throws java.io.FileNotFoundException
      */
     @Override
-    public void init() {
-      this.shadow = new DropShadow();
-      this.game = new Game(1);
-      this.gameBox = new Gamebox(this.game);
-      this.gameArea = new VBox();
-      this.scoreLabelLeft = new Label();
-      this.scoreLabelRight = new Label();
-      this.mainPane = getMainpane();
-      this.gameView = new Scene(this.mainPane);
-      // DAO
+    public void init() throws FileNotFoundException, IOException, Exception {
+        // Score data from file, score DAO 
+        Properties properties = new Properties();
+        properties.load(new FileInputStream("config.properties"));
+        String scoreFile = properties.getProperty("scoreFile");
+        this.fileScoreDao = new FileScoreDao(scoreFile);
+        
+        // Score service instance, set score data HashMap
+        this.scoreService = new ScoreService(this.fileScoreDao);
+        this.scoreService.setAllMap(this.fileScoreDao.getAllMap());
+        
+        // Game and gameBox instances 
+        this.game = new Game(1,this.scoreService);
+        this.scoreService.setGames(this.fileScoreDao.getGames());
+        this.gameBox = new Gamebox(this.game,this.scoreService,this.fileScoreDao);
+        
+        // Other components, most from gameComponents instance
+        this.gameComponents = new GameComponents(this.scoreService,this.fileScoreDao);
+        this.shadow = new DropShadow();
+        this.mainPane = this.gameComponents.getMainpane();
+        this.gameView = new Scene(this.mainPane);
     }
     
     /**
@@ -60,11 +78,31 @@ public class TicTacToeUI extends Application {
      * @throws java.lang.Exception 
      */
     public void start() throws Exception {
-        Button newGameButton = this.createNewgameButton(null);
-        Button quitButton = this.createQuitButton(null);
-        HBox statBoxbig = getScoreBoxBig(0,0);
-        HBox buttonBox = getButtonBox(newGameButton,quitButton);
-        this.gameArea = gameBox.createBox(this.game,this.getGameLabel(this.game));
+        Button newgameButton = this.createButton("New Game",null);
+        newgameButton.setOnAction(e -> {
+            try { this.newGame(null);
+            } catch (Exception ex) { }
+        });
+        Button resetButton = this.createButton("Reset Game",null);
+        resetButton.setOnAction(e -> {
+            try {
+                this.resetGame();
+                this.newGame(null);
+            } catch (Exception ex) { }
+        });
+        Button quitButton = this.createButton("Quit Game",null);
+        quitButton.setOnAction(e -> {
+            try { this.stop(null);
+            } catch (Exception ex) { }
+        });
+        HBox statBoxbig = this.gameComponents.getScoreBoxBig();
+        HBox buttonBox = this.gameComponents.getButtonBox(newgameButton,resetButton,quitButton);
+        String gameLabelText = "Game "+ (this.scoreService.getGames()+1);
+        
+        this.gameArea = this.gameBox.createBox(
+                this.gameComponents.getLabel("X:s turn",Color.LIGHTPINK,FontWeight.BOLD,40),
+                this.gameComponents.getLabel(gameLabelText,Color.LIGHTGREEN,FontWeight.BOLD,30),
+                this.scoreService,this.fileScoreDao);
         this.mainPane.setTop(statBoxbig);
         this.mainPane.setCenter(this.gameArea);
         this.mainPane.setBottom(buttonBox);
@@ -77,24 +115,45 @@ public class TicTacToeUI extends Application {
      */
     @Override
     public void start(Stage primaryStage) throws Exception {
-
+        
         Image iconImg = new Image("/Tic-Tac-Toe-Game-red.png");
         primaryStage.getIcons().add(iconImg);
         primaryStage.setTitle("TicTacToe");
         primaryStage.setResizable(false);
-        
+
         // create instances for the buttons
-        Button newgameButton = this.createNewgameButton(primaryStage);
-        Button quitButton = this.createQuitButton(primaryStage);
-        
+        Button newgameButton = this.createButton("New Game",primaryStage);
+        newgameButton.setOnAction(e -> {
+            try {
+                this.newGame(primaryStage);
+            } catch (Exception ex) { }
+        });
+        Button resetButton = this.createButton("Reset Game",primaryStage);
+        resetButton.setOnAction(e -> {
+            try {
+                this.resetGame();
+                this.newGame(primaryStage);
+            } catch (Exception ex) { }
+        });
+        Button quitButton = this.createButton("Quit Game",primaryStage);
+        quitButton.setOnAction(e -> {
+            try {
+                this.stop(primaryStage);
+            } catch (Exception ex) { }
+        });
+
         // box for statistics
-        HBox statsBoxbig = getScoreBoxBig(0,0);
+        HBox statsBoxbig = this.gameComponents.getScoreBoxBig();
         
         // box for buttons
-        HBox buttonBox = getButtonBox(newgameButton,quitButton);
+        HBox buttonBox = this.gameComponents.getButtonBox(newgameButton,resetButton,quitButton);
         
         // get game area
-        this.gameArea = gameBox.createBox(this.game,this.getGameLabel(this.game));
+        String gameLabelText = "Game "+ (this.scoreService.getGames()+1);
+        this.gameArea = this.gameBox.createBox(
+                this.gameComponents.getLabel("X:s turn",Color.LIGHTPINK,FontWeight.BOLD,40),
+                this.gameComponents.getLabel(gameLabelText,Color.LIGHTGREEN,FontWeight.BOLD,30),
+                this.scoreService,this.fileScoreDao);
         
         // set components to main pane
         this.mainPane.setTop(statsBoxbig);
@@ -104,183 +163,6 @@ public class TicTacToeUI extends Application {
         // set scene to stage and show stage
         primaryStage.setScene(this.gameView);
         primaryStage.show();
-    }
-    
-    /**
-     * Method for creating a main BorderPane for the Scene.
-     * @return mainPane
-     */
-    public final BorderPane getMainpane() {
-        this.mainPane = new BorderPane();
-        this.mainPane.setBackground(new Background(new BackgroundFill(
-                Color.rgb(50,50,70),CornerRadii.EMPTY,Insets.EMPTY)));
-        
-        return this.mainPane;
-    }
-    
-    /**
-     * Method for creating a HBox for statistics which takes two VBoxes.
-     * @param winsX
-     * @param winsO
-     * @return statsBoxbig
-     */
-    public final HBox getScoreBoxBig(int winsX,int winsO) {
-        VBox leftBox = getScoreBoxSmall(this.scoreLabelLeft,"X\nWins: "+winsX);
-        VBox rightBox = getScoreBoxSmall(this.scoreLabelRight,"O\nWins: "+winsO);
-        HBox hBox = new HBox(leftBox,rightBox);
-        hBox.setAlignment(Pos.CENTER);
-        hBox.setSpacing(100);
-        
-        return hBox;
-    }
-    
-    /**
-     * Method for stylizing the VBox for scores.
-     * @param label
-     * @param text
-     * @return the statsBoxsmall
-     */
-    public VBox getScoreBoxSmall(Label label, String text){
-        VBox vBox = new VBox(this.getScoreLabel(label, text));
-        vBox.setBackground(new Background(new BackgroundFill(Color.rgb(50,50,70),CornerRadii.EMPTY,Insets.EMPTY)));
-        vBox.setPrefSize(100, 100);
-        vBox.setAlignment(Pos.CENTER);
-        
-        return vBox;
-    }
-    
-    /**
-     * Method for creating a HBox for new game and quit game buttons.
-     * @param ngButton
-     * @param qButton
-     * @return buttonBox
-     */
-    public final HBox getButtonBox(Button ngButton, Button qButton) {
-        HBox bBox = new HBox(ngButton,qButton);
-        bBox.setAlignment(Pos.CENTER);
-        bBox.setPadding(new Insets(10, 10, 10, 10));
-        bBox.setSpacing(100);
-        
-        return bBox;
-    }
-    
-    /**
-     * Method for stylizing the Label for scores VBox.
-     * @param label
-     * @param text
-     * @return textLabel
-     */
-    public Label getScoreLabel(Label label, String text){
-        label.setText(text);
-        label.setTextFill(Color.LIGHTBLUE);
-        label.setAlignment(Pos.CENTER);
-        label.setEffect(this.getBloomEffect());
-        label.setFont(Font.font("Cambria", FontWeight.NORMAL, 20));
-        label.setTextAlignment(TextAlignment.CENTER);
-        
-        return label;
-    }
-    
-    /**
-     * Method for getting stylized Label for current game indication.
-     * @param game
-     * @return 
-     */
-    public Label getGameLabel(Game game) {
-        Label label = new Label("Game "+this.game.getId());
-        label.setTextFill(Color.LIGHTGREEN);
-        label.setAlignment(Pos.CENTER);
-        label.setEffect(this.getBloomEffect());
-        label.setFont(Font.font("Cambria", FontWeight.BOLD, 30));
-        label.setTextAlignment(TextAlignment.CENTER);
-        return label;
-    }
-
-    /**
-     * Method for getting a new game with updated scores.
-     * @param game
-     * @param primaryStage 
-     */
-    public void newGame(Game game, Stage primaryStage) {
-        game.setId(game.getId()+1);
-        this.gameBox = new Gamebox(game);
-        this.gameArea = this.gameBox.createBox(game,this.getGameLabel(game));
-        this.getMainpane();
-
-        int winsX = game.getScore("X");
-        int winsO = game.getScore("O");
-        HBox scoreBox = this.getScoreBoxBig(winsX,winsO);
-        
-        Button newGameButton = this.createNewgameButton(primaryStage);
-        Button quitButton = this.createQuitButton(primaryStage);
-        HBox bottomBox = getButtonBox(newGameButton,quitButton);
-        
-        this.mainPane.setTop(scoreBox);
-        this.mainPane.setCenter(this.gameArea);
-        this.mainPane.setBottom(bottomBox);
-        this.gameView = new Scene(this.mainPane);
-        primaryStage.setScene(this.gameView);
-    }
-    
-    /**
-     * Method for creating a Button for having a new game.
-     * @param stage
-     * @return newgameButton
-     */
-    public final Button createNewgameButton(Stage stage){
-        Button button = new Button("New Game");
-        button.setPrefSize(140, 30);
-        button.setTextFill(Color.LIGHTBLUE);
-        button.setStyle("-fx-font-size: 20px;");
-        button.setBackground(new Background( new BackgroundFill(Color.rgb(50,50,70),CornerRadii.EMPTY,Insets.EMPTY)));
-        button.addEventHandler(MouseEvent.MOUSE_ENTERED,
-                (MouseEvent e) -> button.setEffect(this.shadow)
-        );
-        button.addEventHandler(MouseEvent.MOUSE_EXITED,
-                (MouseEvent e) -> button.setEffect(null)
-        );
-        button.setOnAction(event -> {
-            this.newGame(this.game, stage);
-        });
-        button.setAlignment(Pos.CENTER);
-        
-        return button;
-    }
-    
-    /**
-     * Method for creating a Button to quit the game.
-     * @param stage
-     * @return quitButton
-     */
-    public final Button createQuitButton(Stage stage){
-        Button button = new Button("Quit Game");
-        button.setPrefSize(140, 30);
-        button.setTextFill(Color.LIGHTBLUE);
-        button.setStyle("-fx-font-size: 20px;");
-        button.setBackground(new Background( new BackgroundFill(Color.rgb(50,50,70),CornerRadii.EMPTY,Insets.EMPTY)));
-        button.addEventHandler(MouseEvent.MOUSE_ENTERED,
-                (MouseEvent e) -> button.setEffect(this.shadow)
-        );
-        button.addEventHandler(MouseEvent.MOUSE_EXITED,
-                (MouseEvent e) -> button.setEffect(null)
-        );
-        button.setOnAction(event -> {
-            this.stop(stage);
-        });
-        button.setAlignment(Pos.CENTER);
-        
-        return button;
-    }
-    
-    /**
-     * Method for stylizing text
-     * @return 
-     */
-    public Bloom getBloomEffect() {
-        Bloom bloomEffect = new Bloom();
-        bloomEffect.setThreshold(0.75);
-        
-        return bloomEffect;
     }
 
     /**
@@ -295,4 +177,97 @@ public class TicTacToeUI extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+    
+    /**
+     * Method for getting a new game with updated scores.
+     * @param primaryStage 
+     * @throws java.lang.Exception 
+     */
+    public void newGame(Stage primaryStage) throws Exception {
+        Properties properties = new Properties();
+        properties.load(new FileInputStream("config.properties"));
+        String scoreFile = properties.getProperty("scoreFile");
+        this.fileScoreDao = new FileScoreDao(scoreFile);
+        
+        this.scoreService.setAllMap(this.fileScoreDao.getAllMap());
+        this.scoreService.setGames(this.fileScoreDao.getGames());
+        
+        String gameLabelText = "Game "+ (this.scoreService.getGames()+1);
+        this.gameArea = this.gameBox.createBox(
+                this.gameComponents.getLabel("X:s turn",Color.LIGHTPINK,FontWeight.BOLD,40),
+                this.gameComponents.getLabel(gameLabelText,Color.LIGHTGREEN,FontWeight.BOLD,30),
+                this.scoreService,this.fileScoreDao);
+        this.gameComponents.getMainpane();
+
+        HBox scoreBox = this.gameComponents.getScoreBoxBig();
+        
+        Button newgameButton = this.createButton("New Game",primaryStage);
+        newgameButton.setOnAction(e -> {
+            try {
+                this.newGame(primaryStage);
+            } catch (Exception ex) { }
+        });
+        Button resetButton = this.createButton("Reset Game",primaryStage);
+        resetButton.setOnAction(e -> {
+            try {
+                this.resetGame();
+                this.newGame(primaryStage);
+            } catch (Exception ex) { }
+        });
+        Button quitButton = this.createButton("Quit Game",primaryStage);
+        quitButton.setOnAction(e -> {
+            try { this.stop(primaryStage);
+            } catch (Exception ex) { }
+        });
+        HBox bottomBox = this.gameComponents.getButtonBox(newgameButton,resetButton,quitButton);
+        
+        this.mainPane.setTop(scoreBox);
+        this.mainPane.setCenter(this.gameArea);
+        this.mainPane.setBottom(bottomBox);
+        this.gameView = new Scene(this.mainPane);
+        primaryStage.setScene(this.gameView);
+    }
+    
+    /**
+     * Method for resetting game. 
+     * @throws java.lang.Exception 
+     */
+    public void resetGame() throws Exception {
+        Map<String,Pair<Integer,Integer>> fileScores = new HashMap<>();
+        Pair<Integer,Integer> newPair = new Pair(0,0);
+        fileScores.put("X", newPair);
+        fileScores.put("O", newPair);
+        
+        this.scoreService.resetPoints();
+        this.scoreService.setAllMap(fileScores);
+        this.scoreService.createScore("X", 0, 0);
+        this.scoreService.createScore("O", 0, 0);
+        
+        this.game = new Game(1,this.scoreService);
+        this.gameComponents = new GameComponents(this.scoreService,this.fileScoreDao);
+    }
+    
+    /**
+     * Method for creating Buttons.
+     * @param text
+     * @param stage
+     * @return button
+     */
+    public final Button createButton(String text,Stage stage){
+        Button button = new Button(text);
+        button.setPrefSize(140, 30);
+        button.setTextFill(Color.LIGHTBLUE);
+        button.setStyle("-fx-font-size: 20px;");
+        button.setBackground(new Background( new BackgroundFill(Color.rgb(50,50,70),CornerRadii.EMPTY,Insets.EMPTY)));
+        button.addEventHandler(MouseEvent.MOUSE_ENTERED,
+                (MouseEvent e) -> button.setEffect(this.shadow)
+        );
+        button.addEventHandler(MouseEvent.MOUSE_EXITED,
+                (MouseEvent e) -> button.setEffect(null)
+        );
+        button.setAlignment(Pos.CENTER);
+        
+        return button;
+    }
+
 }  

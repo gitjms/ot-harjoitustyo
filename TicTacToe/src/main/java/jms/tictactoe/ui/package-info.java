@@ -1,6 +1,6 @@
 
 /**
- * User interface 
+ * User interface.
  */
 
 package jms.tictactoe.ui;
