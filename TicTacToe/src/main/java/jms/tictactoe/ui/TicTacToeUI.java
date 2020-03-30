@@ -1,12 +1,13 @@
 package jms.tictactoe.ui;
 
 import java.io.FileInputStream;
-import java.util.Properties;
-import javafx.application.Application;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Properties;
 import java.util.HashMap;
 import java.util.Map;
+
+import javafx.application.Application;
 import javafx.scene.effect.DropShadow;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -24,6 +25,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.util.Pair;
+
 import jms.tictactoe.dao.FileScoreDao;
 import jms.tictactoe.domain.ScoreService;
 import jms.tictactoe.domain.Game;

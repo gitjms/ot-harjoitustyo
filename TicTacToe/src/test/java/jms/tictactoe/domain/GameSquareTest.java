@@ -1,12 +1,13 @@
 package jms.tictactoe.domain;
 
-import de.saxsys.javafx.test.JfxRunner;
 import java.io.FileInputStream;
 import java.io.IOException;
+
 import java.util.Properties;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import jms.tictactoe.dao.FileScoreDao;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -15,6 +16,9 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.runner.RunWith;
 
+import de.saxsys.javafx.test.JfxRunner;
+
+import jms.tictactoe.dao.FileScoreDao;
 /**
  *
  * @author jaris

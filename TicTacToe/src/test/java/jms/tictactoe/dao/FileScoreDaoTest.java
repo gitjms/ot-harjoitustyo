@@ -5,17 +5,21 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
+
 import javafx.util.Pair;
-import jms.tictactoe.domain.Score;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+
+import jms.tictactoe.domain.Score;
 
 /**
  *

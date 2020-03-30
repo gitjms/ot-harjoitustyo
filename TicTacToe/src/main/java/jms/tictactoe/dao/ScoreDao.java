@@ -1,8 +1,10 @@
 package jms.tictactoe.dao;
 
-import jms.tictactoe.domain.Score;
 import java.util.Map;
+
 import javafx.util.Pair;
+
+import jms.tictactoe.domain.Score;
 
 /**
  * Interface for Data Access Objects.

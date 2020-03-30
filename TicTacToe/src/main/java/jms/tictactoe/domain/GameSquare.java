@@ -1,6 +1,7 @@
 package jms.tictactoe.domain;
 
 import java.util.Map;
+
 import javafx.geometry.Insets;
 import javafx.scene.effect.Bloom;
 import javafx.scene.input.MouseEvent;
@@ -17,6 +18,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.util.Pair;
+
 import jms.tictactoe.dao.FileScoreDao;
 
 

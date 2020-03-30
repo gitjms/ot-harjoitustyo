@@ -3,10 +3,13 @@ package jms.tictactoe.dao;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+
 import javafx.util.Pair;
+
 import jms.tictactoe.domain.Score;
 
 /**

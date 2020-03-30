@@ -58,7 +58,7 @@ public class WinRowTest {
      */
     @Test
     public void testGetWinCode() {
-        System.out.println("getWinCode");
+        System.out.println("WinRow TEST SUCCESS: getWinCode returns WinCode");
         String result = WinRow.X3.getWinCode();
         assertEquals("XXX", result);
     }

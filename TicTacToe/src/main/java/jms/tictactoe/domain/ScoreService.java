@@ -1,7 +1,9 @@
 package jms.tictactoe.domain;
 
 import java.util.Map;
+
 import javafx.util.Pair;
+
 import jms.tictactoe.dao.ScoreDao;
 
 /**

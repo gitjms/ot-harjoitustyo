@@ -1,23 +1,28 @@
 package jms.tictactoe.ui;
 
-import de.saxsys.javafx.test.JfxRunner;
 import java.io.FileInputStream;
+
 import java.util.Properties;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.effect.Bloom;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import jms.tictactoe.dao.FileScoreDao;
-import jms.tictactoe.domain.ScoreService;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import org.junit.runner.RunWith;
+import static org.junit.Assert.*;
+
+import de.saxsys.javafx.test.JfxRunner;
+
+import jms.tictactoe.dao.FileScoreDao;
+import jms.tictactoe.domain.ScoreService;
 
 /**
  *

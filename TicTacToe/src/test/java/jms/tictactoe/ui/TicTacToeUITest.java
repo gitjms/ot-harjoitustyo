@@ -1,16 +1,19 @@
 package jms.tictactoe.ui;
 
-import de.saxsys.javafx.test.JfxRunner;
 import java.io.IOException;
+
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import org.junit.runner.RunWith;
+import static org.junit.Assert.*;
+
+import de.saxsys.javafx.test.JfxRunner;
 
 /**
  *
