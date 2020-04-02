@@ -5,7 +5,7 @@
 Ristinollasovellus on pieni pelilauta, jossa käyttäjä/käyttäjät pelaavat ristinollaa.
 Käyttäjää ei identifioida, eli ei ole sisäänkirjautumista.
 
-## Käyttöliittymäluonnoss
+## Käyttöliittymäluonnos
 
 Kuvassa näkyvät komponentit, joista uloin (BorderPane) asettuu Sceneen joka puolestaan asettuu Stageen, joka näkyy sovellusikkunana.
 
@@ -36,3 +36,4 @@ Peli näkee pelaajat vain ristien ja nollien edustajina.
 * Pelaajien identifiointi, eli sisäänkirjautuminen tai uuden pelaajatilin luominen.
 Tällöin pelistatistiikka (pelit, voitot, häviöt) tallentuu kunkin pelaajan osalta.
 * Vaihtoehtona pelata tietokonetta vastaan.
+* Jonkinlainen vapaa kenttä.
