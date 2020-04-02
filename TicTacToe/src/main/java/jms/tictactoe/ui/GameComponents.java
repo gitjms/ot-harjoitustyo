@@ -111,9 +111,9 @@ public class GameComponents {
      * @param text
      * @return button
      */
-    public Button createButton(String text) {
+    public Button createButton(String text, int width) {
         Button button = new Button(text);
-        button.setPrefSize(150, 30);
+        button.setPrefSize(width, 30);
         button.setTextFill(Color.LIGHTBLUE);
         button.setStyle("-fx-font-size: 20px;");
         button.setBackground(BackGroundStyle.BASIC.getBackGround());

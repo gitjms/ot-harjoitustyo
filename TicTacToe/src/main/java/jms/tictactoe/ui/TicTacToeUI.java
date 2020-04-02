@@ -192,15 +192,15 @@ public class TicTacToeUI extends Application {
      * Method for setting main buttons.
      */
     private void setButtons() {
-        this.newgameButton3x3 = this.gameComponents.createButton("New Game");
-        this.newgameButton4x4 = this.gameComponents.createButton("New Game");
-        this.newgameButton5x5 = this.gameComponents.createButton("New Game");
-        this.resetButton3x3 = this.gameComponents.createButton("Reset Game");
-        this.resetButton4x4 = this.gameComponents.createButton("Reset Game");
-        this.resetButton5x5 = this.gameComponents.createButton("Reset Game");
-        this.quitButton3x3 = this.gameComponents.createButton("Quit Game");
-        this.quitButton4x4 = this.gameComponents.createButton("Quit Game");
-        this.quitButton5x5 = this.gameComponents.createButton("Quit Game");
+        this.newgameButton3x3 = this.gameComponents.createButton("New Game", 150);
+        this.newgameButton4x4 = this.gameComponents.createButton("New Game", 150);
+        this.newgameButton5x5 = this.gameComponents.createButton("New Game", 150);
+        this.resetButton3x3 = this.gameComponents.createButton("Reset", 100);
+        this.resetButton4x4 = this.gameComponents.createButton("Reset", 100);
+        this.resetButton5x5 = this.gameComponents.createButton("Reset", 100);
+        this.quitButton3x3 = this.gameComponents.createButton("Quit Game", 150);
+        this.quitButton4x4 = this.gameComponents.createButton("Quit Game", 150);
+        this.quitButton5x5 = this.gameComponents.createButton("Quit Game", 150);
     }
     
     /**
