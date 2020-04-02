@@ -12,6 +12,7 @@ Sovellus on luotu Javan versiolla 11 ja käyttäen JavaFX:n versiota 14.
 
 * [Vaatimusmäärittely](https://github.com/gitjms/ot-harjoitustyo/blob/master/dokumentointi/Vaatimusmaarittely.md)
 * [Työaikakirjanpito](https://github.com/gitjms/ot-harjoitustyo/blob/master/dokumentointi/Tyoaikakirjanpito.md)
+* [Arkkitehtuuri](https://github.com/gitjms/ot-harjoitustyo/blob/master/dokumentointi/Arkkitehtuuri.md)
 
 ## Komentorivitoiminnot
 
@@ -34,4 +35,10 @@ Projektin koodin pystyy suorittamaan NetBeansin vihreällä napilla tai/ja komen
 
 ```
 mvn compile exec:java -Dexec.mainClass=jms.tictactoe.Main
+```
+
+Projektin koodin tyylipisteet voi tarkistaa suorittamalla komento
+
+```
+mvn jxr:jxr checkstyle:checkstyle
 ```

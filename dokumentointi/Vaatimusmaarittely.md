@@ -18,18 +18,18 @@ Peli näkee pelaajat vain ristien ja nollien edustajina.
 
 ## Suunnitellut toiminnallisuudet
 
-- [ ] Peli tallentaa pelattujen pelien määrän sekä ristien ja nollien voitot tietokoneelle (käytännossä resurssitiedostoon tai tietokantaan).
-- [ ] pelilaudan yläosassa näkyy pelattujen pelien kokonaismäärä ja tasapelien määrä.
-- [ ] Ristien ja nollien voittostatistiikka näkyy pelilaudan yläosassa.
+- [X] Peli tallentaa pelattujen pelien määrän sekä ristien ja nollien voitot tietokoneelle (käytännossä resurssitiedostoon ~tai tietokantaan~).
+- [X] pelilaudan yläosassa näkyy pelattujen pelien kokonaismäärä ja tasapelien määrä.
+- [X] Ristien ja nollien voittostatistiikka näkyy pelilaudan yläosassa.
   - [x] Aluksi vain kulloisenkin pelin tilanne.
-  - [ ] Lopulta myös tallennetut datat mukana.
+  - [X] Lopulta myös tallennetut datat mukana.
 - [x] Seuraavaksi ylimpänä on teksti, joka ilmoittaa kulloisenkin pelin numeron.
 - [x] Tämän alla on teksti, jossa ilmoitetaan pelattavan symbolin vuoro sekä pelin loputulos.
 - [x] Keskellä ikkunaa on isoin laatikko, jossa on itse peliruudukko.
 - [x] Peliruudukon alla vasemmalla on uuden pelin avaava nappula.
-- [ ] Peliruudukon alla keskellä on nappula joka resetoi pelin ja tallennetun datan.
+- [X] Peliruudukon alla keskellä on nappula joka resetoi pelin ja tallennetun datan.
 - [x] Peliruudukon alla oikealla on nappula jolla suljetaan peli.
-- [ ] Alimpana on nappulat, joilla voi valita pelin koon: 3x3, 4x4 ja 5x5.
+- [X] Alimpana on nappulat, joilla voi valita pelin koon: 3x3, 4x4 ja 5x5.
 
 ## Jatkokehitysideat
 

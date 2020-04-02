@@ -28,9 +28,6 @@ public class GameTest {
     private FileScoreDao fileScoreDao;
     private ScoreService scoreService;
     
-    public GameTest() {
-    }
-    
     @BeforeClass
     public static void setUpClass() {
     }
@@ -47,7 +44,7 @@ public class GameTest {
         this.fileScoreDao = new FileScoreDao(scoreFile);
         this.scoreService = new ScoreService(this.fileScoreDao);
         
-        this.instance = new Game(1,this.scoreService);
+        this.instance = new Game(1, this.scoreService);
         this.instance2 = new Game();
     }
     
@@ -60,7 +57,7 @@ public class GameTest {
      */
     @Test
     public void testSetAndGetIdReturnsId() {
-        System.out.println("Game TEST SUCCESS: setId and getId returns Id");
+        System.out.println("Game TEST: setId and getId returns Id");
         this.instance.setId(5);
         int result = this.instance.getId();
         assertEquals(5, result);
@@ -74,7 +71,7 @@ public class GameTest {
      */
     @Test(expected=NullPointerException.class)
     public void testGetNullScore() {
-        System.out.println("Game TEST SUCCESS: get null score returns fail");
+        System.out.println("Game TEST: get null score returns fail");
         int result = this.instance.getScore("");
         fail(String.valueOf(result));
         int result2 = this.instance2.getScore("");
@@ -86,13 +83,13 @@ public class GameTest {
      */
     @Test
     public void testAddScoreAndGetScoreReturnsScore() {
-        System.out.println("Game TEST SUCCESS: add score and get score returns score");
+        System.out.println("Game TEST: add score and get score returns score");
         this.instance.setWinner("X");
         int resultBefore = this.instance.getScore("X");
         this.instance.setWinner("X");
         int resultAfter = this.instance.getScore("X");
         int result = resultAfter-resultBefore;
-        assertEquals(1,result);
+        assertEquals(1, result);
     }
 
     /**
@@ -100,13 +97,13 @@ public class GameTest {
      */
     @Test
     public void testSetDrawAddsNoScore() {
-        System.out.println("Game TEST SUCCESS: setDraw adds no score");
+        System.out.println("Game TEST: setDraw adds no score");
         this.instance.setWinner("X");
         int resultBefore = this.instance.getScore("X");
         this.instance.setDraw();
         int resultAfter = this.instance.getScore("X");
         int result = resultAfter-resultBefore;
-        assertEquals(0,result);
+        assertEquals(0, result);
     }
 
     /**
@@ -114,13 +111,13 @@ public class GameTest {
      */
     @Test
     public void testSetDrawAddsGames() {
-        System.out.println("Game TEST SUCCESS: setDraw adds games");
+        System.out.println("Game TEST: setDraw adds games");
         this.instance.setWinner("X");
         int resultBefore = this.instance.getGames("X");
         this.instance.setDraw();
         int resultAfter = this.instance.getGames("X");
         int result = resultAfter-resultBefore;
-        assertEquals(1,result);
+        assertEquals(1, result);
     }
     
 }

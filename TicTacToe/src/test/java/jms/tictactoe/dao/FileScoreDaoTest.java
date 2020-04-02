@@ -29,10 +29,7 @@ public class FileScoreDaoTest {
     
     private FileScoreDao instance;
     private String scoreFile;
-    
-    public FileScoreDaoTest() {
-    }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
@@ -59,7 +56,7 @@ public class FileScoreDaoTest {
      */
     @Test
     public void testCreateWithEmptyFileFailsNot() throws Exception {
-        System.out.println("FileScoreDao TEST SUCCESS: create with empty file fails not");
+        System.out.println("FileScoreDao TEST: create with empty file fails not");
         try (FileWriter writer = new FileWriter(new File(this.scoreFile))) {
             writer.write("");
         }
@@ -76,9 +73,9 @@ public class FileScoreDaoTest {
      */
     @Test
     public void testCreateWithNoFileFailsNot() throws Exception {
-        System.out.println("FileScoreDao TEST SUCCESS: create with no file fails not");
+        System.out.println("FileScoreDao TEST: create with no file fails not");
         try {
-            this.instance = new FileScoreDao("missingFile.txt");
+            this.instance = new FileScoreDao("deleteThisFile.txt");
         } catch (Exception e) {
             fail(e.getMessage());
         }
@@ -90,7 +87,7 @@ public class FileScoreDaoTest {
      */
     @Test
     public void testCreateReturnsScore() throws Exception {
-        System.out.println("FileScoreDao TEST SUCCESS: create returns Score");
+        System.out.println("FileScoreDao TEST: create returns Score");
         Score expResult = new Score("X", 10, 10);
         Score result = this.instance.create(expResult);
         assertEquals(expResult, result);
@@ -101,7 +98,7 @@ public class FileScoreDaoTest {
      */
     @Test
     public void testGetScoreReturnsScore() {
-        System.out.println("FileScoreDao TEST SUCCESS: getScore returns Score");
+        System.out.println("FileScoreDao TEST: getScore returns Score");
         Score result = this.instance.getScore();
         assertNotNull(result);
     }
@@ -111,7 +108,7 @@ public class FileScoreDaoTest {
      */
     @Test
     public void testIsScoreReturnsTrue() {
-        System.out.println("FileScoreDao TEST SUCCESS: isScore returns true");
+        System.out.println("FileScoreDao TEST: isScore returns true");
         boolean result = this.instance.isScore();
         assertTrue(result);
     }
@@ -122,7 +119,7 @@ public class FileScoreDaoTest {
      */
     @Test(expected=NullPointerException.class)
     public void testIsScoreReturnsFalse() throws Exception {
-        System.out.println("ScoreService TEST SUCCESS: isScore returns false");
+        System.out.println("ScoreService TEST: isScore returns false");
         this.instance = new FileScoreDao(null);
         boolean result = this.instance.isScore();
         fail(String.valueOf(result));
@@ -133,7 +130,7 @@ public class FileScoreDaoTest {
      */
     @Test
     public void testSetAndGetAllMapReturnsMap() {
-        System.out.println("FileScoreDao TEST SUCCESS: set and get Map returns Map");
+        System.out.println("FileScoreDao TEST: set and get Map returns Map");
         Map<String, Pair<Integer, Integer>> expResult = new HashMap();
         this.instance.setAllMap(expResult);
         Map<String, Pair<Integer, Integer>> result = this.instance.getAllMap();
@@ -145,7 +142,7 @@ public class FileScoreDaoTest {
      */
     @Test
     public void testResetPointsReturnsZeroPoints() {
-        System.out.println("FileScoreDao TEST SUCCESS: resetPoints returns zero Points");
+        System.out.println("FileScoreDao TEST: resetPoints returns zero Points");
         String id = "X";
         this.instance.setPoints(id,10);
         int resultBefore = this.instance.getPoints(id);
@@ -160,9 +157,9 @@ public class FileScoreDaoTest {
      */
     @Test
     public void testSetPointsAndGetPointsReturnsPoints() {
-        System.out.println("FileScoreDao TEST SUCCESS: set Points and get Points returns Points");
+        System.out.println("FileScoreDao TEST: set Points and get Points returns Points");
         String id = "X";
-        this.instance.setPoints(id,10);
+        this.instance.setPoints(id, 10);
         int result = this.instance.getPoints(id);
         assertEquals(10, result);
     }
@@ -172,7 +169,7 @@ public class FileScoreDaoTest {
      */
     @Test
     public void testSetAndGetGamesReturnsGames() {
-        System.out.println("FileScoreDao TEST SUCCESS: set and get Games returns Games");
+        System.out.println("FileScoreDao TEST: set and get Games returns Games");
         this.instance.resetPoints();
         this.instance.setGames(10);
         int result = this.instance.getGames();
@@ -184,7 +181,7 @@ public class FileScoreDaoTest {
      */
     @Test
     public void testGetGamesWithNoScoreReturnsZero() {
-        System.out.println("FileScoreDao TEST SUCCESS: set and get Games returns Games");
+        System.out.println("FileScoreDao TEST: set and get Games returns Games");
         this.instance.setScore(null);
         int result = this.instance.getGames();
         assertEquals(0, result);
@@ -195,7 +192,7 @@ public class FileScoreDaoTest {
      */
     @Test
     public void testSetAndGetGamesWithNoScoreReturnsZero() {
-        System.out.println("FileScoreDao TEST SUCCESS: set and get Games returns Games");
+        System.out.println("FileScoreDao TEST: set and get Games returns Games");
         this.instance.setScore(null);
         this.instance.setGames(10);
         int result = this.instance.getGames();

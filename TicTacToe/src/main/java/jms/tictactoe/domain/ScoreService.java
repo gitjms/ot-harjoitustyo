@@ -23,7 +23,7 @@ public class ScoreService implements ScoreDao {
         try {   
             this.scoreDao.create(score);
         } catch (Exception ex) {
-            System.out.println("ScoreService message: "+ex.getMessage());
+            System.out.println("ScoreService message: " + ex.getMessage());
             return false;
         }
         return true;
@@ -44,18 +44,18 @@ public class ScoreService implements ScoreDao {
     }
 
     @Override
-    public Map<String, Pair<Integer,Integer>> getAllMap() {
+    public Map<String, Pair<Integer, Integer>> getAllMap() {
         return this.scoreDao.getAllMap();
     }
 
     @Override
-    public void setAllMap(Map<String, Pair<Integer,Integer>> map) {
+    public void setAllMap(Map<String, Pair<Integer, Integer>> map) {
         this.scoreDao.setAllMap(map);
     }
 
     @Override
-    public void setPoints(String id,int points) {
-        this.scoreDao.setPoints(id,points);
+    public void setPoints(String id, int points) {
+        this.scoreDao.setPoints(id, points);
     }
 
     @Override

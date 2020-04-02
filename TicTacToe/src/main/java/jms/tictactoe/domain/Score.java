@@ -32,7 +32,7 @@ public class Score {
         this.points++;
     }
 
-    public void setPoints(String id,int points) {
+    public void setPoints(String id, int points) {
         this.points = points;
     }
 

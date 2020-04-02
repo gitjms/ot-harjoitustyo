@@ -22,9 +22,6 @@ public class ScoreTest {
     
     private Score instance;
     
-    public ScoreTest() {
-    }
-    
     @BeforeClass
     public static void setUpClass() {
     }
@@ -47,7 +44,7 @@ public class ScoreTest {
      */
     @Test
     public void testSetAndGetIdReturnsId() {
-        System.out.println("Score TEST SUCCESS: setId and getId returns Id");
+        System.out.println("Score TEST: setId and getId returns Id");
         String id = "Donald Duck";
         this.instance.setId(id);
         String result = this.instance.getId();
@@ -59,7 +56,7 @@ public class ScoreTest {
      */
     @Test
     public void testAddOnePointAndGetPointsReturnsPoints() {
-        System.out.println("Score TEST SUCCESS: add one Point and get Points returns Points");
+        System.out.println("Score TEST: add one Point and get Points returns Points");
         String id = "Donald Duck";
         this.instance.setPoints();
         int result = this.instance.getPoints(id);
@@ -71,7 +68,7 @@ public class ScoreTest {
      */
     @Test
     public void testAddPointsAndGetPointsReturnsPoints() {
-        System.out.println("Score TEST SUCCESS: add Points and get Points returns Points");
+        System.out.println("Score TEST: add Points and get Points returns Points");
         String id = "Donald Duck";
         this.instance.setPoints(id,10);
         int result = this.instance.getPoints(id);
@@ -83,7 +80,7 @@ public class ScoreTest {
      */
     @Test
     public void testAddOneGameAndGetGamesReturnsGames() {
-        System.out.println("Score TEST SUCCESS: add one Game and get Games returns Games");
+        System.out.println("Score TEST: add one Game and get Games returns Games");
         int resultBefore = this.instance.getGames();
         this.instance.setGames();
         int resultAfter = this.instance.getGames();
@@ -95,7 +92,7 @@ public class ScoreTest {
      */
     @Test
     public void testAddGamesAndGetGamesReturnsGames() {
-        System.out.println("Score TEST SUCCESS: add Games and get Games returns Games");
+        System.out.println("Score TEST: add Games and get Games returns Games");
         int resultBefore = this.instance.getGames();
         this.instance.setGames(10);
         int resultAfter = this.instance.getGames();

@@ -1,4 +1,4 @@
-package jms.tictactoe.domain;
+package jms.tictactoe.ui;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -12,9 +12,6 @@ import static org.junit.Assert.*;
  * @author jaris
  */
 public class WinRowTest {
-    
-    public WinRowTest() {
-    }
     
     @BeforeClass
     public static void setUpClass() {
@@ -37,8 +34,10 @@ public class WinRowTest {
      */
     @Test
     public void testValuesReturnsValues() {
-        System.out.println("WinRow TEST SUCCESS: values returns values");
-        WinRow[] expResult = {WinRow.X3,WinRow.O3,WinRow.X4,WinRow.O4,WinRow.X5,WinRow.O5};
+        System.out.println("WinRow TEST: values returns values");
+        WinRow.X.setWinCode("XXX");
+        WinRow.O.setWinCode("OOOOO");
+        WinRow[] expResult = {WinRow.X, WinRow.O};
         WinRow[] result = WinRow.values();
         assertArrayEquals(expResult, result);
     }
@@ -47,19 +46,21 @@ public class WinRowTest {
      * Test of valueOf method, of class WinRow.
      */
     @Test
-    public void testValueOfReturnsValueOf() {
-        System.out.println("WinRow TEST SUCCESS: valueOf returns valueOf");
-        String result = WinRow.valueOf("X3").name();
-        assertEquals(WinRow.X3.name(), result);
+    public void testValueOfWinRowReturnsValueOfWinRow() {
+        System.out.println("WinRow TEST: valueOf WinRow returns valueOf WinRow");
+        WinRow.X.setWinCode("XXX");
+        String result = WinRow.valueOf("X").name();
+        assertEquals(WinRow.X.name(), result);
     }
 
     /**
      * Test of getWinCode method, of class WinRow.
      */
     @Test
-    public void testGetWinCode() {
-        System.out.println("WinRow TEST SUCCESS: getWinCode returns WinCode");
-        String result = WinRow.X3.getWinCode();
+    public void testSetAndGetWinCodeReturnsWinCode() {
+        System.out.println("WinRow TEST: set and get WinCode returns WinCode");
+        WinRow.X.setWinCode("XXX");
+        String result = WinRow.X.getWinCode();
         assertEquals("XXX", result);
     }
     

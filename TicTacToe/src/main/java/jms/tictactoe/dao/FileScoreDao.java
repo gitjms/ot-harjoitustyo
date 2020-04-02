@@ -16,20 +16,19 @@ import jms.tictactoe.domain.Score;
  * Data Access Object for file storaging.
  * @author jaris
  */
-public class FileScoreDao implements ScoreDao {
+public final class FileScoreDao implements ScoreDao {
     
     private int points;
     private int games;
     private Score scoreItem;
     private String id;
     private String file;
-    private Map<String,Pair<Integer,Integer>> fileScores;
-
+    private Map<String, Pair<Integer, Integer>> fileScores;
+    
     public FileScoreDao(String file) throws Exception {
         this.fileScores = new HashMap<>();
         this.file = file;
-        try {
-            Scanner reader = new Scanner(new File(file));
+        try (Scanner reader = new Scanner(new File(file))) {
             if (reader.hasNext()) {
                 while (reader.hasNextLine()) {
                     String[] parts = reader.nextLine().split(";");
@@ -37,7 +36,7 @@ public class FileScoreDao implements ScoreDao {
                     this.points = Integer.parseInt(parts[1]);
                     this.games = Integer.parseInt(parts[2]);
                     this.scoreItem = new Score(this.id, this.points, this.games);
-                    Pair<Integer,Integer> newPair = new Pair(this.points,this.games);
+                    Pair<Integer, Integer> newPair = new Pair(this.points, this.games);
                     this.fileScores.put(this.id, newPair);
                 }
             } else {
@@ -45,18 +44,26 @@ public class FileScoreDao implements ScoreDao {
                 writer.write("X;0;0\n");
                 writer.write("O;0;0\n");
                 this.setScore(new Score("X", 0, 0));
-                Pair<Integer,Integer> newPairX = new Pair(0, 0);
-                this.fileScores.put("X",newPairX);
+                Pair<Integer, Integer> newPairX = new Pair(0, 0);
+                this.fileScores.put("X", newPairX);
                 this.setScore(new Score("O", 0, 0));
-                Pair<Integer,Integer> newPairO = new Pair(0, 0);
-                this.fileScores.put("O",newPairO);
+                Pair<Integer, Integer> newPairO = new Pair(0, 0);
+                this.fileScores.put("O", newPairO);
             }
         } catch (FileNotFoundException | NumberFormatException e) {
-            FileWriter writer = new FileWriter(new File(file));
+            FileWriter writer = new FileWriter(new File("scores.txt"));
+            writer.write("X;0;0\n");
+            writer.write("O;0;0\n");
+            this.setScore(new Score("X", 0, 0));
+            Pair<Integer, Integer> newPairX = new Pair(0, 0);
+            this.fileScores.put("X", newPairX);
+            this.setScore(new Score("O", 0, 0));
+            Pair<Integer, Integer> newPairO = new Pair(0, 0);
+            this.fileScores.put("O", newPairO);
         }
     }
     
-    private void save() throws Exception{
+    private void save() throws Exception {
         int totGames = this.getGames();
         try (FileWriter writer = new FileWriter(new File(this.file))) {
             for (Map.Entry<String, Pair<Integer, Integer>> mapScores : this.fileScores.entrySet()) {
@@ -86,12 +93,12 @@ public class FileScoreDao implements ScoreDao {
     }
 
     @Override
-    public Map<String,Pair<Integer,Integer>> getAllMap() {
+    public Map<String, Pair<Integer, Integer>> getAllMap() {
         return fileScores;
     }
 
     @Override
-    public void setAllMap(Map<String,Pair<Integer,Integer>> map) {
+    public void setAllMap(Map<String, Pair<Integer, Integer>> map) {
         this.fileScores = map;
     }
 
@@ -102,12 +109,12 @@ public class FileScoreDao implements ScoreDao {
         this.fileScores.put("X", new Pair(0, 0));
         this.setScore(new Score("O", 0, 0));
         this.fileScores.put("O", new Pair(0, 0));
-        this.setPoints("X",0);
-        this.setPoints("O",0);
+        this.setPoints("X", 0);
+        this.setPoints("O", 0);
     }
 
     @Override
-    public void setPoints(String id,int points) {
+    public void setPoints(String id, int points) {
         this.fileScores.put(id, new Pair(points, this.getGames()));
     }
 
@@ -125,8 +132,8 @@ public class FileScoreDao implements ScoreDao {
     public void setGames(int games) {
         if (this.isScore() == false) {
             resetPoints();
-        } else
+        } else {
             this.scoreItem.setGames(games);
+        }
     }
-
 }
