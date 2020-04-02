@@ -42,3 +42,5 @@ Projektin koodin tyylipisteet voi tarkistaa suorittamalla komento
 ```
 mvn jxr:jxr checkstyle:checkstyle
 ```
+
+Tulosta voi tarkastella avaamalla selaimella tiedosto target/site/checkstyle.html
