@@ -109,6 +109,7 @@ public class GameComponents {
     /**
      * Method for creating main button bases.
      * @param text
+     * @param width
      * @return button
      */
     public Button createButton(String text, int width) {
@@ -158,11 +159,8 @@ public class GameComponents {
      */
     public VBox getArea(int addGames, ScoreService scoreService, FileScoreDao fileScoreDao) throws Exception {
         scoreService.setGames(fileScoreDao.getGames());
-        String gameLabelText = "Game " + (scoreService.getGames() + addGames);
         Gamebox gBox = new Gamebox(scoreService, fileScoreDao);
-        VBox vBox = gBox.createBox(
-            this.getLabel("X:s turn", Color.LIGHTPINK, FontWeight.BOLD, 40),
-            this.getLabel(gameLabelText, Color.LIGHTGREEN, FontWeight.BOLD, 30));
+        VBox vBox = gBox.createBox(addGames);
         return vBox;
     }
     
@@ -178,20 +176,11 @@ public class GameComponents {
         Label label = new Label(text);
         label.setTextFill(color);
         label.setAlignment(Pos.CENTER);
-        label.setEffect(this.getBloomEffect());
+        Bloom bloomEffect = new Bloom();
+        bloomEffect.setThreshold(0.75);
+        label.setEffect(bloomEffect);
         label.setFont(Font.font("Cambria", fWeight, fSize));
         label.setTextAlignment(TextAlignment.CENTER);
         return label;
     }
-    
-    /**
-     * Method for stylizing text
-     * @return bloomEffect
-     */
-    public Bloom getBloomEffect() {
-        Bloom bloomEffect = new Bloom();
-        bloomEffect.setThreshold(0.75);
-        return bloomEffect;
-    }
-    
 }

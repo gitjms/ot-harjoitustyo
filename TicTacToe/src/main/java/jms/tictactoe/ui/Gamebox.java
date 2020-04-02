@@ -3,8 +3,13 @@ package jms.tictactoe.ui;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.effect.Bloom;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.TextAlignment;
 
 import jms.tictactoe.dao.FileScoreDao;
 import jms.tictactoe.domain.Game;
@@ -33,13 +38,16 @@ public final class Gamebox {
      * top:     Text Label for game number
      * middle:  Text Label for whose turn/who wins
      * bottom:  GridPane for X and O squares
-     * @param textLabel
-     * @param gameLabel
+     * @param addGames
      * @return gameBox
      * @throws java.lang.Exception
      */
-    public VBox createBox(Label textLabel, Label gameLabel) throws Exception {
+    public VBox createBox(int addGames) throws Exception {
         this.setGridpane();
+        this.scoreService.setGames(this.fileScoreDao.getGames());
+        String gameLabelText = "Game " + (this.scoreService.getGames() + addGames);
+        Label textLabel = this.getLabel("X:s turn", Color.LIGHTPINK, FontWeight.BOLD, 40);
+        Label gameLabel = this.getLabel(gameLabelText, Color.LIGHTGREEN, FontWeight.BOLD, 30);
         // actual squares for X and O markings
         String[][] squares = new String[GameSize.SIZE.getGameSize()][GameSize.SIZE.getGameSize()];
         // get square button from the class GameSquare
@@ -71,6 +79,26 @@ public final class Gamebox {
         this.gridPane.setAlignment(Pos.CENTER);
         this.gridPane.setVgap(30 / GameSize.SIZE.getGameSize());
         this.gridPane.setHgap(30 / GameSize.SIZE.getGameSize());
+    }
+    
+    /**
+     * Method for getting stylized Label for scores VBox and current game indication.
+     * @param text
+     * @param color font color
+     * @param fWeight font weight
+     * @param fSize font size
+     * @return label
+     */
+    public Label getLabel(String text, Color color, FontWeight fWeight, int fSize) {
+        Label label = new Label(text);
+        label.setTextFill(color);
+        label.setAlignment(Pos.CENTER);
+        Bloom bloomEffect = new Bloom();
+        bloomEffect.setThreshold(0.75);
+        label.setEffect(bloomEffect);
+        label.setFont(Font.font("Cambria", fWeight, fSize));
+        label.setTextAlignment(TextAlignment.CENTER);
+        return label;
     }
     
     private ScoreService getScoreService() {

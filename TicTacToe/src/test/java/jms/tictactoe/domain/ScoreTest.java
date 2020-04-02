@@ -8,16 +8,12 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import static org.junit.Assert.*;
-
-import de.saxsys.javafx.test.JfxRunner;
 
 /**
  *
  * @author jaris
  */
-@RunWith(JfxRunner.class)
 public class ScoreTest {
     
     private Score instance;

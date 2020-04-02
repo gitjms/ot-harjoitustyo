@@ -14,9 +14,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.runner.RunWith;
 
-import de.saxsys.javafx.test.JfxRunner;
 import javafx.scene.paint.Color;
 
 import jms.tictactoe.dao.FileScoreDao;
@@ -26,7 +24,6 @@ import jms.tictactoe.domain.Game;
  *
  * @author jaris
  */
-@RunWith(JfxRunner.class)
 public class GameSquareTest {
     
     private GameSquare instance;

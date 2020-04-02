@@ -20,7 +20,6 @@ import de.saxsys.javafx.test.JfxRunner;
 
 import jms.tictactoe.dao.FileScoreDao;
 import jms.tictactoe.domain.ScoreService;
-import jms.tictactoe.domain.Game;
 
 /**
  *
@@ -32,7 +31,6 @@ public class GameBoxTest {
     private Gamebox instance;
     private ScoreService scoreService;
     private FileScoreDao fileScoreDao;
-    private Game game;
     private Label label1;
     private Label label2;
 
@@ -53,7 +51,6 @@ public class GameBoxTest {
         String scoreFile = properties.getProperty("scoreFile");
         this.fileScoreDao = new FileScoreDao(scoreFile);
         this.scoreService = new ScoreService(this.fileScoreDao);
-        this.game = new Game(1, this.scoreService);
         this.instance = new Gamebox(this.scoreService, this.fileScoreDao);
     }
     
@@ -68,7 +65,7 @@ public class GameBoxTest {
     @Test
     public void testCreateBoxReturnsVBox() throws Exception {
         System.out.println("GameSquare TEST: createBox returns VBox");
-        VBox result = this.instance.createBox(this.label1, this.label2);
+        VBox result = this.instance.createBox(20);
         assertNotNull(result);
     }
 

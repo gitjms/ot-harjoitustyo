@@ -1,11 +1,9 @@
 package jms.tictactoe.ui;
 
-import de.saxsys.javafx.test.JfxRunner;
 import java.io.FileInputStream;
 import java.util.Properties;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.effect.Bloom;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -17,13 +15,11 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.runner.RunWith;
 
 /**
  *
  * @author jaris
  */
-@RunWith(JfxRunner.class)
 public class GameComponentsTest {
     
     private GameComponents instance;
@@ -83,7 +79,7 @@ public class GameComponentsTest {
     @Test
     public void testCreateButtonReturnsButton() {
         System.out.println("GameComponents TEST: createButton returns Button");
-        Button result = this.instance.createButton("text");
+        Button result = this.instance.createButton("text",20);
         assertNotNull(result);
     }
 
@@ -169,16 +165,6 @@ public class GameComponentsTest {
     public void testGetLabelReturnsLabel() {
         System.out.println("GameComponents TEST: getLabel returns Label");
         Label result = this.instance.getLabel("", null, null, 0);
-        assertNotNull(result);
-    }
-
-    /**
-     * Test of getBloomEffect method, of class GameComponents.
-     */
-    @Test
-    public void testGetBloomEffectReturnsBloom() {
-        System.out.println("GameComponents TEST: getBloomEffect returns Bloom");
-        Bloom result = this.instance.getBloomEffect();
         assertNotNull(result);
     }
     

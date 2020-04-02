@@ -9,10 +9,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import static org.junit.Assert.*;
-
-import de.saxsys.javafx.test.JfxRunner;
 
 import jms.tictactoe.dao.FileScoreDao;
 
@@ -20,7 +17,6 @@ import jms.tictactoe.dao.FileScoreDao;
  *
  * @author jaris
  */
-@RunWith(JfxRunner.class)
 public class GameTest {
     
     private Game instance;
