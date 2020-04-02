@@ -18,9 +18,9 @@ public final class Gamebox {
     
     private GameSquare gameSquare;
     private GridPane gridPane;
-    private Game game;
-    private ScoreService scoreService;
-    private FileScoreDao fileScoreDao;
+    private final Game game;
+    private final ScoreService scoreService;
+    private final FileScoreDao fileScoreDao;
     
     public Gamebox(ScoreService scoreService, FileScoreDao fileScoreDao) throws Exception {
         this.scoreService = scoreService;
@@ -66,8 +66,8 @@ public final class Gamebox {
     public void setGridpane() {
         this.gridPane = new GridPane();
         this.gridPane.setBackground(BackGroundStyle.BASIC.getBackGround());
-        this.gridPane.setMinSize(400, 320);
-        this.gridPane.setMaxSize(400, 320);
+        this.gridPane.setMinSize(500, 320);
+        this.gridPane.setMaxSize(500, 320);
         this.gridPane.setAlignment(Pos.CENTER);
         this.gridPane.setVgap(30 / GameSize.SIZE.getGameSize());
         this.gridPane.setHgap(30 / GameSize.SIZE.getGameSize());

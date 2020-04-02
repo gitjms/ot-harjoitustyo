@@ -78,6 +78,7 @@ public class GameComponents {
     public final HBox getButtonBox(Button ngButton, Button rButton, Button qButton) {
         HBox bBox = new HBox(ngButton, rButton, qButton);
         bBox.setAlignment(Pos.CENTER);
+        bBox.setSpacing(10);
         bBox.setPadding(new Insets(10, 5, 0, 5));
         return bBox;
     }
@@ -86,7 +87,7 @@ public class GameComponents {
     public HBox getChoiceBox(Button choiceButton3, Button choiceButton4, Button choiceButton5) {
         HBox hBox = new HBox(choiceButton3, choiceButton4, choiceButton5);
         hBox.setAlignment(Pos.CENTER);
-        hBox.setSpacing(40);
+        hBox.setSpacing(10);
         hBox.setPadding(new Insets(10, 5, 20, 5));
         hBox.setId("choice-box");
         return hBox;
