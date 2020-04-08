@@ -2,7 +2,7 @@
 
 ## TicTacToe eli ristinolla
 
-Yksinkertainen pelisovellus, joka kerää X:n ja O:n voitot talteen.
+Yksinkertainen pelisovellus, joka kerää X:n ja O:n voitot talteen tietokantaan.
 
 ## Java-versio
 
@@ -21,7 +21,7 @@ Testit suoritetaan komennolla
 ```
 mvn test
 ```
-
+***
 Testikattavuusraportti luodaan komennolla
 
 ```
@@ -30,17 +30,24 @@ mvn jacoco:report
 
 Kattavuusraporttia voi tarkastella avaamalla selaimella tiedosto target/site/jacoco/index.html
 
-
-Projektin koodin pystyy suorittamaan NetBeansin vihreällä napilla tai/ja komennolla
+***
+Projektin koodin pystyy suorittamaan NetBeansin vihreällä napilla tai komennolla
 
 ```
 mvn compile exec:java -Dexec.mainClass=jms.tictactoe.Main
 ```
-
-Projektin koodin tyylipisteet voi tarkistaa suorittamalla komento
+***
+Projektin koodin tyylivirheet voi tarkistaa suorittamalla komento
 
 ```
 mvn jxr:jxr checkstyle:checkstyle
 ```
 
 Tulosta voi tarkastella avaamalla selaimella tiedosto target/site/checkstyle.html
+***
+Suorituskelpoisen jar-tiedoston voi luoda komennolla
+
+```
+mvn package
+```
+***
