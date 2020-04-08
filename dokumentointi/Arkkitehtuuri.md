@@ -1,10 +1,13 @@
 ## Pakkaus-/luokkakaavio
 
-<img src="https://user-images.githubusercontent.com/46410240/78244372-1f09dd00-74ee-11ea-8cde-1887e9d70a4e.png" alt="Pakkauskaavio" width="600" >
+<img src="https://user-images.githubusercontent.com/46410240/78804667-1a02cd00-79c9-11ea-9b53-b89ec41a613c.png" alt="Pakkauskaavio" width="600" >
 
 ***
 
-## Käyttöjärjestelmän rakentavan pakkauksen luokat ja niiden metodit
+## Sekvenssikaavio uuden pelin luomisesta
 
-<img src="https://user-images.githubusercontent.com/46410240/78244157-bae71900-74ed-11ea-913d-99bbf1c9b4a7.png" alt="Pakkauskaavio" width="600" >
+<img src="https://user-images.githubusercontent.com/46410240/78804680-1e2eea80-79c9-11ea-9c04-3b16e44bbc1c.png" alt="Pakkauskaavio" width="600" >
+
+***
+
 

@@ -14,5 +14,10 @@
 | 31.3. | 6    | Refaktorointia |
 | 1.4. | 6    | Testien luontia |
 | 2.4. | 4    | Refaktorointia |
-| yht   | 61   | | 
+| 4.4. | 4    | Tietokantakokeiluja |
+| 5.4. | 6    | Refaktorointia |
+| 6.4. | 6    | Refaktorointia |
+| 7.4. | 4    | Refaktorointia |
+| 8.4. | 6    | Testejä ja refaktorointia |
+| yht   | 88   | | 
 

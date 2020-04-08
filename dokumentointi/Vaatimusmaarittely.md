@@ -18,7 +18,9 @@ Peli näkee pelaajat vain ristien ja nollien edustajina.
 
 ## Suunnitellut toiminnallisuudet
 
-- [X] Peli tallentaa pelattujen pelien määrän sekä ristien ja nollien voitot tietokoneelle (käytännossä resurssitiedostoon ~tai tietokantaan~).
+- [X] Peli tallentaa pelattujen pelien määrän sekä ristien ja nollien voitot tietokoneelle:
+  - [ ] ~resurssitiedostoon~
+  - [x] tietokantaan
 - [X] pelilaudan yläosassa näkyy pelattujen pelien kokonaismäärä ja tasapelien määrä.
 - [X] Ristien ja nollien voittostatistiikka näkyy pelilaudan yläosassa.
   - [x] Aluksi vain kulloisenkin pelin tilanne.
