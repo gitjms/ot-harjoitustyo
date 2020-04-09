@@ -1,4 +1,4 @@
-# Vaatimusmäärittely
+# Käyttöohje
 
 Lataa tiedosto [tictactoe.jar](https://github.com/gitjms/ot-harjoitustyo/blob/master/dokumentointi/Kayttoohje.md)
 

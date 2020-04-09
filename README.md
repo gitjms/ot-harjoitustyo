@@ -10,9 +10,15 @@ Sovellus on luotu Javan versiolla 11 ja käyttäen JavaFX:n versiota 14.
 
 ## Dokumentaatio
 
-* [Vaatimusmäärittely](https://github.com/gitjms/ot-harjoitustyo/blob/master/dokumentointi/Vaatimusmaarittely.md)
-* [Työaikakirjanpito](https://github.com/gitjms/ot-harjoitustyo/blob/master/dokumentointi/Tyoaikakirjanpito.md)
-* [Arkkitehtuuri](https://github.com/gitjms/ot-harjoitustyo/blob/master/dokumentointi/Arkkitehtuuri.md)
+[Käyttöohje](https://github.com/gitjms/ot-harjoitustyo/blob/master/dokumentointi/Kayttoohje.md)
+[Vaatimusmäärittely](https://github.com/gitjms/ot-harjoitustyo/blob/master/dokumentointi/Vaatimusmaarittely.md)
+[Työaikakirjanpito](https://github.com/gitjms/ot-harjoitustyo/blob/master/dokumentointi/Tyoaikakirjanpito.md)
+[Arkkitehtuuri](https://github.com/gitjms/ot-harjoitustyo/blob/master/dokumentointi/Arkkitehtuuri.md)
+[Testausdokumentti](https://github.com/gitjms/ot-harjoitustyo/blob/master/dokumentointi/Testausdokumentti.md)
+
+## Release
+
+[Viikko 5](https://github.com/gitjms/ot-harjoitustyo/releases)
 
 ## Komentorivitoiminnot
 
@@ -21,6 +27,13 @@ Testit suoritetaan komennolla
 ```
 mvn test
 ```
+
+Joskus voi olla tarpeen kirjoittaa (mikäli tulee ongelmia)
+
+```
+mvn clean test
+```
+
 ***
 Testikattavuusraportti luodaan komennolla
 
@@ -31,7 +44,7 @@ mvn jacoco:report
 Kattavuusraporttia voi tarkastella avaamalla selaimella tiedosto target/site/jacoco/index.html
 
 ***
-Projektin koodin pystyy suorittamaan NetBeansin vihreällä napilla tai komennolla
+Projektin koodin voi suorittaa NetBeansin vihreällä napilla tai komentorivillä komennolla
 
 ```
 mvn compile exec:java -Dexec.mainClass=jms.tictactoe.Main
@@ -49,5 +62,17 @@ Suorituskelpoisen jar-tiedoston voi luoda komennolla
 
 ```
 mvn package
+```
+
+Ajettava tiedosto löytyy target-kansiosta ja se voidaan ajaa komennolla
+
+```
+java -jar TicTacToe-1.0-SNAPSHOT.jar
+```
+***
+JavaDoc voidaan generoida komennolla
+
+```
+mvn javadoc:javadoc
 ```
 ***

@@ -6,3 +6,5 @@ nbactions.xml
 .project
 *.jar
 *.txt
+*.db
+*.png

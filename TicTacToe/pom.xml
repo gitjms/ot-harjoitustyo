@@ -7,12 +7,21 @@
     <packaging>jar</packaging>
     
     <properties>
+        <java.version>11</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
     </properties>
     
     <dependencies>
+
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.200</version>
+            <type>jar</type>
+        </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -22,14 +31,14 @@
 
         <dependency>
             <groupId>org.openjfx</groupId>
-            <artifactId>javafx-controls</artifactId>
-            <version>14</version>
-        </dependency>
- 
-        <dependency>
-            <groupId>org.openjfx</groupId>
             <artifactId>javafx-maven-plugin</artifactId>
             <version>0.0.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>14</version>
         </dependency>
         
         <dependency>
@@ -38,13 +47,6 @@
             <version>1.2</version>
             <scope>test</scope>
         </dependency>
-
-        <!--<dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>1.4.200</version>
-            <scope>test</scope>
-        </dependency>-->
         
         <dependency>
             <groupId>org.jacoco</groupId>
@@ -74,14 +76,15 @@
 
     <build>
         <plugins>
+
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.5</version>
                 <configuration>
                     <excludes>
-                        <exclude>jms/tictactoe.Main.java</exclude>
-                        <exclude>jms/tictactoe/ui/*</exclude>
+                        <exclude>jms/tictactoe/Main.*</exclude>
+                        <exclude>jms/tictactoe/ui/TicTacToeUI.*</exclude>
                     </excludes>
                 </configuration>
                 <executions>
@@ -136,6 +139,11 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
             </plugin>
         </plugins>
     </build>
