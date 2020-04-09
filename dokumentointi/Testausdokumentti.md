@@ -23,7 +23,7 @@ Sovellusta on testattu mm. syöttämällä virheellisiä tietokantapolkuja tieto
 
 ### Toiminnallisuudet
 
-[Määrittelydokumentin](https://github.com/gitjms/ot-harjoitustyo/blob/master/dokumentointi/vaatimusmaarittely.png) ilmoittamat toiminnot on testattu.
+[Määrittelydokumentin](https://github.com/gitjms/ot-harjoitustyo/blob/master/dokumentointi/Vaatimusmaarittely.md ilmoittamat toiminnot on testattu.
 
 ## Sovellukseen jääneet laatuongelmat
 
