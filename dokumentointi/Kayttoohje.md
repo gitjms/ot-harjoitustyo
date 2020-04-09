@@ -21,6 +21,7 @@ Ohjelma käynnistetään komennolla
 
 ```
 java -jar tictactoe.jar
+```
 
 ## Ohjelman käyttäminen
 
