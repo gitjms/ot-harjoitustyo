@@ -11,9 +11,13 @@ Sovellus on luotu Javan versiolla 11 ja käyttäen JavaFX:n versiota 14.
 ## Dokumentaatio
 
 [Käyttöohje](https://github.com/gitjms/ot-harjoitustyo/blob/master/dokumentointi/Kayttoohje.md)
+
 [Vaatimusmäärittely](https://github.com/gitjms/ot-harjoitustyo/blob/master/dokumentointi/Vaatimusmaarittely.md)
+
 [Työaikakirjanpito](https://github.com/gitjms/ot-harjoitustyo/blob/master/dokumentointi/Tyoaikakirjanpito.md)
+
 [Arkkitehtuuri](https://github.com/gitjms/ot-harjoitustyo/blob/master/dokumentointi/Arkkitehtuuri.md)
+
 [Testausdokumentti](https://github.com/gitjms/ot-harjoitustyo/blob/master/dokumentointi/Testausdokumentti.md)
 
 ## Release
