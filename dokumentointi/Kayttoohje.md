@@ -48,7 +48,7 @@ Uuden tietokannan nimi voi olla sellaisenaan, esim. "uusitietokanta", jolloin oh
 Uusi tietokanta syntyy työkansioon myös kirjoittamalla "./uusitietokanta" tai "/uusitietokanta". Mikäli halutaan luoda tietokanta muualle, tulee kohde kirjoittaa esim. muodossa
 
 ```
-../../kansio/tietokannat/uusitietokanta"
+../../kansio/tietokannat/uusitietokanta
 ```
 jolloin uusi tietokanta "uusitietokanta" sijoittuu kaksi kansiota ylös kansion "kansio" alikansioon "tietokannat" kuten alla olevasta kuvasta käy ilmi.
 
@@ -56,7 +56,7 @@ jolloin uusi tietokanta "uusitietokanta" sijoittuu kaksi kansiota ylös kansion 
 
 Seuraavien kuvien osoittama tietokannan luominen on identtinen: uusi tietokanta syntyy samaa paikkaan, työkansioon.
 
-<img src="https://user-images.githubusercontent.com/46410240/78934126-10ee2a80-7ab3-11ea-990f-6fc002d673f7.png" alt="Pelinäkymä: uusi tietokanta" width="450" >
+<img src="https://user-images.githubusercontent.com/46410240/78976933-e2f2ff80-7b1f-11ea-9d1a-9a792ded2b56.png" alt="Pelinäkymä: uusi tietokanta" width="450" >
 
-<img src="https://user-images.githubusercontent.com/46410240/78934138-1481b180-7ab3-11ea-86f7-dcd437a091fb.png" alt="Pelinäkymä: uusi tietokanta" width="450" >
+<img src="https://user-images.githubusercontent.com/46410240/78976938-e4bcc300-7b1f-11ea-8a6e-434bf396ef52.png" alt="Pelinäkymä: uusi tietokanta" width="450" >
 
