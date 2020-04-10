@@ -1,6 +1,6 @@
 # Testausdokumentti
 
-Ohjelmaa on testattu JUnit-yksikkötesteillä.
+Ohjelmaa on testattu JUnit-yksikkötesteillä ja manuaalisesti.
 
 ## Testauskattavuus
 
@@ -23,8 +23,16 @@ Sovellusta on testattu mm. syöttämällä virheellisiä tietokantapolkuja tieto
 
 ### Toiminnallisuudet
 
-[Määrittelydokumentin](https://github.com/gitjms/ot-harjoitustyo/blob/master/dokumentointi/Vaatimusmaarittely.md ilmoittamat toiminnot on testattu.
+[Määrittelydokumentin](https://github.com/gitjms/ot-harjoitustyo/blob/master/dokumentointi/Vaatimusmaarittely.md) ilmoittamat toiminnot on testattu.
 
 ## Sovellukseen jääneet laatuongelmat
 
 Ongelmia ovat lähinnä järjestelemätön ja paikoin ylipitkä koodi. Koodia on varmasti mahdollista supistaa ja tehostaa, mutta ei tämän kurssin aikataulun puitteissa.
+
+Myös ohjelmalogiikkakerroksessa sijaitseva luokka GameSquare on ongelma. Varsinaisesti se kuuluisi käyttöliittymäkerrokseen, koska siinä periaatteessa luodaan joitain komponentteja käyttöliittymää varten. Toisaalta sen luomat komponentit ovat koko sovelluksen tarkoituksen perusta: klikattavat napit, joiden luomia risti- ja nolla-rivejä koodi seuraa. Kun peli on pelattu, ottaa koodi tämän luokan kautta yhteyttä tietokantaan.
+Toisin sanoen, tämä luokka on rajatapaus, joka kuuluu sekä käyttöliittymä- että ohjelmalogiikkakerrokseen. Päädyin sijoittamaan sen kuitenkin logiikkapuoleen, sillä käyttöliittymäosastossa on jo niin paljon luokkia ja logiikkakerroksessa on muutenkin lähellä sen tarvitsemat muut luokat.
+
+Enumeraatioluokkien käyttö on myös ongelmakohta siksi, että käytän niitä tyylirakenteidenkin ohjaamiseen, vaikka kyse on JavaFX-sovelluksesta. JavaFX-sovellukseen kuuluisi ennemminkin käyttää CSS-tiedostoa tyylien rakentamiseen. Tässä sovelluksessa on tosin myös CSS-tyylitiedosto, mutta hyvin vähäisellä panostuksella. Päädyin tähän ratkaisuun, sillä en ole kovin hyvin mukautunut CSS-koodaamiseen. Katson Java-kielen sisäiset tyylirakentelut luonnollisemmiksi itselleni. Tämä on kuitenkin helposti korjattavissa: pienellä vaivannäöllä kaikki sovelluksen tyylirakentelut pystyy kirjoittamaan CSS-tiedostoo ja siten kaksi Enumeraatio-luokkaa voi poistaa.
+
+Ongelma voi olla myös luokan GameComponents pituus. Halusin kuitenkin sijoittaa lähes kaikkien vähemmän tärkeiden komponenttien luontikoodit sinne, jotta järjestely pytyisi itselleni selkeänä.
+Tärkeimmät sovelluksen käyttämät komponentit ovat omissa luokissaan: GameArea ja GameSquare, joista jälkimmäinen siis on rajatapaus käyttöliittymän ja sovelluslogiikan välillä.
