@@ -52,7 +52,7 @@ Uusi tietokanta syntyy työkansioon myös kirjoittamalla "./uusitietokanta" tai 
 ```
 jolloin uusi tietokanta "uusitietokanta" sijoittuu kaksi kansiota ylös kansion "kansio" alikansioon "tietokannat" kuten alla olevasta kuvasta käy ilmi.
 
-<img src="https://user-images.githubusercontent.com/46410240/78976190-58f66700-7b1e-11ea-927f-e928718e7658.png" alt="Kansiot: uusi tietokanta" width="400" >
+<img src="https://user-images.githubusercontent.com/46410240/78976584-200ac200-7b1f-11ea-9c0f-7811514d8176.png" alt="Kansiot: uusi tietokanta" width="400" >
 
 Seuraavien kuvien osoittama tietokannan luominen on identtinen: uusi tietokanta syntyy samaa paikkaan, työkansioon.
 
