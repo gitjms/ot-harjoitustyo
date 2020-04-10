@@ -13,7 +13,7 @@ user=sa
 password=
 ```
 
-Mikäli tiedosto katoaa, luo ohjelma sen oletussisältöineen. Käyttäjä voi vaihtaa tietokantaa pelin käyttöjärjestelmässä ilman konfiguraatiotiedoston muuttamista.
+Mikäli tiedosto katoaa, luo ohjelma sen oletussisältöineen uudestaan sovelluksen käynnistyttyä. Käyttäjä voi vaihtaa tietokantaa pelin käyttöjärjestelmässä ilman konfiguraatiotiedoston muuttamista.
 
 # Ohjelman käynnistäminen
 
@@ -33,6 +33,8 @@ Peliä pelataan klikkaamalla vaaleansinisiä neliöitä. Uuden pelin saa klikkaa
 
 Peliruudukon kokoa voidaan vaihdella 3x3, 4x4 ja 5x5 ruudukoiden välillä klikkaamalla alhaalla oikealla olevia nappuloita.
 
+Tietokannan voi vaihtaa alahaalla vasemmalla kirjoittamalla uuden tietokannan nimen ja klikkaamalla GO. Näin kukin pelidata tallentuu omaan tietokantaansa.
+
 ## Pelin ratkeaminen
 
 Peli päättyy joko toisen merkkisymbolin voittoon tai tasapeliin. Ohjelma ilmoittaa tilanteen ruudukon yläpuolella. Pistetilanne päivittyy luomalla uuden pelin.
@@ -41,14 +43,18 @@ Peli päättyy joko toisen merkkisymbolin voittoon tai tasapeliin. Ohjelma ilmoi
 
 ## Tietokannan vaihtaminen
 
-Peli-ikkunan alhaalla vasemmalla olevaan tekstilaatikkoon voi syöttää uuden tietokannan nimen. Oletus on yllä mainittu scoredata, mikäli tekstilaatikko on tyhjä tai käyttäjä syöttää virheellisen tiedostonimen/-polun.
+Peli-ikkunan alhaalla vasemmalla olevaan tekstilaatikkoon voi syöttää uuden tietokannan nimen. Oletus on yllä mainittu scoreData, mikäli tekstilaatikko on tyhjä tai käyttäjä syöttää virheellisen tiedostonimen/-polun.
 Uuden tietokannan nimi voi olla sellaisenaan, esim. "uusitietokanta", jolloin ohjelma luo sellaisen tietokannan työkansioon, mikäli sellaista ei jo ole olemassa. Jos tietokanta on jo olemassa, avaa ohjelma siihen yhteyden.
 Uusi tietokanta syntyy työkansioon myös kirjoittamalla "./uusitietokanta" tai "/uusitietokanta". Mikäli halutaan luoda tietokanta muualle, tulee kohde kirjoittaa esim. muodossa
 
 ```
 ../../kansio/tietokannat/uusitietokanta"
 ```
-jolloin uusi tietokanta "uusitietokanta" sijoittuu kaksi kansiota ylös kansion "kansio" alikansioon "tietokannat".
+jolloin uusi tietokanta "uusitietokanta" sijoittuu kaksi kansiota ylös kansion "kansio" alikansioon "tietokannat" kuten alla olevasta kuvasta käy ilmi.
+
+<img src="https://user-images.githubusercontent.com/46410240/78975164-35322180-7b1c-11ea-98a3-2281510ed65c.png" alt="Pelinäkymä: uusi tietokanta" width="450" >
+
+Seuraavien kuvien osoittama tietokannan luominen on identtinen: uusi tietokanta syntyy samaa paikkaan, työkansioon.
 
 <img src="https://user-images.githubusercontent.com/46410240/78934126-10ee2a80-7ab3-11ea-990f-6fc002d673f7.png" alt="Pelinäkymä: uusi tietokanta" width="450" >
 

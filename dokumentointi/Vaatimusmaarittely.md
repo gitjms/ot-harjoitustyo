@@ -9,7 +9,7 @@ Käyttäjää ei identifioida, eli ei ole sisäänkirjautumista.
 
 Kuvassa näkyvät komponentit, joista uloin (BorderPane) asettuu Sceneen joka puolestaan asettuu Stageen, joka näkyy sovellusikkunana.
 
-<img src="https://user-images.githubusercontent.com/46410240/78943336-50714280-7ac4-11ea-9de2-d3e926a92301.png" alt="Käyttöliittymäluonnos" width="450" >
+<img src="https://user-images.githubusercontent.com/46410240/78943637-ed33e000-7ac4-11ea-9476-92e7fcb8d7e6.png" alt="Käyttöliittymäluonnos" width="450" >
 
 Vasen kuva on vanhempi versio. Oikeaan on lisätty mm. tekstinsyöttökenttä ja nappi alhaalle.
 

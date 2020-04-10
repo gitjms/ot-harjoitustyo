@@ -19,5 +19,6 @@
 | 6.4. | 6    | Refaktorointia |
 | 7.4. | 4    | Refaktorointia |
 | 8.4. | 6    | Testejä ja refaktorointia |
-| yht   | 88   | | 
+| 9.4. | 6    | Tietokannan vaihto-ominaisuus appiin |
+| yht   | 94   | | 
 
