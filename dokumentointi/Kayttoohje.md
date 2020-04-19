@@ -1,6 +1,6 @@
 # Käyttöohje
 
-Lataa tiedosto [release](https://github.com/gitjms/ot-harjoitustyo/releases)
+Lataa tiedosto [tictactoe.jar](https://github.com/gitjms/ot-harjoitustyo/releases)
 
 ## Konfigurointi
 
