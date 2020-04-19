@@ -27,7 +27,7 @@ java -jar tictactoe.jar
 
 Sovellus käynnistyy pelinäkymään:
 
-<img src="https://user-images.githubusercontent.com/46410240/78933604-3d557700-7ab2-11ea-93c9-b1807f589581.png" alt="Pelinäkymä" width="450" >
+<img src="https://user-images.githubusercontent.com/46410240/78933604-3d557700-7ab2-11ea-93c9-b1807f589581.png" alt="Pelinäkymä" width="400" >
 
 Peliä pelataan klikkaamalla vaaleansinisiä neliöitä. Uuden pelin saa klikkaamalla New Game -nappia. Ylimpänä näkyvän pelitilaston saa nollattua Reset-nappulalla. Ohjelma suljetaan napista Quit Game.
 
@@ -39,7 +39,7 @@ Tietokannan voi vaihtaa alahaalla vasemmalla kirjoittamalla uuden tietokannan ni
 
 Peli päättyy joko toisen merkkisymbolin voittoon tai tasapeliin. Ohjelma ilmoittaa tilanteen ruudukon yläpuolella. Pistetilanne päivittyy luomalla uuden pelin.
 
-<img src="https://user-images.githubusercontent.com/46410240/78933848-99200000-7ab2-11ea-9309-cb993cccc895.png" alt="Pelinäkymä: voitto" width="450" >
+<img src="https://user-images.githubusercontent.com/46410240/78933848-99200000-7ab2-11ea-9309-cb993cccc895.png" alt="Pelinäkymä: voitto" width="400" >
 
 ## Tietokannan vaihtaminen
 
@@ -52,7 +52,7 @@ Uusi tietokanta syntyy työkansioon myös kirjoittamalla "./uusitietokanta" tai 
 ```
 jolloin uusi tietokanta "uusitietokanta" sijoittuu kaksi kansiota ylös kansion "kansio" alikansioon "tietokannat" kuten alla olevasta kuvasta käy ilmi.
 
-<img src="https://user-images.githubusercontent.com/46410240/78976584-200ac200-7b1f-11ea-9c0f-7811514d8176.png" alt="Kansiot: uusi tietokanta" width="400" >
+<img src="https://user-images.githubusercontent.com/46410240/78976584-200ac200-7b1f-11ea-9c0f-7811514d8176.png" alt="Kansiot: uusi tietokanta" width="450" >
 
 Seuraavien kuvien osoittama tietokannan luominen on identtinen: uusi tietokanta syntyy samaan paikkaan eli nykyiseen työkansioon.
 
