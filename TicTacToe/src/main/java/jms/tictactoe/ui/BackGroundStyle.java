@@ -7,11 +7,12 @@ import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 
 /**
- *
+ * Enum for setting button background styles.
  * @author jaris
  */
 public enum BackGroundStyle {
     BASIC (new Background(new BackgroundFill(Color.rgb(50, 50, 70), CornerRadii.EMPTY, Insets.EMPTY))),
+    LIGHT (new Background(new BackgroundFill(Color.rgb(70, 80, 110), CornerRadii.EMPTY, Insets.EMPTY))),
     EFFECT (new Background(new BackgroundFill(Color.STEELBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
     
     public Background background;

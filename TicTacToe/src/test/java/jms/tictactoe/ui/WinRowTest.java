@@ -15,6 +15,7 @@ public class WinRowTest {
     
     @BeforeClass
     public static void setUpClass() {
+        System.out.println("\nTESTING WINROW CLASS");
     }
     
     @AfterClass
@@ -23,6 +24,7 @@ public class WinRowTest {
     
     @Before
     public void setUp() {
+        System.out.print("    - ");
     }
     
     @After
@@ -34,7 +36,7 @@ public class WinRowTest {
      */
     @Test
     public void testValuesReturnsValues() {
-        System.out.println("WinRow TEST: values returns values");
+        System.out.println("testValuesReturnsValues");
         WinRow.X.setWinCode("XXX");
         WinRow.O.setWinCode("OOOOO");
         WinRow[] expResult = {WinRow.X, WinRow.O};
@@ -47,7 +49,7 @@ public class WinRowTest {
      */
     @Test
     public void testValueOfWinRowReturnsValueOfWinRow() {
-        System.out.println("WinRow TEST: valueOf WinRow returns valueOf WinRow");
+        System.out.println("testValueOfWinRowReturnsValueOfWinRow");
         WinRow.X.setWinCode("XXX");
         String result = WinRow.valueOf("X").name();
         assertEquals(WinRow.X.name(), result);
@@ -58,7 +60,7 @@ public class WinRowTest {
      */
     @Test
     public void testSetAndGetWinCodeReturnsWinCode() {
-        System.out.println("WinRow TEST: set and get WinCode returns WinCode");
+        System.out.println("testSetAndGetWinCodeReturnsWinCode");
         WinRow.X.setWinCode("XXX");
         String result = WinRow.X.getWinCode();
         assertEquals("XXX", result);

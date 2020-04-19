@@ -54,7 +54,7 @@ jolloin uusi tietokanta "uusitietokanta" sijoittuu kaksi kansiota ylös kansion 
 
 <img src="https://user-images.githubusercontent.com/46410240/78976584-200ac200-7b1f-11ea-9c0f-7811514d8176.png" alt="Kansiot: uusi tietokanta" width="400" >
 
-Seuraavien kuvien osoittama tietokannan luominen on identtinen: uusi tietokanta syntyy samaa paikkaan, työkansioon.
+Seuraavien kuvien osoittama tietokannan luominen on identtinen: uusi tietokanta syntyy samaan paikkaan eli nykyiseen työkansioon.
 
 <img src="https://user-images.githubusercontent.com/46410240/78976933-e2f2ff80-7b1f-11ea-9d1a-9a792ded2b56.png" alt="Pelinäkymä: uusi tietokanta" width="450" >
 

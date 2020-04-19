@@ -1,5 +1,6 @@
 package jms.tictactoe.ui;
 
+import jms.tictactoe.domain.GameSquare;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -11,26 +12,20 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.TextAlignment;
 
-import jms.tictactoe.dao.FileScoreDao;
-import jms.tictactoe.domain.Game;
 import jms.tictactoe.domain.ScoreService;
 
 /**
  * Class for creating a game area.
  * @author jaris
  */
-public final class Gamebox {
+public final class GameArea {
     
     private GameSquare gameSquare;
     private GridPane gridPane;
-    private final Game game;
     private final ScoreService scoreService;
-    private final FileScoreDao fileScoreDao;
     
-    public Gamebox(ScoreService scoreService, FileScoreDao fileScoreDao) throws Exception {
+    public GameArea(ScoreService scoreService) {
         this.scoreService = scoreService;
-        this.fileScoreDao = fileScoreDao;
-        this.game = new Game(1, this.scoreService);
     }
     
     /**
@@ -38,20 +33,17 @@ public final class Gamebox {
      * top:     Text Label for game number
      * middle:  Text Label for whose turn/who wins
      * bottom:  GridPane for X and O squares
-     * @param addGames
-     * @return gameBox
-     * @throws java.lang.Exception
+     * @return gameArea
      */
-    public VBox createBox(int addGames) throws Exception {
+    public VBox createArea() {
         this.setGridpane();
-        this.scoreService.setGames(this.fileScoreDao.getGames());
-        String gameLabelText = "Game " + (this.scoreService.getGames() + addGames);
+        String gameLabelText = "Game " + (this.scoreService.getAmount() + 1);
         Label textLabel = this.getLabel("X:s turn", Color.LIGHTPINK, FontWeight.BOLD, 40);
         Label gameLabel = this.getLabel(gameLabelText, Color.LIGHTGREEN, FontWeight.BOLD, 30);
         // actual squares for X and O markings
         String[][] squares = new String[GameSize.SIZE.getGameSize()][GameSize.SIZE.getGameSize()];
         // get square button from the class GameSquare
-        this.gameSquare = new GameSquare(textLabel, this.game, this.getScoreService(), this.getFileScoreDao());
+        this.gameSquare = new GameSquare(textLabel, this.getScoreService());
         for (int x = 0; x < GameSize.SIZE.getGameSize(); x++) {
             for (int y = 0; y < GameSize.SIZE.getGameSize(); y++) {
                 String id = Integer.toString(y) + " " + Integer.toString(x);
@@ -60,12 +52,11 @@ public final class Gamebox {
                 this.getGridpane().add(newSquare, x, y);
             }
         }
-        
         // both components into one box to be sent back to caller in class TicTacToeUI
-        VBox gameBox = new VBox(gameLabel, textLabel, this.getGridpane());
-        gameBox.setAlignment(Pos.CENTER);
+        VBox gameArea = new VBox(gameLabel, textLabel, this.getGridpane());
+        gameArea.setAlignment(Pos.CENTER);
         
-        return gameBox;
+        return gameArea;
     }
 
     /**
@@ -103,10 +94,6 @@ public final class Gamebox {
     
     private ScoreService getScoreService() {
         return this.scoreService;
-    }
-    
-    private FileScoreDao getFileScoreDao() {
-        return this.fileScoreDao;
     }
     
     public GridPane getGridpane() {

@@ -1,30 +1,30 @@
 ## Pakkaus-/luokkakaavio
 
-<img src="https://user-images.githubusercontent.com/46410240/78977264-8512e780-7b20-11ea-8949-bf8bbabcee9f.png" alt="Pakkauskaavio" width="600" >
+<img src="https://user-images.githubusercontent.com/46410240/79480276-94a99900-8016-11ea-9531-61481bf2f642.png" alt="Pakkauskaavio" width="600" >
 
 ***
 
 ## Sekvenssikaavio uuden pelin luomisesta
 
-<img src="https://user-images.githubusercontent.com/46410240/78936214-d090ab80-7ab6-11ea-94aa-439600a74868.png" alt="Sekvenssikaavio: uusi peli" width="600" >
+<img src="https://user-images.githubusercontent.com/46410240/79480345-a3904b80-8016-11ea-977a-9708009ecd2d.png" alt="Sekvenssikaavio: uusi peli" width="600" >
 
 ***
 
 ## Sekvenssikaavio pelin nollaamisesta
 
-<img src="https://user-images.githubusercontent.com/46410240/78936249-e3a37b80-7ab6-11ea-83f0-9771d029ca6c.png" alt="Sekvenssikaavio: pelin nollaus" width="600" >
+<img src="https://user-images.githubusercontent.com/46410240/79480392-b0ad3a80-8016-11ea-8c05-b681ff4e345a.png" alt="Sekvenssikaavio: pelin nollaus" width="600" >
 
 ***
 
 ## Sekvenssikaavio pelin lopettamisesta
 
-<img src="https://user-images.githubusercontent.com/46410240/78936312-0766c180-7ab7-11ea-836c-95424a13ccc2.png" alt="Sekvenssikaavio: pelin lopetus" width="600" >
+<img src="https://user-images.githubusercontent.com/46410240/79480450-bf93ed00-8016-11ea-80d8-4c5b3450eff1.png" alt="Sekvenssikaavio: pelin lopetus" width="600" >
 
 ***
 
 ## Sekvenssikaavio X:llä pelaavan voitosta
 
-<img src="https://user-images.githubusercontent.com/46410240/78936358-16e60a80-7ab7-11ea-91d3-13228d32887c.png" alt="Sekvenssikaavio: X voittaa" width="600" >
+<img src="https://user-images.githubusercontent.com/46410240/79480478-cb7faf00-8016-11ea-9879-b463f7fb2491.png" alt="Sekvenssikaavio: X voittaa" width="600" >
 
 ***
 

@@ -15,6 +15,7 @@ public class GameSizeTest {
     
     @BeforeClass
     public static void setUpClass() {
+        System.out.println("\nTESTING GAMESIZE CLASS");
     }
     
     @AfterClass
@@ -23,6 +24,7 @@ public class GameSizeTest {
     
     @Before
     public void setUp() {
+        System.out.print("    - ");
     }
     
     @After
@@ -34,7 +36,7 @@ public class GameSizeTest {
      */
     @Test
     public void testValuesReturnsValues() {
-        System.out.println("GameSize TEST: values returns values");
+        System.out.println("testValuesReturnsValues");
         GameSize.SIZE.setGameSize(3);
         GameSize[] expResult = {GameSize.SIZE};
         GameSize[] result = GameSize.values();
@@ -46,7 +48,7 @@ public class GameSizeTest {
      */
     @Test
     public void testValueOfGameSizeReturnsValueOfGameSize() {
-        System.out.println("GameSize TEST: valueOf GameSize returns valueOf GameSize");
+        System.out.println("testValueOfGameSizeReturnsValueOfGameSize");
         GameSize.SIZE.setGameSize(3);
         int result = GameSize.valueOf(GameSize.SIZE.toString()).getGameSize();
         assertEquals(3, result);
@@ -57,7 +59,7 @@ public class GameSizeTest {
      */
     @Test
     public void testSetAndGetGameSizeReturnsGameSize() {
-        System.out.println("GameSize TEST: set and get gameSize returns gameSize");
+        System.out.println("testSetAndGetGameSizeReturnsGameSize");
         GameSize.SIZE.setGameSize(3);
         int result = GameSize.SIZE.getGameSize();
         assertEquals(3, result);

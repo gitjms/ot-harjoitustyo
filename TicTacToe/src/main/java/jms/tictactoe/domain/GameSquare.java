@@ -1,6 +1,4 @@
-package jms.tictactoe.ui;
-
-import java.util.Map;
+package jms.tictactoe.domain;
 
 import javafx.scene.effect.Bloom;
 import javafx.scene.input.MouseEvent;
@@ -9,11 +7,11 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.util.Pair;
 
-import jms.tictactoe.dao.FileScoreDao;
-import jms.tictactoe.domain.Game;
-import jms.tictactoe.domain.ScoreService;
+import jms.tictactoe.ui.BackGroundStyle;
+import jms.tictactoe.ui.BorderStyle;
+import jms.tictactoe.ui.GameSize;
+import jms.tictactoe.ui.WinRow;
 
 
 /**
@@ -22,13 +20,11 @@ import jms.tictactoe.domain.ScoreService;
  */
 public final class GameSquare {
 
-    private ScoreService scoreService;
+    private final ScoreService scoreService;
     private boolean finished;
-    private Label textLabel;
-    private Game game;
+    private final Label textLabel;
             
-    public GameSquare(Label textLabel, Game game, ScoreService scoreService, FileScoreDao fileScoreDao) throws Exception {
-        this.game = game;
+    public GameSquare(Label textLabel, ScoreService scoreService) {
         this.textLabel = textLabel;
         this.scoreService = scoreService;
         this.finished = false;
@@ -60,13 +56,11 @@ public final class GameSquare {
             if (this.loopHorizontalAndVertical(squaresTocheck)) {
                 return true;
             }
-
             String row3 = "";
             String row4 = "";
             if (this.loopDiagonals(squaresTocheck, row3, row4)) {
                 return true;
             }
-
             String row = "";
             if (this.loopAllForDraw(squaresTocheck, row)) {
                 return true;
@@ -133,7 +127,6 @@ public final class GameSquare {
 
     /**
      * Method for checking rows and to announce winner.
-     * @param textLabel label for X or O marks
      * @param rowTocheck array to store X and O marks
      * @return false if no ready row, true if ready row
      */
@@ -142,17 +135,17 @@ public final class GameSquare {
             this.setFinished(true);
             this.getTextlabel().setText("X wins!");
             this.getTextlabel().setTextFill(Color.LIGHTPINK);
-            this.game.setWinner("X");
-            this.scoreService.createScore("X", this.scoreService.getPoints("X") + 1, this.scoreService.getGames());
-            this.scoreService.createScore("O", this.scoreService.getPoints("O"), this.scoreService.getGames());
+            this.scoreService.createScore("X", this.scoreService.getPoints("X") + 1);
+            this.scoreService.createScore("O", this.scoreService.getPoints("O"));
+            this.scoreService.setAmount(this.scoreService.getAmount() + 1);
             return true;
         } else if (rowTocheck.equals(WinRow.O.getWinCode())) {
             this.setFinished(true);
             this.getTextlabel().setText("O wins!");
             this.getTextlabel().setTextFill(Color.LEMONCHIFFON);
-            this.game.setWinner("O");
-            this.scoreService.createScore("X", this.scoreService.getPoints("X"), this.scoreService.getGames());
-            this.scoreService.createScore("O", this.scoreService.getPoints("O") + 1, this.scoreService.getGames());
+            this.scoreService.createScore("X", this.scoreService.getPoints("X"));
+            this.scoreService.createScore("O", this.scoreService.getPoints("O") + 1);
+            this.scoreService.setAmount(this.scoreService.getAmount() + 1);
             return true;
         }
         return false;
@@ -160,7 +153,6 @@ public final class GameSquare {
 
     /**
      * Method for checking if the game is a draw.
-     * @param textLabel label for X or O marks
      * @param rowTocheck array to store X and O marks
      * @return false if not a draw, true if a draw
      */
@@ -169,13 +161,8 @@ public final class GameSquare {
             this.setFinished(true);
             this.getTextlabel().setText("Draw!");
             this.getTextlabel().setTextFill(Color.LIGHTSTEELBLUE);
-            this.game.setDraw();
-            this.scoreService.createScore("X", this.scoreService.getPoints("X"), this.scoreService.getGames());
-            this.scoreService.createScore("O", this.scoreService.getPoints("O"), this.scoreService.getGames());
-            Map<String, Pair<Integer, Integer>> fileScores = this.scoreService.getAllMap();
-            fileScores.put("X", new Pair(this.scoreService.getPoints("X"), this.scoreService.getGames()));
-            fileScores.put("O", new Pair(this.scoreService.getPoints("O"), this.scoreService.getGames()));
-            this.scoreService.setAllMap(fileScores);
+            this.scoreService.setAmount(this.scoreService.getAmount() + 1);
+            this.scoreService.setDraws(this.scoreService.getDraws() + 1);
             return true;
         }
 
@@ -212,10 +199,10 @@ public final class GameSquare {
                     squares[x][y] = "O";
                 }
             }
+            this.isFinished(squares);
         } else {
             square.disarm();
         }
-        this.isFinished(squares);
     }
     
     /**
@@ -230,7 +217,7 @@ public final class GameSquare {
         base.setFont(Font.font("Monospaced", FontWeight.BOLD, 150 / GameSize.SIZE.getGameSize()));
         base.setBackground(BackGroundStyle.EFFECT.getBackGround());
         base.setEffect(this.getBloomEffect());
-        base.setBorder(BorderStyle.BORDER.getBorder());
+        base.setBorder(BorderStyle.LIGHT.getBorder());
         return base;
     }
     

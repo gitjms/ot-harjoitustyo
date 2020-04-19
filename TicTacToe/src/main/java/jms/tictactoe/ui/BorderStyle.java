@@ -8,11 +8,12 @@ import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 
 /**
- *
+ * Enum for setting button border style.
  * @author jaris
  */
 public enum BorderStyle {
-    BORDER (new Border(new BorderStroke(Color.LIGHTBLUE, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
+    LIGHT (new Border(new BorderStroke(Color.LIGHTBLUE, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT))),
+    MEDIUM (new Border(new BorderStroke(Color.rgb(70, 80, 110), BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(2))));
     
     public Border borderStyle;
     

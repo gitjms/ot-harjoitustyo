@@ -1,9 +1,5 @@
 package jms.tictactoe.domain;
 
-import java.util.Map;
-
-import javafx.util.Pair;
-
 import jms.tictactoe.dao.ScoreDao;
 
 /**
@@ -12,55 +8,19 @@ import jms.tictactoe.dao.ScoreDao;
  */
 public class ScoreService implements ScoreDao {
     
-    private ScoreDao scoreDao;
+    private final ScoreDao scoreDao;
     
     public ScoreService(ScoreDao scoreDao) {
         this.scoreDao = scoreDao;
     }
     
-    public boolean createScore(String id, int points, int games) {
-        Score score = new Score(id, points, games);
-        try {   
-            this.scoreDao.create(score);
-        } catch (Exception ex) {
-            System.out.println("ScoreService message: " + ex.getMessage());
-            return false;
-        }
-        return true;
-    }
-    
-    @Override
-    public Score getScore() {
-        return this.scoreDao.getScore();
-    }
-
-    public boolean isScore() {
-        return this.scoreDao != null;
+    public void createScore(String id, int points) { 
+        this.scoreDao.setScore(id, points);
     }
 
     @Override
-    public Score create(Score score) throws Exception {
-        return this.scoreDao.create(score);
-    }
-
-    @Override
-    public Map<String, Pair<Integer, Integer>> getAllMap() {
-        return this.scoreDao.getAllMap();
-    }
-
-    @Override
-    public void setAllMap(Map<String, Pair<Integer, Integer>> map) {
-        this.scoreDao.setAllMap(map);
-    }
-
-    @Override
-    public void setPoints(String id, int points) {
-        this.scoreDao.setPoints(id, points);
-    }
-
-    @Override
-    public int getPoints(String id) {
-        return isScore() == false ? 0 : this.scoreDao.getPoints(id);
+    public void setScore(String player, int points) {
+        this.scoreDao.setScore(player, points);
     }
 
     @Override
@@ -69,18 +29,27 @@ public class ScoreService implements ScoreDao {
     }
 
     @Override
-    public void setGames(int games) {
-        this.scoreDao.setGames(games);
+    public int getPoints(String id) {
+        return this.scoreDao.getPoints(id);
     }
 
     @Override
-    public int getGames() {
-        return isScore() == false ? 0 : this.scoreDao.getGames();
+    public int getAmount() {
+        return this.scoreDao.getAmount();
     }
 
     @Override
-    public void setScore(Score score) {
-        this.scoreDao.setScore(score);
+    public void setAmount(int amount) {
+        this.scoreDao.setAmount(amount);
     }
 
+    @Override
+    public int getDraws() {
+        return this.scoreDao.getDraws();
+    }
+
+    @Override
+    public void setDraws(int draws) {
+        this.scoreDao.setDraws(draws);
+    }
 }
