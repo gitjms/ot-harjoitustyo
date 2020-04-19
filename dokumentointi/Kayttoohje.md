@@ -1,6 +1,6 @@
 # Käyttöohje
 
-Lataa tiedosto [Viikko 5](https://github.com/gitjms/ot-harjoitustyo/releases)
+Lataa tiedosto [release](https://github.com/gitjms/ot-harjoitustyo/releases)
 
 ## Konfigurointi
 

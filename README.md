@@ -22,7 +22,7 @@ Sovellus on luotu Javan versiolla 11 ja käyttäen JavaFX:n versiota 14.
 
 ## Release
 
-[Viikko 5](https://github.com/gitjms/ot-harjoitustyo/releases)
+[release](https://github.com/gitjms/ot-harjoitustyo/releases)
 
 ## Komentorivitoiminnot
 
