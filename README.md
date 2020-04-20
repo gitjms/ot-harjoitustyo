@@ -71,7 +71,7 @@ mvn package
 Ajettava tiedosto löytyy target-kansiosta ja se voidaan ajaa komennolla
 
 ```
-java -jar TicTacToe-1.0-SNAPSHOT.jar
+java -jar tictactoe.jar
 ```
 ***
 JavaDoc voidaan generoida komennolla
