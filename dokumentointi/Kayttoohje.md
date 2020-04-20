@@ -1,6 +1,6 @@
 # Käyttöohje
 
-Lataa tiedosto [tictactoe.jar](https://github.com/gitjms/ot-harjoitustyo/releases)
+Lataa tiedosto [tictactoe.jar tai source code](https://github.com/gitjms/ot-harjoitustyo/releases)
 
 ## Konfigurointi
 
@@ -18,6 +18,36 @@ Mikäli tiedosto katoaa, luo ohjelma sen oletussisältöineen uudestaan sovelluk
 # Ohjelman käynnistäminen
 
 Ohjelma käynnistetään komennolla
+
+```
+java -jar tictactoe.jar
+```
+
+# Source code
+
+Jos jar-tiedosto ei toimi, voi ladata source coden ja purkaa zip-tiedoston esim komennolla
+
+```
+unzip
+```
+
+tai jollain Windowsin työkalulla.
+
+Tar-tiedoston voi purkaa Linuxissa komennolla
+
+```
+tar -zxvf ot-harjoitustyo-1.tar.gz
+```
+
+minkä jälkeen voi siirtyä puretun kansion sisään ja eteenpäin kansioon TicTacToe/.
+
+Täällä voi antaa komennon
+
+```
+mvn package
+```
+
+minkä jälkeen voi mennä kansioon target/, jossa voi antaa käynnistyskomennon
 
 ```
 java -jar tictactoe.jar

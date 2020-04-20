@@ -366,27 +366,27 @@ public class TicTacToeUI extends Application {
      * Method for setting game size choice buttons for 3x3 game.
      */
     private void setChoiceButtons3x3() {
-        this.choiceButton3on3 = this.gameComponents.createButton("3x3", 55, 45, 17, BackGroundStyle.BASIC.getBackGround());
-        this.choiceButton3to4 = this.gameComponents.createButton("4x4", 55, 45, 17, BackGroundStyle.BASIC.getBackGround());
-        this.choiceButton3to5 = this.gameComponents.createButton("5x5", 55, 45, 17, BackGroundStyle.BASIC.getBackGround());
+        this.choiceButton3on3 = this.gameComponents.createButton("3x3", 60, 45, 17, BackGroundStyle.BASIC.getBackGround());
+        this.choiceButton3to4 = this.gameComponents.createButton("4x4", 60, 45, 17, BackGroundStyle.BASIC.getBackGround());
+        this.choiceButton3to5 = this.gameComponents.createButton("5x5", 60, 45, 17, BackGroundStyle.BASIC.getBackGround());
     }
     
     /**
      * Method for setting game size choice buttons for 4x4 game.
      */
     private void setChoiceButtons4x4() {
-        this.choiceButton4to3 = this.gameComponents.createButton("3x3", 55, 45, 17, BackGroundStyle.BASIC.getBackGround());
-        this.choiceButton4on4 = this.gameComponents.createButton("4x4", 55, 45, 17, BackGroundStyle.BASIC.getBackGround());
-        this.choiceButton4to5 = this.gameComponents.createButton("5x5", 55, 45, 17, BackGroundStyle.BASIC.getBackGround());
+        this.choiceButton4to3 = this.gameComponents.createButton("3x3", 60, 45, 17, BackGroundStyle.BASIC.getBackGround());
+        this.choiceButton4on4 = this.gameComponents.createButton("4x4", 60, 45, 17, BackGroundStyle.BASIC.getBackGround());
+        this.choiceButton4to5 = this.gameComponents.createButton("5x5", 60, 45, 17, BackGroundStyle.BASIC.getBackGround());
     }
     
     /**
      * Method for setting game size choice buttons for 5x5 game.
      */
     private void setChoiceButtons5x5() {
-        this.choiceButton5to3 = this.gameComponents.createButton("3x3", 55, 45, 17, BackGroundStyle.BASIC.getBackGround());
-        this.choiceButton5to4 = this.gameComponents.createButton("4x4", 55, 45, 17, BackGroundStyle.BASIC.getBackGround());
-        this.choiceButton5on5 = this.gameComponents.createButton("5x5", 55, 45, 17, BackGroundStyle.BASIC.getBackGround());
+        this.choiceButton5to3 = this.gameComponents.createButton("3x3", 60, 45, 17, BackGroundStyle.BASIC.getBackGround());
+        this.choiceButton5to4 = this.gameComponents.createButton("4x4", 60, 45, 17, BackGroundStyle.BASIC.getBackGround());
+        this.choiceButton5on5 = this.gameComponents.createButton("5x5", 60, 45, 17, BackGroundStyle.BASIC.getBackGround());
     }
     
     /**
