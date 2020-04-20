@@ -15,7 +15,7 @@ password=
 
 Mikäli tiedosto katoaa, luo ohjelma sen oletussisältöineen uudestaan sovelluksen käynnistyttyä. Käyttäjä voi vaihtaa tietokantaa pelin käyttöjärjestelmässä ilman konfiguraatiotiedoston muuttamista.
 
-# Ohjelman käynnistäminen
+## Ohjelman käynnistäminen
 
 Ohjelma käynnistetään komennolla
 
@@ -23,7 +23,7 @@ Ohjelma käynnistetään komennolla
 java -jar tictactoe.jar
 ```
 
-# Ohjelman rakentaminen itse lähdekoodista
+## Ohjelman rakentaminen itse lähdekoodista
 
 Jos jar-tiedosto ei toimi, voi ladata lähdekoodin (source code) ja purkaa zip-tiedoston esim komennolla
 
@@ -51,7 +51,7 @@ minkä jälkeen voi mennä kansioon target/, jossa voi antaa käynnistyskomennon
 java -jar tictactoe.jar
 ```
 
-## Ohjelman käyttäminen
+# Ohjelman käyttäminen
 
 Sovellus käynnistyy pelinäkymään:
 
