@@ -28,6 +28,10 @@ public final class GameArea {
     private GridPane gridPane;
     private final ScoreService scoreService;
     
+    /**
+     * Constructor for the class GameArea.
+     * @param scoreService instance of ScoreService class
+     */
     public GameArea(ScoreService scoreService) {
         this.scoreService = scoreService;
     }
@@ -59,7 +63,6 @@ public final class GameArea {
         // both components into one box to be sent back to caller in class TicTacToeUI
         VBox gameArea = new VBox(gameLabel, textLabel, this.getGridpane());
         gameArea.setAlignment(Pos.CENTER);
-        
         return gameArea;
     }
 
@@ -78,7 +81,7 @@ public final class GameArea {
     
     /**
      * Method for getting stylized Label for scores VBox and current game indication.
-     * @param text
+     * @param text label text
      * @param color font color
      * @param fWeight font weight
      * @param fSize font size

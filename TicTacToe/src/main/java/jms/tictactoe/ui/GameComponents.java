@@ -42,7 +42,7 @@ public class GameComponents {
     
     /**
      * Method for creating a HBox for statistics.
-     * @param scoreService
+     * @param scoreService instance of ScoreService class
      * @return hBox
      */
     public final HBox getScoreBoxBig(ScoreService scoreService) {
@@ -61,7 +61,7 @@ public class GameComponents {
     
     /**
      * Method for stylizing the VBox for scores.
-     * @param text
+     * @param text game and score info text strings from method getScoreBoxBig
      * @return vBox
      */
     public VBox getScoreBoxSmall(String text) {
@@ -74,13 +74,13 @@ public class GameComponents {
     
     /**
      * Method for creating a HBox for new game and quit game buttons.
-     * @param ngButton new game button
-     * @param rButton
-     * @param qButton quit button
+     * @param newGameButton new game button
+     * @param resetButton reset button
+     * @param quitButton quit button
      * @return bBox
      */
-    public final HBox getButtonBox(Button ngButton, Button rButton, Button qButton) {
-        HBox bBox = new HBox(ngButton, rButton, qButton);
+    public final HBox getButtonBox(Button newGameButton, Button resetButton, Button quitButton) {
+        HBox bBox = new HBox(newGameButton, resetButton, quitButton);
         bBox.setAlignment(Pos.CENTER);
         bBox.setSpacing(10);
         bBox.setPadding(new Insets(10, 5, 5, 5));
@@ -89,10 +89,10 @@ public class GameComponents {
     
     /**
      * Method for creating the HBox for database choice and game size choice.
-     * @param databaseChoice
-     * @param choiceButton3
-     * @param choiceButton4
-     * @param choiceButton5
+     * @param databaseChoice HBox for database choise from method getDatabaseChoice
+     * @param choiceButton3 choice button for game size 3x3
+     * @param choiceButton4 choice button for game size 4x4
+     * @param choiceButton5 choice button for game size 5x5
      * @return hBox
      */
     public HBox getChoiceBox(HBox databaseChoice, Button choiceButton3, Button choiceButton4, Button choiceButton5) {
@@ -112,8 +112,8 @@ public class GameComponents {
 
     /**
      * Method for stylizing the VBox for game size decision and buttons.
-     * @param buttonBox
-     * @param choiceBox
+     * @param buttonBox HBox for new game, reset, and quit buttons from method getButtonBox
+     * @param choiceBox HBox for database choice from method getDatabaseChoice
      * @return vBox
      */
     public VBox getBottomBox(HBox buttonBox, HBox choiceBox) {
@@ -125,16 +125,16 @@ public class GameComponents {
 
     /**
      * Method for creating the HBox for database choice.
-     * @param dbButton
-     * @param textField
+     * @param databaseButton button for accepting database change
+     * @param textField TextField to indicate database choice
      * @return hBox
      */
-    public HBox getDatabaseChoice(Button dbButton, TextField textField) {
+    public HBox getDatabaseChoice(Button databaseButton, TextField textField) {
         Label label = this.getLabel("Database:", Color.LIGHTBLUE, FontWeight.NORMAL, 17, false);
         textField.setMinSize(130, 25);
         textField.setMaxSize(130, 25);
         VBox vBox = new VBox(label, textField);
-        HBox hBox = new HBox(vBox, dbButton);
+        HBox hBox = new HBox(vBox, databaseButton);
         hBox.setSpacing(4);
         hBox.setPadding(new Insets(7, 7, 7, 5));
         hBox.setBorder(new Border(new BorderStroke(Color.rgb(70, 80, 110), BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(2))));
@@ -143,11 +143,11 @@ public class GameComponents {
     
     /**
      * Method for creating main button bases.
-     * @param text
-     * @param width
-     * @param height
-     * @param fontSize
-     * @param backGround
+     * @param text text on the button
+     * @param width button width
+     * @param height button height
+     * @param fontSize button text font size
+     * @param backGround button appearance.
      * @return button
      */
     public Button createButton(String text, int width, int height, int fontSize, Background backGround) {
@@ -167,7 +167,7 @@ public class GameComponents {
     
     /**
      * Method for getting game area (VBox).
-     * @param scoreService
+     * @param scoreService instance of ScoreService class
      * @return vBox
      */
     public VBox getArea(ScoreService scoreService) {
@@ -177,12 +177,12 @@ public class GameComponents {
     }
     
     /**
-     * Method for getting stylized Label for scores VBox and current game indication.
-     * @param text
-     * @param color font color
-     * @param fWeight font weight
-     * @param fSize font size
-     * @param bloom
+     * Method for getting stylized Label for score VBox, database choice, and current game indication.
+     * @param text text to set
+     * @param color text font color
+     * @param fWeight text font weight
+     * @param fSize text font size
+     * @param bloom bloom effect for the text
      * @return label
      */
     public Label getLabel(String text, Color color, FontWeight fWeight, int fSize, boolean bloom) {

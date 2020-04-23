@@ -16,8 +16,6 @@ import javafx.scene.layout.BorderStrokeStyle;
 import javafx.scene.layout.BorderWidths;
 import javafx.scene.layout.CornerRadii;
 
-//import jms.tictactoe.ui.BackGroundStyle;
-//import jms.tictactoe.ui.BorderStyle;
 import jms.tictactoe.ui.GameSize;
 import jms.tictactoe.ui.WinRow;
 
@@ -31,7 +29,12 @@ public final class GameSquare {
     private final ScoreService scoreService;
     private boolean finished;
     private final Label textLabel;
-            
+
+    /**
+     * Constructor for the class GameSquare.
+     * @param textLabel label for the game squares
+     * @param scoreService instance of ScoreService class
+     */
     public GameSquare(Label textLabel, ScoreService scoreService) {
         this.textLabel = textLabel;
         this.scoreService = scoreService;
@@ -79,8 +82,8 @@ public final class GameSquare {
     
     /**
      * Method for looping the game grid horizontally and vertically.
-     * @param squaresTocheck
-     * @return 
+     * @param squaresTocheck array to store X and O marks
+     * @return true if someone wins or false if game continues
      */
     private boolean loopHorizontalAndVertical(String[][] squaresTocheck) {
         for (int i = 0; i < GameSize.SIZE.getGameSize(); i++) {
@@ -102,10 +105,10 @@ public final class GameSquare {
     
     /**
      * Method for looping the game grid diagonally.
-     * @param squaresTocheck
-     * @param row3
-     * @param row4
-     * @return 
+     * @param squaresTocheck array to store X and O marks
+     * @param row3 row to check
+     * @param row4 row to check
+     * @return true if someone wins or false if game continues
      */
     private boolean loopDiagonals(String[][] squaresTocheck, String row3, String row4) {
         for (int i = 0; i < GameSize.SIZE.getGameSize(); i++) {
@@ -121,8 +124,8 @@ public final class GameSquare {
     /**
      * Method for looping the whole grid for draw.
      * @param squaresTocheck
-     * @param row
-     * @return 
+     * @param row row to check
+     * @return true if game is a draw or false if not
      */
     private boolean loopAllForDraw(String[][] squaresTocheck, String row) {
         for (int i = 0; i < GameSize.SIZE.getGameSize(); i++) {
@@ -136,7 +139,7 @@ public final class GameSquare {
     /**
      * Method for checking rows and to announce winner.
      * @param rowTocheck array to store X and O marks
-     * @return false if no ready row, true if ready row
+     * @return false if there is no winning rows, true if there is a winning row
      */
     public boolean checkRow(String rowTocheck) {
         if (rowTocheck.equals(WinRow.X.getWinCode())) {
@@ -179,11 +182,11 @@ public final class GameSquare {
     
     /**
      * Method for setting square button appearance and textlabel text/color.
-     * @param square
-     * @param which
-     * @param color1
-     * @param color2
-     * @param turn
+     * @param square button to set
+     * @param which player identification
+     * @param color1 color for the button
+     * @param color2 color for the label text
+     * @param turn label text to indicate whose turn it is
      */
     public void setSquare(Button square, String which, Color color1, Color color2, String turn) {
         square.setText(which);
@@ -193,6 +196,12 @@ public final class GameSquare {
         this.textLabel.setTextFill(color2);
     }
     
+    /**
+     * Method for setting the button text (MouseEvent from method createSquare).
+     * @param square button to set
+     * @param squares buttons to check
+     * @param id square button id text
+     */
     public void setOnMouseClicked(Button square, String[][] squares, String id) {
         String whoseTurn = this.textLabel.getText();
         if (!this.isFinished(squares) && !this.getFinished()) {
@@ -215,11 +224,10 @@ public final class GameSquare {
     
     /**
      * Method for getting square button with basic appearance.
-     * @param base
-     * @param id
-     * @return bloomEffect
+     * @param base game button
+     * @param id game button id text
+     * @return game button
      */
-        
     private Button getSquareBase(Button base, String id) {
         base.setId(id);
         base.setFont(Font.font("Monospaced", FontWeight.BOLD, 150 / GameSize.SIZE.getGameSize()));

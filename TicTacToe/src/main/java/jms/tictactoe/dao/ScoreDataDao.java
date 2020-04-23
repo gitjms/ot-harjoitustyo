@@ -17,6 +17,14 @@ public final class ScoreDataDao implements ScoreDao {
 
     private final ScoreData scoreData;
     
+    /**
+     * Constructor for the class ScoreDataDao which initiates database tables.
+     * @param getData instance of ScoreData class
+     * @param connection database
+     * @param statement command for database controlling
+     * @throws SQLException throws SQL exception
+     * @throws Exception throws exception
+     */
     public ScoreDataDao(ScoreData getData, Connection connection, Statement statement) throws SQLException, Exception {
         this.scoreData = getData;
         this.initiateTables(connection, "SCORES", "GAMES");
@@ -37,6 +45,14 @@ public final class ScoreDataDao implements ScoreDao {
         }
     }
 
+    /**
+     * Method for initiating two database tables for scores and games.
+     * @param connection database
+     * @param table1 for scores
+     * @param table2 for games
+     * @throws SQLException
+     * @throws Exception 
+     */
     private void initiateTables(Connection connection, String table1, String table2) throws SQLException, Exception {
         if (!checkTable(connection, table1) || !checkTable(connection, table2)) {
             this.scoreData.deleteTable("scores");
@@ -46,6 +62,14 @@ public final class ScoreDataDao implements ScoreDao {
         }
     }
     
+    /**
+     * Method for checking if a database table exists.
+     * @param connection database
+     * @param table to check
+     * @return true if table exists or false if not
+     * @throws SQLException
+     * @throws Exception 
+     */
     private boolean checkTable(Connection connection, String table) throws SQLException, Exception {
         ResultSet resultTable = connection.getMetaData().getTables(null, null, table, new String[] {"TABLE", "VIEW"});
         boolean tableExists = false;
@@ -59,6 +83,11 @@ public final class ScoreDataDao implements ScoreDao {
         return tableExists;
     }
     
+    /**
+     * Method for setting score, i.e. points for certain player.
+     * @param player whose score to set
+     * @param points to set for the player
+     */
     @Override
     public void setScore(String player, int points) {
         try {
@@ -68,6 +97,9 @@ public final class ScoreDataDao implements ScoreDao {
         }
     }
 
+    /**
+     * Method for resetting all points and game data.
+     */
     @Override
     public void resetPoints() {
         try {
@@ -79,6 +111,11 @@ public final class ScoreDataDao implements ScoreDao {
         }
     }
 
+    /**
+     * Method for getting points.
+     * @param id for whose points to get
+     * @return points or default 0
+     */
     @Override
     public int getPoints(String id) {
         try {
@@ -89,6 +126,10 @@ public final class ScoreDataDao implements ScoreDao {
         return 0;
     }
 
+    /**
+     * Method for getting amount of played games.
+     * @return amount of played games
+     */
     @Override
     public int getAmount() {
         try {
@@ -99,6 +140,10 @@ public final class ScoreDataDao implements ScoreDao {
         return 0;
     }
 
+    /**
+     * Method for setting amount of played games.
+     * @param amount of played games
+     */
     @Override
     public void setAmount(int amount) {
         try {
@@ -108,6 +153,10 @@ public final class ScoreDataDao implements ScoreDao {
         }
     }
 
+    /**
+     * Method for getting amount of draws.
+     * @return amount of draws
+     */
     @Override
     public int getDraws() {
         try {
@@ -118,6 +167,10 @@ public final class ScoreDataDao implements ScoreDao {
         return 0;
     }
 
+    /**
+     * Method for setting amount of draws.
+     * @param draws amount of draws to set
+     */
     @Override
     public void setDraws(int draws) {
         try {

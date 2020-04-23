@@ -79,4 +79,11 @@ JavaDoc voidaan generoida komennolla
 ```
 mvn javadoc:javadoc
 ```
+Tulosta voi tarkastella avaamalla selaimella esimerkiksi jokin seuraavista tiedostoista:
+
+* target/site/apidocs/index.html
+* target/site/apidocs/allclasses-index.html
+* target/site/apidocs/allpackages-index.html
+* target/site/apidocs/index-all.html
+* target/site/apidocs/overview-tree.html
 ***

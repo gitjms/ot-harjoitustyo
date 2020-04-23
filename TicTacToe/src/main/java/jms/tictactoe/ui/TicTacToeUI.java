@@ -93,7 +93,7 @@ public class TicTacToeUI extends Application {
     
     /**
      * Initiate main components.
-     * @throws java.io.FileNotFoundException
+     * @throws java.io.FileNotFoundException throws file not found exception
      */
     @Override
     public void init() throws FileNotFoundException, IOException, Exception {
@@ -116,8 +116,8 @@ public class TicTacToeUI extends Application {
     
     /**
      * Method for starting the user interface.
-     * @param primaryStage 
-     * @throws java.lang.Exception 
+     * @param primaryStage game stage
+     * @throws java.lang.Exception throws exception
      */
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -140,8 +140,8 @@ public class TicTacToeUI extends Application {
 
     /**
      * Method for closing the user interface.
-     * @param primaryStage 
-     * @throws java.sql.SQLException 
+     * @param primaryStage game stage
+     * @throws SQLException throws SQL exception
      */
     public void stop(Stage primaryStage) throws SQLException {
         System.out.println("Application closes");
@@ -150,14 +150,18 @@ public class TicTacToeUI extends Application {
         primaryStage.close();
     }
     
+    /**
+     * Default main method.
+     * @param args default parameter
+     */
     public static void main(String[] args) {
         launch(args);
     }
     
     /**
      * Method for setting necesary tools: database, dao, mainpanes and scenes. 
-     * @throws java.io.FileNotFoundException
-     * @throws java.lang.Exception 
+     * @throws FileNotFoundException throws file not found exception
+     * @throws Exception throws exception
      */
     private void setNecessities() throws FileNotFoundException, IOException, Exception {
         this.setDataBase();
@@ -175,8 +179,9 @@ public class TicTacToeUI extends Application {
     /**
      * Method for setting database. Default is scoreData. If there is not scoreData file,
      * it will be created. Checks if user wants other database and tries to use it.
-     * @throws java.io.FileNotFoundException 
-     * @throws java.sql.SQLException 
+     * @throws FileNotFoundException throws file not found exception
+     * @throws IOException throws IO exception
+     * @throws SQLException throws SQL exception
      */
     public void setDataBase() throws FileNotFoundException, IOException, SQLException {
         Properties properties = new Properties();
@@ -198,11 +203,11 @@ public class TicTacToeUI extends Application {
     
     /**
      * Method for testing the database connection.If it fails, default scoreData will be used. 
-     * @param properties
-     * @param dbUrl
-     * @param file
-     * @param dbUser
-     * @param dbPass
+     * @param properties configuration properties
+     * @param dbUrl database URL
+     * @param file database name
+     * @param dbUser database user
+     * @param dbPass database password
      */
     public void tryConnection(Properties properties, String dbUrl, String file, String dbUser, String dbPass) {
         try { 
@@ -219,7 +224,7 @@ public class TicTacToeUI extends Application {
     
     /**
      * Method for setting the basic stage appearance.
-     * @param primaryStage 
+     * @param primaryStage game stage
      */
     private void setStage(Stage primaryStage) {
         Image iconImg = new Image("/Tic-Tac-Toe-Game-red.png");
@@ -247,7 +252,7 @@ public class TicTacToeUI extends Application {
     
     /**
      * Method for setting "new game" button actions for 3x3 area.
-     * @param stage
+     * @param stage game stage
      */
     private void setDatabaseChoiceButtonActions() {
         this.gameComponents = new GameComponents();
@@ -272,7 +277,7 @@ public class TicTacToeUI extends Application {
     
     /**
      * Method for setting "new game" button actions.
-     * @param stage
+     * @param stage game stage
      */
     private void setNewGameButtonActions() {
         this.newgameButton3x3.setOnAction(e -> {
@@ -295,7 +300,7 @@ public class TicTacToeUI extends Application {
 
     /**
      * Method for setting "reset game" button actions for 3x3 area.
-     * @param stage
+     * @param stage game stage
      */
     private void setResetGameButtofnActions() {
         this.resetButton3x3.setOnAction(e -> {
@@ -320,7 +325,7 @@ public class TicTacToeUI extends Application {
      
     /**
      * Method for setting "quit game" button actions.
-     * @param stage
+     * @param stage game stage
      */
     private void setQuitGameButtonActions() {
         this.quitButton3x3.setOnAction(e -> {
@@ -345,7 +350,7 @@ public class TicTacToeUI extends Application {
     
     /** 
      * Method for setting game size choice button actions.
-     * @param stage
+     * @param stage game stage
      */
     private void setGameSizeChoiceButtonActions(Button on, Button off1, Button off2, Button off3, Stage stage, String xs, String os, int which) {
         off1.setOnMouseClicked(f -> {
@@ -396,12 +401,15 @@ public class TicTacToeUI extends Application {
     
     /**
      * Method for changing game size choice button appearances.
-     * @param buttonON
-     * @param buttonOFF1
-     * @param buttonOFF2
-     * @param buttonOFF3
-     * @param view
-     * @param stage
+     * @param buttonON button to set on
+     * @param buttonOFF1 button to set off
+     * @param buttonOFF2 button to set off
+     * @param buttonOFF3 button to set off
+     * @param view scene to handle
+     * @param stage game stage
+     * @param xs text string for the win code for X
+     * @param os text string for the win code for O
+     * @param which indication for the game size
      */
     private void handleButtons(Button buttonON, Button buttonOFF1, Button buttonOFF2, Button buttonOFF3, Scene view, Stage stage, String xs, String os, int which) {
         WinRow.X.setWinCode(xs);
@@ -446,7 +454,6 @@ public class TicTacToeUI extends Application {
     
     /**
      * Method for setting game area (VBox), panes (BorderPane), and scene for 3x3 game.
-     * @param addGames
      */
     private void setAreaPaneAndScene3x3() {
         this.area3x3 = this.gameComponents.getArea(this.scoreService);
@@ -457,7 +464,6 @@ public class TicTacToeUI extends Application {
     
     /**
      * Method for setting game area (VBox), panes (BorderPane), and scene for 4x4 game.
-     * @param addGames
      */
     private void setAreaPaneAndScene4x4() {
         this.area4x4 = this.gameComponents.getArea(this.scoreService);
@@ -468,7 +474,6 @@ public class TicTacToeUI extends Application {
     
     /**
      * Method for setting game area (VBox), panes (BorderPane), and scene for 5x5 game.
-     * @param addGames
      */
     private void setAreaPaneAndScene5x5() {
         this.area5x5 = this.gameComponents.getArea(this.scoreService);

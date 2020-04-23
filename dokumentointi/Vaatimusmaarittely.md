@@ -20,8 +20,8 @@ Peli näkee pelaajat vain ristien ja nollien edustajina.
 
 ## Suunnitellut toiminnallisuudet
 
-- [X] Viikko 5: Peli tallentaa pelattujen pelien määrän sekä ristien ja nollien voitot tietokantaan.
-- [X] Viikko 5: Käyttäjä voi vaihtaa tietokantaa käyttöliittymästä käsin.
+- [X] Peli tallentaa pelattujen pelien määrän sekä ristien ja nollien voitot tietokantaan.
+- [X] Käyttäjä voi vaihtaa tietokantaa käyttöliittymästä käsin (alimpana vasemmalla).
 - [X] Ristien ja nollien voittostatistiikka ja tasapelit näkyvät pelilaudan yläosassa.
 - [x] Seuraavaksi ylimpänä on teksti, joka ilmoittaa kulloisenkin pelin numeron.
 - [x] Tämän alla on teksti, jossa ilmoitetaan pelattavan symbolin vuoro sekä pelin loputulos.
@@ -29,7 +29,7 @@ Peli näkee pelaajat vain ristien ja nollien edustajina.
 - [x] Peliruudukon alla vasemmalla on uuden pelin avaava nappula.
 - [X] Peliruudukon alla keskellä on nappula joka nollaa pelin ja tallennetun datan.
 - [x] Peliruudukon alla oikealla on nappula jolla suljetaan peli.
-- [X] Alimpana on nappulat, joilla voi valita pelin koon: 3x3, 4x4 ja 5x5.
+- [X] Alimpana oikealla on nappulat, joilla voi valita pelin koon: 3x3, 4x4 ja 5x5.
 
 ## Jatkokehitysideat
 

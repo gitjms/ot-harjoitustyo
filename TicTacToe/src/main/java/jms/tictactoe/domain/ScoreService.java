@@ -10,10 +10,19 @@ public class ScoreService implements ScoreDao {
     
     private final ScoreDao scoreDao;
     
+    /**
+     * Constructor for the class ScoreService.
+     * @param scoreDao instance of DAO interface
+     */
     public ScoreService(ScoreDao scoreDao) {
         this.scoreDao = scoreDao;
     }
     
+    /**
+     * Method for creating score object.
+     * @param id whose score to create (player)
+     * @param points player points for the score
+     */
     public void createScore(String id, int points) { 
         this.scoreDao.setScore(id, points);
     }
