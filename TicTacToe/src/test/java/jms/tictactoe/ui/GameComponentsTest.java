@@ -5,12 +5,17 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import jms.tictactoe.dao.ScoreDataDao;
 import jms.tictactoe.domain.ScoreService;
 import org.junit.After;
@@ -103,7 +108,7 @@ public class GameComponentsTest {
     @Test
     public void testCreateButtonReturnsButton() {
         System.out.println("testCreateButtonReturnsButton");
-        Button result = this.instance.createButton("text", 20, 20, 20, BackGroundStyle.BASIC.getBackGround());
+        Button result = this.instance.createButton("text", 20, 20, 20, (new Background(new BackgroundFill(Color.rgb(50, 50, 70), CornerRadii.EMPTY, Insets.EMPTY))));
         assertNotNull(result);
     }
 
@@ -113,7 +118,7 @@ public class GameComponentsTest {
     @Test
     public void testCreateChoiceButtonReturnsButton() {
         System.out.println("testCreateChoiceButtonReturnsButton");
-        Button result = this.instance.createButton("text", 20, 20, 20, BackGroundStyle.BASIC.getBackGround());
+        Button result = this.instance.createButton("text", 20, 20, 20, (new Background(new BackgroundFill(Color.rgb(50, 50, 70), CornerRadii.EMPTY, Insets.EMPTY))));
         assertNotNull(result);
     }
 

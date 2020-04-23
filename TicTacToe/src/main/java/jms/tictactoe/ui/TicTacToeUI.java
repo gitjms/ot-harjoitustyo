@@ -16,14 +16,19 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import jms.tictactoe.dao.ScoreDataDao;
@@ -126,7 +131,7 @@ public class TicTacToeUI extends Application {
         this.setGameSizeChoiceButtonActions(this.choiceButton5on5, this.choiceButton4to5, this.choiceButton4to3, this.choiceButton4on4, primaryStage, "XXXXX", "OOOOO", 5);
         this.setGameSizeChoiceButtonActions(this.choiceButton3on3, this.choiceButton5to3, this.choiceButton5to4, this.choiceButton5on5, primaryStage, "XXX", "OOO", 3);
         this.setGameSizeChoiceButtonActions(this.choiceButton4on4, this.choiceButton5to4, this.choiceButton5to3, this.choiceButton5on5, primaryStage, "XXXX", "OOOO", 4);
-        this.choiceButton3on3.setBackground(BackGroundStyle.EFFECT.getBackGround());
+        this.choiceButton3on3.setBackground(new Background(new BackgroundFill(Color.STEELBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
         this.setBoxes3x3();
         this.setAreaPaneAndScene3x3();
         this.setStage(this.stage);
@@ -229,15 +234,15 @@ public class TicTacToeUI extends Application {
      * Method for setting main buttons.
      */
     private void setButtons() {
-        this.newgameButton3x3 = this.gameComponents.createButton("New Game", 150, 30, 20, BackGroundStyle.BASIC.getBackGround());
-        this.newgameButton4x4 = this.gameComponents.createButton("New Game", 150, 30, 20, BackGroundStyle.BASIC.getBackGround());
-        this.newgameButton5x5 = this.gameComponents.createButton("New Game", 150, 30, 20, BackGroundStyle.BASIC.getBackGround());
-        this.resetButton3x3 = this.gameComponents.createButton("Reset", 100, 30, 20, BackGroundStyle.BASIC.getBackGround());
-        this.resetButton4x4 = this.gameComponents.createButton("Reset", 100, 30, 20, BackGroundStyle.BASIC.getBackGround());
-        this.resetButton5x5 = this.gameComponents.createButton("Reset", 100, 30, 20, BackGroundStyle.BASIC.getBackGround());
-        this.quitButton3x3 = this.gameComponents.createButton("Quit Game", 150, 30, 20, BackGroundStyle.BASIC.getBackGround());
-        this.quitButton4x4 = this.gameComponents.createButton("Quit Game", 150, 30, 20, BackGroundStyle.BASIC.getBackGround());
-        this.quitButton5x5 = this.gameComponents.createButton("Quit Game", 150, 30, 20, BackGroundStyle.BASIC.getBackGround());
+        this.newgameButton3x3 = this.gameComponents.createButton("New Game", 150, 30, 20, (new Background(new BackgroundFill(Color.rgb(70, 80, 110), CornerRadii.EMPTY, Insets.EMPTY))));
+        this.newgameButton4x4 = this.gameComponents.createButton("New Game", 150, 30, 20, (new Background(new BackgroundFill(Color.rgb(70, 80, 110), CornerRadii.EMPTY, Insets.EMPTY))));
+        this.newgameButton5x5 = this.gameComponents.createButton("New Game", 150, 30, 20, (new Background(new BackgroundFill(Color.rgb(70, 80, 110), CornerRadii.EMPTY, Insets.EMPTY))));
+        this.resetButton3x3 = this.gameComponents.createButton("Reset", 100, 30, 20, (new Background(new BackgroundFill(Color.rgb(70, 80, 110), CornerRadii.EMPTY, Insets.EMPTY))));
+        this.resetButton4x4 = this.gameComponents.createButton("Reset", 100, 30, 20, (new Background(new BackgroundFill(Color.rgb(70, 80, 110), CornerRadii.EMPTY, Insets.EMPTY))));
+        this.resetButton5x5 = this.gameComponents.createButton("Reset", 100, 30, 20, (new Background(new BackgroundFill(Color.rgb(70, 80, 110), CornerRadii.EMPTY, Insets.EMPTY))));
+        this.quitButton3x3 = this.gameComponents.createButton("Quit Game", 150, 30, 20, (new Background(new BackgroundFill(Color.rgb(70, 80, 110), CornerRadii.EMPTY, Insets.EMPTY))));
+        this.quitButton4x4 = this.gameComponents.createButton("Quit Game", 150, 30, 20, (new Background(new BackgroundFill(Color.rgb(70, 80, 110), CornerRadii.EMPTY, Insets.EMPTY))));
+        this.quitButton5x5 = this.gameComponents.createButton("Quit Game", 150, 30, 20, (new Background(new BackgroundFill(Color.rgb(70, 80, 110), CornerRadii.EMPTY, Insets.EMPTY))));
     }
     
     /**
@@ -248,7 +253,7 @@ public class TicTacToeUI extends Application {
         this.gameComponents = new GameComponents();
         this.dbChoiceTextField = new TextField("");
         this.dbChoiceTextField.setStyle("-fx-font-size: 16px;");
-        this.dbButton = this.gameComponents.createButton("GO", 55, 45, 15, BackGroundStyle.LIGHT.getBackGround());
+        this.dbButton = this.gameComponents.createButton("GO", 55, 45, 15, (new Background(new BackgroundFill(Color.rgb(70, 80, 110), CornerRadii.EMPTY, Insets.EMPTY))));
         this.databaseChoice = this.gameComponents.getDatabaseChoice(this.dbButton, this.dbChoiceTextField);
         this.dbButton.addEventHandler(MouseEvent.MOUSE_CLICKED,
             (MouseEvent e) -> {
@@ -366,27 +371,27 @@ public class TicTacToeUI extends Application {
      * Method for setting game size choice buttons for 3x3 game.
      */
     private void setChoiceButtons3x3() {
-        this.choiceButton3on3 = this.gameComponents.createButton("3x3", 60, 45, 17, BackGroundStyle.BASIC.getBackGround());
-        this.choiceButton3to4 = this.gameComponents.createButton("4x4", 60, 45, 17, BackGroundStyle.BASIC.getBackGround());
-        this.choiceButton3to5 = this.gameComponents.createButton("5x5", 60, 45, 17, BackGroundStyle.BASIC.getBackGround());
+        this.choiceButton3on3 = this.gameComponents.createButton("3x3", 60, 45, 17, (new Background(new BackgroundFill(Color.rgb(70, 80, 110), CornerRadii.EMPTY, Insets.EMPTY))));
+        this.choiceButton3to4 = this.gameComponents.createButton("4x4", 60, 45, 17, (new Background(new BackgroundFill(Color.rgb(70, 80, 110), CornerRadii.EMPTY, Insets.EMPTY))));
+        this.choiceButton3to5 = this.gameComponents.createButton("5x5", 60, 45, 17, (new Background(new BackgroundFill(Color.rgb(70, 80, 110), CornerRadii.EMPTY, Insets.EMPTY))));
     }
     
     /**
      * Method for setting game size choice buttons for 4x4 game.
      */
     private void setChoiceButtons4x4() {
-        this.choiceButton4to3 = this.gameComponents.createButton("3x3", 60, 45, 17, BackGroundStyle.BASIC.getBackGround());
-        this.choiceButton4on4 = this.gameComponents.createButton("4x4", 60, 45, 17, BackGroundStyle.BASIC.getBackGround());
-        this.choiceButton4to5 = this.gameComponents.createButton("5x5", 60, 45, 17, BackGroundStyle.BASIC.getBackGround());
+        this.choiceButton4to3 = this.gameComponents.createButton("3x3", 60, 45, 17, (new Background(new BackgroundFill(Color.rgb(70, 80, 110), CornerRadii.EMPTY, Insets.EMPTY))));
+        this.choiceButton4on4 = this.gameComponents.createButton("4x4", 60, 45, 17, (new Background(new BackgroundFill(Color.rgb(70, 80, 110), CornerRadii.EMPTY, Insets.EMPTY))));
+        this.choiceButton4to5 = this.gameComponents.createButton("5x5", 60, 45, 17, (new Background(new BackgroundFill(Color.rgb(70, 80, 110), CornerRadii.EMPTY, Insets.EMPTY))));
     }
     
     /**
      * Method for setting game size choice buttons for 5x5 game.
      */
     private void setChoiceButtons5x5() {
-        this.choiceButton5to3 = this.gameComponents.createButton("3x3", 60, 45, 17, BackGroundStyle.BASIC.getBackGround());
-        this.choiceButton5to4 = this.gameComponents.createButton("4x4", 60, 45, 17, BackGroundStyle.BASIC.getBackGround());
-        this.choiceButton5on5 = this.gameComponents.createButton("5x5", 60, 45, 17, BackGroundStyle.BASIC.getBackGround());
+        this.choiceButton5to3 = this.gameComponents.createButton("3x3", 60, 45, 17, (new Background(new BackgroundFill(Color.rgb(70, 80, 110), CornerRadii.EMPTY, Insets.EMPTY))));
+        this.choiceButton5to4 = this.gameComponents.createButton("4x4", 60, 45, 17, (new Background(new BackgroundFill(Color.rgb(70, 80, 110), CornerRadii.EMPTY, Insets.EMPTY))));
+        this.choiceButton5on5 = this.gameComponents.createButton("5x5", 60, 45, 17, (new Background(new BackgroundFill(Color.rgb(70, 80, 110), CornerRadii.EMPTY, Insets.EMPTY))));
     }
     
     /**
@@ -402,10 +407,10 @@ public class TicTacToeUI extends Application {
         WinRow.X.setWinCode(xs);
         WinRow.O.setWinCode(os);
         GameSize.SIZE.setGameSize(which == 3 ? 3 : which == 4 ? 4 : 5);
-        buttonON.setBackground(BackGroundStyle.EFFECT.getBackGround());
-        buttonOFF1.setBackground(BackGroundStyle.BASIC.getBackGround());
-        buttonOFF2.setBackground(BackGroundStyle.BASIC.getBackGround());
-        buttonOFF3.setBackground(BackGroundStyle.BASIC.getBackGround());
+        buttonON.setBackground(new Background(new BackgroundFill(Color.STEELBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
+        buttonOFF1.setBackground(new Background(new BackgroundFill(Color.rgb(50, 50, 70), CornerRadii.EMPTY, Insets.EMPTY)));
+        buttonOFF2.setBackground(new Background(new BackgroundFill(Color.rgb(50, 50, 70), CornerRadii.EMPTY, Insets.EMPTY)));
+        buttonOFF3.setBackground(new Background(new BackgroundFill(Color.rgb(50, 50, 70), CornerRadii.EMPTY, Insets.EMPTY)));
         stage.setScene(view);
     }
     

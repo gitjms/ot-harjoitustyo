@@ -1,6 +1,6 @@
 ## Pakkaus-/luokkakaavio
 
-<img src="https://user-images.githubusercontent.com/46410240/79480276-94a99900-8016-11ea-9531-61481bf2f642.png" alt="Pakkauskaavio" width="600" >
+<img src="https://user-images.githubusercontent.com/46410240/80072988-ae376d00-854f-11ea-8bec-e7581f3d8762.png" alt="Pakkauskaavio" width="600" >
 
 ***
 

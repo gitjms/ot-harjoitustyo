@@ -1,5 +1,6 @@
 package jms.tictactoe.domain;
 
+import javafx.geometry.Insets;
 import javafx.scene.effect.Bloom;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
@@ -7,9 +8,16 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderStroke;
+import javafx.scene.layout.BorderStrokeStyle;
+import javafx.scene.layout.BorderWidths;
+import javafx.scene.layout.CornerRadii;
 
-import jms.tictactoe.ui.BackGroundStyle;
-import jms.tictactoe.ui.BorderStyle;
+//import jms.tictactoe.ui.BackGroundStyle;
+//import jms.tictactoe.ui.BorderStyle;
 import jms.tictactoe.ui.GameSize;
 import jms.tictactoe.ui.WinRow;
 
@@ -215,9 +223,9 @@ public final class GameSquare {
     private Button getSquareBase(Button base, String id) {
         base.setId(id);
         base.setFont(Font.font("Monospaced", FontWeight.BOLD, 150 / GameSize.SIZE.getGameSize()));
-        base.setBackground(BackGroundStyle.EFFECT.getBackGround());
+        base.setBackground(new Background(new BackgroundFill(Color.STEELBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
         base.setEffect(this.getBloomEffect());
-        base.setBorder(BorderStyle.LIGHT.getBorder());
+        base.setBorder(new Border(new BorderStroke(Color.LIGHTBLUE, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
         return base;
     }
     

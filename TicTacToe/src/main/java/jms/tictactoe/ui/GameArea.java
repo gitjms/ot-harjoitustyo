@@ -1,10 +1,14 @@
 package jms.tictactoe.ui;
 
+import javafx.geometry.Insets;
 import jms.tictactoe.domain.GameSquare;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.effect.Bloom;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -29,7 +33,7 @@ public final class GameArea {
     }
     
     /**
-     * Method for creating the VBox for game area main components:
+     * Method for creating the VBox for game area main components.
      * top:     Text Label for game number
      * middle:  Text Label for whose turn/who wins
      * bottom:  GridPane for X and O squares
@@ -64,7 +68,7 @@ public final class GameArea {
      */
     public void setGridpane() {
         this.gridPane = new GridPane();
-        this.gridPane.setBackground(BackGroundStyle.BASIC.getBackGround());
+        this.gridPane.setBackground(new Background(new BackgroundFill(Color.rgb(50, 50, 70), CornerRadii.EMPTY, Insets.EMPTY)));
         this.gridPane.setMinSize(450, 320);
         this.gridPane.setMaxSize(450, 320);
         this.gridPane.setAlignment(Pos.CENTER);

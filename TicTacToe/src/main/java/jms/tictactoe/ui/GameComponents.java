@@ -9,7 +9,13 @@ import javafx.scene.effect.Bloom;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.BorderStroke;
+import javafx.scene.layout.BorderStrokeStyle;
+import javafx.scene.layout.BorderWidths;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -30,7 +36,7 @@ public class GameComponents {
      */
     public final BorderPane getMainpane() {
         BorderPane mainPane = new BorderPane();
-        mainPane.setBackground(BackGroundStyle.BASIC.getBackGround());
+        mainPane.setBackground(new Background(new BackgroundFill(Color.rgb(50, 50, 70), CornerRadii.EMPTY, Insets.EMPTY)));
         return mainPane;
     }
     
@@ -60,7 +66,7 @@ public class GameComponents {
      */
     public VBox getScoreBoxSmall(String text) {
         VBox vBox = new VBox(this.getLabel(text, Color.LIGHTBLUE, FontWeight.NORMAL, 20, true));
-        vBox.setBackground(BackGroundStyle.BASIC.getBackGround());
+        vBox.setBackground(new Background(new BackgroundFill(Color.rgb(50, 50, 70), CornerRadii.EMPTY, Insets.EMPTY)));
         vBox.setPrefSize(100, 100);
         vBox.setAlignment(Pos.CENTER);
         return vBox;
@@ -77,7 +83,7 @@ public class GameComponents {
         HBox bBox = new HBox(ngButton, rButton, qButton);
         bBox.setAlignment(Pos.CENTER);
         bBox.setSpacing(10);
-        bBox.setPadding(new Insets(10, 5, 0, 5));
+        bBox.setPadding(new Insets(10, 5, 5, 5));
         return bBox;
     }
     
@@ -92,13 +98,13 @@ public class GameComponents {
     public HBox getChoiceBox(HBox databaseChoice, Button choiceButton3, Button choiceButton4, Button choiceButton5) {
         HBox rightBox = new HBox(choiceButton3, choiceButton4, choiceButton5);
         rightBox.setSpacing(5);
-        rightBox.setPadding(new Insets(0, 2, 0, 2));
-        rightBox.setBackground(BackGroundStyle.BASIC.getBackGround());
-        rightBox.setBorder(BorderStyle.MEDIUM.getBorder());
+        rightBox.setPadding(new Insets(3, 7, 3, 7));
+        rightBox.setBackground(new Background(new BackgroundFill(Color.rgb(50, 50, 70), CornerRadii.EMPTY, Insets.EMPTY)));
+        rightBox.setBorder(new Border(new BorderStroke(Color.rgb(70, 80, 110), BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(2))));
         rightBox.setAlignment(Pos.CENTER);
         HBox hBox = new HBox(databaseChoice, rightBox);
         hBox.setAlignment(Pos.CENTER);
-        hBox.setSpacing(15);
+        hBox.setSpacing(8);
         hBox.setPadding(new Insets(10, 5, 20, 5));
         hBox.setId("choice-box");
         return hBox;
@@ -112,7 +118,7 @@ public class GameComponents {
      */
     public VBox getBottomBox(HBox buttonBox, HBox choiceBox) {
         VBox vBox = new VBox(buttonBox, choiceBox);
-        vBox.setBackground(BackGroundStyle.BASIC.getBackGround());
+        vBox.setBackground(new Background(new BackgroundFill(Color.rgb(50, 50, 70), CornerRadii.EMPTY, Insets.EMPTY)));
         vBox.setAlignment(Pos.CENTER);
         return vBox;
     }
@@ -125,13 +131,13 @@ public class GameComponents {
      */
     public HBox getDatabaseChoice(Button dbButton, TextField textField) {
         Label label = this.getLabel("Database:", Color.LIGHTBLUE, FontWeight.NORMAL, 17, false);
-        textField.setMinSize(120, 25);
-        textField.setMaxSize(120, 25);
+        textField.setMinSize(130, 25);
+        textField.setMaxSize(130, 25);
         VBox vBox = new VBox(label, textField);
         HBox hBox = new HBox(vBox, dbButton);
-        hBox.setSpacing(2);
-        hBox.setPadding(new Insets(2, 2, 2, 5));
-        hBox.setBorder(BorderStyle.MEDIUM.getBorder());
+        hBox.setSpacing(4);
+        hBox.setPadding(new Insets(7, 7, 7, 5));
+        hBox.setBorder(new Border(new BorderStroke(Color.rgb(70, 80, 110), BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(2))));
         return hBox;
     }
     
@@ -162,7 +168,7 @@ public class GameComponents {
     /**
      * Method for getting game area (VBox).
      * @param scoreService
-     * @return
+     * @return vBox
      */
     public VBox getArea(ScoreService scoreService) {
         GameArea gameArea = new GameArea(scoreService);
