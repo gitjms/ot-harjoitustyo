@@ -20,5 +20,6 @@
 | 7.4. | 4    | Refaktorointia |
 | 8.4. | 6    | Testejä ja refaktorointia |
 | 9.4. | 6    | Tietokannan vaihto-ominaisuus |
-| yht   | 93   | | 
+| 23.4. | 4    | Javadoc-korjausta ja kaksi enumia pois |
+| yht   | 97   | | 
 
