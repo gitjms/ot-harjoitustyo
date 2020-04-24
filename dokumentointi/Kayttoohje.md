@@ -23,6 +23,8 @@ Ohjelma käynnistetään komennolla
 java -jar tictactoe.jar
 ```
 
+Windowsissa voi myös tuplaklikata jar-tiedostoa ohjelman käynnistääkseen.
+
 ## Ohjelman rakentaminen itse lähdekoodista
 
 Jos jar-tiedosto ei toimi, voi ladata lähdekoodin (source code) ja purkaa zip-tiedoston esim komennolla
@@ -61,11 +63,11 @@ Peliä pelataan klikkaamalla vaaleansinisiä neliöitä. Uuden pelin saa klikkaa
 
 Peliruudukon kokoa voidaan vaihdella 3x3, 4x4 ja 5x5 ruudukoiden välillä klikkaamalla alhaalla oikealla olevia nappuloita.
 
-Tietokannan voi vaihtaa alahaalla vasemmalla kirjoittamalla uuden tietokannan nimen ja klikkaamalla GO. Näin kukin pelidata tallentuu omaan tietokantaansa.
+Tietokannan voi vaihtaa alahaalla vasemmalla kirjoittamalla uuden tietokannan nimen ja klikkaamalla GO. Näin kukin pelidata tallentuu omaan tietokantaansa. Tietokannan nimeksi voi kukin eri pelaaja laittaa vaikka oman nimensä, jolloin tietokanta on käytännössä henkilökohtainen pelitili.
 
 ## Pelin ratkeaminen
 
-Peli päättyy joko toisen merkkisymbolin voittoon tai tasapeliin. Ohjelma ilmoittaa tilanteen ruudukon yläpuolella. Pistetilanne päivittyy luomalla uuden pelin.
+Peli päättyy joko toisen merkkisymbolin voittoon tai tasapeliin. Ohjelma ilmoittaa tilanteen ruudukon yläpuolella. Pistetilanne päivittyy luomalla uuden pelin napista New Game.
 
 <img src="https://user-images.githubusercontent.com/46410240/78933848-99200000-7ab2-11ea-9309-cb993cccc895.png" alt="Pelinäkymä: voitto" width="400" >
 
