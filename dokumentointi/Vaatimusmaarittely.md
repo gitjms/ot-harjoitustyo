@@ -35,5 +35,6 @@ Peli näkee pelaajat vain ristien ja nollien edustajina.
 
 * Pelaajien identifiointi, eli sisäänkirjautuminen tai uuden pelaajatilin luominen.
 Tällöin pelistatistiikka (pelit, voitot, häviöt) tallentuu kunkin pelaajan osalta.
+  * Tavallaan jo tehty, sillä tietokannan vaihto toimii kuin uusi tietokanta olisi uusi pelaaja.
 * Vaihtoehtona pelata tietokonetta vastaan.
 * Jonkinlainen vapaa kenttä.
