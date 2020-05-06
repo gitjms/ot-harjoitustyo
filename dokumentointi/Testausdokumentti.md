@@ -13,7 +13,7 @@ Testattavana oli myös käyttöliittymäkerros lukuunottamatta main-luokan sisä
 
 ## Järjestelmätestaus
 
-Sovellus on testattu manuaalisesti eikä ole esiintynyt mitään ongelmia.
+Sovellus on testattu manuaalisesti sekä Windowsilla että Linuxilla, eikä ole esiintynyt mitään ongelmia.
 
 ### Asennus ja konfigurointi
 
