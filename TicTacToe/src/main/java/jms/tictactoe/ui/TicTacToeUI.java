@@ -201,12 +201,13 @@ public class TicTacToeUI extends Application {
             }
         }
         properties.load(new FileInputStream("config.properties"));
-        final String fileName = this.otherDbName.trim().isEmpty() ? "./" + properties.getProperty("scoreData") : this.otherDbName.trim();
+        final String fileName = this.otherDbName.trim().isEmpty() ? "./" + properties.getProperty("scoreData") : !this.otherDbName.trim().startsWith("./") & !this.otherDbName.trim().startsWith("../") ? "./".concat(this.otherDbName.trim()) : this.otherDbName.trim();
         final String dbUrl = properties.getProperty("url");
         final String dbUser = properties.getProperty("user");
         final String dbPass = properties.getProperty("password");
         this.tryConnection(properties, dbUrl, fileName, dbUser, dbPass);
         this.statement = this.connection.createStatement();
+        this.dbChoiceTextField.setText(fileName.isEmpty() ? this.connection.getMetaData().getURL().split("/")[1] : fileName.trim().replaceAll("//", "/"));
     }
     
     /**

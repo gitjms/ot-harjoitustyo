@@ -57,7 +57,7 @@ java -jar tictactoe.jar
 
 Sovellus käynnistyy pelinäkymään:
 
-<img src="https://user-images.githubusercontent.com/46410240/78933604-3d557700-7ab2-11ea-93c9-b1807f589581.png" alt="Pelinäkymä" width="400" >
+<img src="https://user-images.githubusercontent.com/46410240/81398114-45e0b200-9131-11ea-83c1-9cfc09d28d4a.png" alt="Pelinäkymä" width="400" >
 
 Peliä pelataan klikkaamalla vaaleansinisiä neliöitä. Uuden pelin saa klikkaamalla New Game -nappia. Ylimpänä näkyvän pelitilaston saa nollattua Reset-nappulalla. Ohjelma suljetaan napista Quit Game.
 
@@ -69,13 +69,13 @@ Tietokannan voi vaihtaa alahaalla vasemmalla kirjoittamalla uuden tietokannan ni
 
 Peli päättyy joko toisen merkkisymbolin voittoon tai tasapeliin. Ohjelma ilmoittaa tilanteen ruudukon yläpuolella. Pistetilanne päivittyy luomalla uuden pelin napista New Game.
 
-<img src="https://user-images.githubusercontent.com/46410240/78933848-99200000-7ab2-11ea-9309-cb993cccc895.png" alt="Pelinäkymä: voitto" width="400" >
+<img src="https://user-images.githubusercontent.com/46410240/81398184-63ae1700-9131-11ea-9ea0-83f5df944a39.png" alt="Pelinäkymä: voitto" width="400" >
 
 ## Tietokannan vaihtaminen
 
 Peli-ikkunan alhaalla vasemmalla olevaan tekstilaatikkoon voi syöttää uuden tietokannan nimen. Oletus on yllä mainittu scoreData, mikäli tekstilaatikko on tyhjä tai käyttäjä syöttää virheellisen tiedostonimen/-polun.
 Uuden tietokannan nimi voi olla sellaisenaan, esim. "uusitietokanta", jolloin ohjelma luo sellaisen tietokannan työkansioon, mikäli sellaista ei jo ole olemassa. Jos tietokanta on jo olemassa, avaa ohjelma siihen yhteyden.
-Uusi tietokanta syntyy työkansioon myös kirjoittamalla "./uusitietokanta" tai "/uusitietokanta". Mikäli halutaan luoda tietokanta muualle, tulee kohde kirjoittaa esim. muodossa
+Uusi tietokanta syntyy työkansioon myös kirjoittamalla "./uusitietokanta". Mikäli halutaan luoda tietokanta muualle, tulee kohde kirjoittaa esim. muodossa
 
 ```
 ../../kansio/tietokannat/uusitietokanta
@@ -84,9 +84,10 @@ jolloin uusi tietokanta "uusitietokanta" sijoittuu kaksi kansiota ylös kansion 
 
 <img src="https://user-images.githubusercontent.com/46410240/78976584-200ac200-7b1f-11ea-9c0f-7811514d8176.png" alt="Kansiot: uusi tietokanta" width="450" >
 
-Seuraavien kuvien osoittama tietokannan luominen on identtinen: uusi tietokanta syntyy samaan paikkaan eli nykyiseen työkansioon.
+Jokainen "../" vie polulla yhden kansion ylöspäin. Seuraavien kuvien osoittama tietokannan luominen on identtinen: uusi tietokanta syntyy samaan paikkaan eli nykyiseen työkansioon.
 
 <img src="https://user-images.githubusercontent.com/46410240/78976933-e2f2ff80-7b1f-11ea-9d1a-9a792ded2b56.png" alt="Pelinäkymä: uusi tietokanta" width="450" >
 
 <img src="https://user-images.githubusercontent.com/46410240/78976938-e4bcc300-7b1f-11ea-8a6e-434bf396ef52.png" alt="Pelinäkymä: uusi tietokanta" width="450" >
 
+Mikäli käyttäjä kirjoittaa erehdyksessä esimerkiksi ".uusitietokanta", luo ohjelma tietokannan juuri tällä nimellä (".uusitietokanta") työkansioon. Mikäli käyttäjä taas kirjoittaa erehdyksessä esimerkiksi "/uusitietokanta", luo ohjelma tietokannan nimellä "uusitietokanta" työkansioon. Ellei käyttäjä nimenomaan halua luoda tietokantaa eri paikkaan kuin työkansioon, kannattaa käyttää pelkkää nimeä ilman pisteitä ja kauttaviivoja.
