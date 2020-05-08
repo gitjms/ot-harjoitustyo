@@ -45,7 +45,7 @@ Sovelluslogiikan testauksessa hyödynnetään DAO-mallin eristämistä siten, et
 
 Sovellus tallettaa kaksi pelaajaa (*X* ja *O*) sekä näiden pisteet tietokantatauluun *Scores*, ja pelatut pelit sekä tasapelit tietokantatauluun *Games*. Tietokannasta huolehtii *H2*-niminen palvelu. Se luo oletuksena sovelluksen juureen kaksi tietokantatiedostoa: *scoreData.mv.db* ja *scoreData.trace.db*. Oletustietokannan nimi ja muut tiedot on tallennettu myös sovelluksen juureen tiedostoon [config.properties](https://github.com/gitjms/TicTacToe-Ristinolla/blob/master/TicTacToe/config.properties). Alla kuva tietokantatauluista:
 
-<img src="https://user-images.githubusercontent.com/46410240/81363641-8407b280-90ec-11ea-9f27-978d94a4e017.png" alt="Tietokantataulut" width="600" >
+<img src="https://user-images.githubusercontent.com/46410240/81363641-8407b280-90ec-11ea-9f27-978d94a4e017.png" alt="Tietokantataulut" width="200" >
 
 Käyttäjän vaihtaessa tietokantataulua, luo sovellus uuden tietokannan sovelluksen juureen annetulla nimellä. Uuden tietokannan nimeä ja muita tietoa ei tallenneta config.properties-tiedostoon, jossa on vain oletustietokannan tiedot.
 
