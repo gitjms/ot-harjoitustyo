@@ -4,7 +4,7 @@
 
 Ohjelman kolmitasoinen kerrosarkkitehtuuri on havainnollistettu alla olevassa kuvassa.
 
-<img src="https://user-images.githubusercontent.com/46410240/81364750-1b6e0500-90ef-11ea-9d5f-673884193c35.png" alt="Pakkausrakenne" width="300" >
+<img src="https://user-images.githubusercontent.com/46410240/81364750-1b6e0500-90ef-11ea-9d5f-673884193c35.png" alt="Pakkausrakenne" width="200" >
 
 JavaFX:llä toteutetusta ohjelman käyttöliittymästä vastaa pakkaus *tictactoe.ui*. Sovelluslogiikka on sijoitettu pakkaukseen *tictactoe.domain*. Pysyväistallennukseen liittyvä koodi on pakkauksessa *tictactoe.dao*.
 
@@ -31,7 +31,7 @@ ScoreService pääsee käsiksi pisteisiin tietojen tallennuksesta vastaavan pakk
 
 ScoreServicen ja ohjelman muiden osien suhdetta kuvaa seuraava luokka/pakkauskaavio: 
 
-<img src="https://user-images.githubusercontent.com/46410240/81362194-e9f23b00-90e8-11ea-9c73-12c146ef2224.png" alt="Pakkauskaavio" width="600" >
+<img src="https://user-images.githubusercontent.com/46410240/81365297-650b1f80-90f0-11ea-94a7-636c93d115b4.png" alt="Pakkauskaavio" width="600" >
 
 ## Tietojen pysyväistallennus
 
