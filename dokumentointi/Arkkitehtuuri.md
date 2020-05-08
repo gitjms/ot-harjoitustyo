@@ -4,7 +4,7 @@
 
 Ohjelman kolmitasoinen kerrosarkkitehtuuri on havainnollistettu alla olevassa kuvassa.
 
-<img src="https://user-images.githubusercontent.com/46410240/81364750-1b6e0500-90ef-11ea-9d5f-673884193c35.png" alt="Pakkausrakenne" width="600" >
+<img src="https://user-images.githubusercontent.com/46410240/81364750-1b6e0500-90ef-11ea-9d5f-673884193c35.png" alt="Pakkausrakenne" width="300" >
 
 JavaFX:llä toteutetusta ohjelman käyttöliittymästä vastaa pakkaus *tictactoe.ui*. Sovelluslogiikka on sijoitettu pakkaukseen *tictactoe.domain*. Pysyväistallennukseen liittyvä koodi on pakkauksessa *tictactoe.dao*.
 
