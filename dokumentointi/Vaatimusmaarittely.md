@@ -18,18 +18,26 @@ Vasen kuva on vanhempi versio. Oikeaan on lisätty mm. tekstinsyöttökenttä ja
 Peliä voi pelata yksin tai kaverin kanssa, mutta pelaajadataa ei yksilöidä.
 Peli näkee pelaajat vain ristien ja nollien edustajina.
 
-## Suunnitellut toiminnallisuudet
+## Ominaisuudet
 
-- [X] Peli tallentaa pelattujen pelien määrän sekä ristien ja nollien voitot tietokantaan.
-- [X] Käyttäjä voi vaihtaa tietokantaa käyttöliittymästä käsin (alimpana vasemmalla).
-- [X] Ristien ja nollien voittostatistiikka ja tasapelit näkyvät pelilaudan yläosassa.
-- [x] Seuraavaksi ylimpänä on teksti, joka ilmoittaa kulloisenkin pelin numeron.
-- [x] Tämän alla on teksti, jossa ilmoitetaan pelattavan symbolin vuoro sekä pelin loputulos.
-- [x] Keskellä ikkunaa on isoin laatikko, jossa on itse peliruudukko.
-- [x] Peliruudukon alla vasemmalla on uuden pelin avaava nappula.
-- [X] Peliruudukon alla keskellä on nappula joka nollaa pelin ja tallennetun datan.
-- [x] Peliruudukon alla oikealla on nappula jolla suljetaan peli.
-- [X] Alimpana oikealla on nappulat, joilla voi valita pelin koon: 3x3, 4x4 ja 5x5.
+* Peli tallentaa pelattujen pelien määrän sekä ristien ja nollien voitot haluttuun tai oletustietokantaan.
+* Ristien ja nollien voittostatistiikka ja tasapelit näkyvät pelilaudan yläosassa.
+* Seuraavaksi ylimpänä on teksti, joka ilmoittaa kulloisenkin pelin numeron.
+* Tämän alla on teksti, jossa ilmoitetaan pelattavan symbolin vuoro sekä pelin loputulos.
+* Keskellä ikkunaa on isoin laatikko, jossa on itse peliruudukko.
+* Peliruudukon alla vasemmalla on uuden pelin avaava nappula.
+* Peliruudukon alla keskellä on nappula joka nollaa pelin ja tallennetun datan.
+* Peliruudukon alla oikealla on nappula jolla suljetaan peli.
+* Alimpana vasemmalla on tekstilaatikko ja nappula, joilla voi vaihtaa tietokantaa.
+* Alimpana oikealla on nappulat, joilla voi valita pelin koon: 3x3, 4x4 ja 5x5.
+
+## Toiminnallisuudet. Käyttäjä voi
+
+* klikata peliruudun neliöitä.
+* vaihtaa peliruudukon koon.
+* luoda uuden pelin.
+* lopettaa pelin.
+* vaihtaa tietokannan.
 
 ## Jatkokehitysideat
 
