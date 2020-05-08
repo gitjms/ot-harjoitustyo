@@ -45,7 +45,7 @@ Sovelluslogiikan testauksessa hyödynnetään DAO-mallin eristämistä siten, et
 
 Sovellus tallettaa kaksi pelaajaa (*X* ja *O*) sekä näiden pisteet tietokantatauluun *Scores*, ja pelatut pelit sekä tasapelit tietokantatauluun *Games*. Tietokannasta huolehtii *H2*-niminen palvelu. Se luo oletuksena sovelluksen juureen kaksi tietokantatiedostoa: *scoreData.mv.db* ja *scoreData.trace.db*. Oletustietokannan nimi ja muut tiedot on tallennettu myös sovelluksen juureen tiedostoon [config.properties](https://github.com/gitjms/TicTacToe-Ristinolla/blob/master/TicTacToe/config.properties). Alla kuva tietokantatauluista:
 
-<img src="https://user-images.githubusercontent.com/46410240/81363641-8407b280-90ec-11ea-9f27-978d94a4e017.png" alt="Tietokantataulut" width="200" >
+<img src="https://user-images.githubusercontent.com/46410240/81363641-8407b280-90ec-11ea-9f27-978d94a4e017.png" alt="Tietokantataulut" width="300" >
 
 Käyttäjän vaihtaessa tietokantataulua, luo sovellus uuden tietokannan sovelluksen juureen annetulla nimellä. Uuden tietokannan nimeä ja muita tietoa ei tallenneta config.properties-tiedostoon, jossa on vain oletustietokannan tiedot.
 
@@ -56,19 +56,19 @@ Kuvataan seuraavaksi sovelluksen toimintalogiikka muutaman päätoiminnallisuude
 
 ### Uuden pelin luominen
 
-<img src="https://user-images.githubusercontent.com/46410240/79480345-a3904b80-8016-11ea-977a-9708009ecd2d.png" alt="Sekvenssikaavio: uusi peli" width="600" >
+<img src="https://user-images.githubusercontent.com/46410240/81370302-832b4c80-90fd-11ea-8138-7b280962b9da.png" alt="Sekvenssikaavio: uusi peli" width="600" >
 
 ### Pelin nollaaminen
 
-<img src="https://user-images.githubusercontent.com/46410240/79480392-b0ad3a80-8016-11ea-8c05-b681ff4e345a.png" alt="Sekvenssikaavio: pelin nollaus" width="600" >
+<img src="https://user-images.githubusercontent.com/46410240/81370337-94745900-90fd-11ea-8db8-90871242f90c.png" alt="Sekvenssikaavio: pelin nollaus" width="600" >
 
 ### Pelin lopettaminen
 
-<img src="https://user-images.githubusercontent.com/46410240/79480450-bf93ed00-8016-11ea-80d8-4c5b3450eff1.png" alt="Sekvenssikaavio: pelin lopetus" width="600" >
+<img src="https://user-images.githubusercontent.com/46410240/81370370-a6ee9280-90fd-11ea-8cd8-356a47438534.png" alt="Sekvenssikaavio: pelin lopetus" width="600" >
 
 ### Pelaajan *X* voitto
 
-<img src="https://user-images.githubusercontent.com/46410240/79480478-cb7faf00-8016-11ea-9879-b463f7fb2491.png" alt="Sekvenssikaavio: X voittaa" width="600" >
+<img src="https://user-images.githubusercontent.com/46410240/81370394-b4a41800-90fd-11ea-846c-9beb07e57fa6.png" alt="Sekvenssikaavio: X voittaa" width="600" >
 
 
 
