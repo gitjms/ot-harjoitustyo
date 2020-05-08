@@ -1,9 +1,11 @@
 target/
 nbproject/
+laskarit/
 nbactions.xml
 .settings/
 .classpath
 .project
+.gitignore
 *.jar
 *.txt
 *.db
