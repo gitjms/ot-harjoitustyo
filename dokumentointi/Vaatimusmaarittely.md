@@ -9,7 +9,7 @@ Käyttäjää ei identifioida, eli ei ole sisäänkirjautumista.
 
 Kuvassa näkyvät komponentit, joista uloin (BorderPane) asettuu Sceneen joka puolestaan asettuu Stageen, joka näkyy sovellusikkunana.
 
-<img src="https://user-images.githubusercontent.com/46410240/78979104-d2448880-7b23-11ea-8fd7-2558aae97708.png" alt="Käyttöliittymäluonnos" width="700" >
+<img src="(https://user-images.githubusercontent.com/46410240/81378828-af03fd80-9110-11ea-80b6-b1ad31500c97.png" alt="Käyttöliittymäluonnos" width="700" >
 
 Vasen kuva on vanhempi versio. Oikeaan on lisätty mm. tekstinsyöttökenttä ja nappi alhaalle.
 
@@ -31,13 +31,13 @@ Peli näkee pelaajat vain ristien ja nollien edustajina.
 * Alimpana vasemmalla on tekstilaatikko ja nappula, joilla voi vaihtaa tietokantaa.
 * Alimpana oikealla on nappulat, joilla voi valita pelin koon: 3x3, 4x4 ja 5x5.
 
-## Toiminnallisuudet. Käyttäjä voi
+## Toiminnallisuudet. Käyttäjä voi:
 
-* klikata peliruudun neliöitä.
-* vaihtaa peliruudukon koon.
-* luoda uuden pelin.
-* lopettaa pelin.
-* vaihtaa tietokannan.
+* klikata peliruudun neliöitä
+* vaihtaa peliruudukon koon
+* luoda uuden pelin
+* lopettaa pelin
+* vaihtaa tietokannan
 
 ## Jatkokehitysideat
 
