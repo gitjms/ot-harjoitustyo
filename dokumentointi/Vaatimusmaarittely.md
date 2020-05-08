@@ -9,7 +9,9 @@ Käyttäjää ei identifioida, eli ei ole sisäänkirjautumista.
 
 Kuvassa näkyvät komponentit, joista uloin (BorderPane) asettuu Sceneen joka puolestaan asettuu Stageen, joka näkyy sovellusikkunana.
 
-<img src="https://user-images.githubusercontent.com/46410240/81378950-e4a8e680-9110-11ea-874d-8d59f5ee5257.png" alt="Käyttöliittymäluonnos" width="550" >
+<img src="https://user-images.githubusercontent.com/46410240/81379832-7b29d780-9112-11ea-8509-782e37186d51.png" alt="Käyttöliittymäluonnos" width="550" >
+
+Alleviivatut komponentit (yksi HBox ja kaksi VBoxia) asettuvat suoraan BorderPane-komponenttiin.
 
 ## Käyttäjät
 
