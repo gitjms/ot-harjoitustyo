@@ -1,5 +1,7 @@
 package jms.tictactoe.domain;
 
+import java.sql.Connection;
+import java.sql.Statement;
 import jms.tictactoe.dao.ScoreDao;
 
 /**
@@ -60,5 +62,23 @@ public class ScoreService implements ScoreDao {
     @Override
     public void setDraws(int draws) {
         this.scoreDao.setDraws(draws);
+    }
+    
+    /**
+     * Method for closing the database statement.
+     * @param statement command for database controlling to close
+     */
+    @Override
+    public void closeStatement(Statement statement) {
+        this.scoreDao.closeStatement(statement);
+    }
+    
+    /**
+     * Method for closing the database connection.
+     * @param connection database to close
+     */
+    @Override
+    public void closeConnection(Connection connection) {
+        this.scoreDao.closeConnection(connection);
     }
 }

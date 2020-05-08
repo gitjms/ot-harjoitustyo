@@ -1,5 +1,8 @@
 package jms.tictactoe.dao;
 
+import java.sql.Connection;
+import java.sql.Statement;
+
 /**
  * Interface for Data Access Objects.
  * @author jaris
@@ -47,4 +50,16 @@ public interface ScoreDao {
      * @param points to set for the player
      */
     void setScore(String player, int points);
+    
+    /**
+     * Method for closing the database statement.
+     * @param statement command for database controlling to close
+     */
+    void closeStatement(Statement statement);
+    
+    /**
+     * Method for closing the database connection.
+     * @param connection database to close
+     */
+    void closeConnection(Connection connection);
 }

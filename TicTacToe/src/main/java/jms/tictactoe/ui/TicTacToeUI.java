@@ -147,8 +147,8 @@ public class TicTacToeUI extends Application {
      */
     public void stop(Stage primaryStage) throws SQLException {
         System.out.println("Application closes");
-        this.scoreData.closeStatement(this.statement); 
-        this.scoreData.closeConnection(this.connection); 
+        this.scoreService.closeStatement(this.statement); 
+        this.scoreService.closeConnection(this.connection); 
         primaryStage.close();
     }
     
@@ -272,8 +272,8 @@ public class TicTacToeUI extends Application {
             (MouseEvent e) -> {
                 this.otherDbName = this.dbChoiceTextField.getText();
                 try {
-                    this.scoreData.closeStatement(this.statement); 
-                    this.scoreData.closeConnection(this.connection); 
+                    this.scoreService.closeStatement(this.statement); 
+                    this.scoreService.closeConnection(this.connection); 
                     this.init();
                     this.start(this.stage);
                 } catch (Exception ex) {

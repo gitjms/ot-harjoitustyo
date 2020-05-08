@@ -179,4 +179,30 @@ public final class ScoreDataDao implements ScoreDao {
             Logger.getLogger(ScoreDataDao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    /**
+     * Method for closing the database statement.
+     * @param statement command for database controlling to close
+     */
+    @Override
+    public void closeStatement(Statement statement) {
+        try {
+            this.scoreData.closeStatement(statement);
+        } catch (SQLException ex) {
+            Logger.getLogger(ScoreDataDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    /**
+     * Method for closing the database connection.
+     * @param connection database to close
+     */
+    @Override
+    public void closeConnection(Connection connection) {
+        try {
+            this.scoreData.closeConnection(connection);
+        } catch (SQLException ex) {
+            Logger.getLogger(ScoreDataDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }
