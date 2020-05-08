@@ -1,7 +1,6 @@
 package jms.tictactoe.ui;
 
 import javafx.geometry.Insets;
-import jms.tictactoe.domain.GameSquare;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;

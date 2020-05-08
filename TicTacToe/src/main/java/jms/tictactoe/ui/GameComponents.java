@@ -164,18 +164,7 @@ public class GameComponents {
         );
         return button;
     }
-    
-    /**
-     * Method for getting game area (VBox).
-     * @param scoreService instance of ScoreService class
-     * @return vBox
-     */
-    public VBox getArea(ScoreService scoreService) {
-        GameArea gameArea = new GameArea(scoreService);
-        VBox vBox = gameArea.createArea();
-        return vBox;
-    }
-    
+        
     /**
      * Method for getting stylized Label for score VBox, database choice, and current game indication.
      * @param text text to set

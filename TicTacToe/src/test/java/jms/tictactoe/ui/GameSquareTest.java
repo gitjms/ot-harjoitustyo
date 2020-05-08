@@ -1,7 +1,6 @@
 package jms.tictactoe.ui;
 
 import jms.tictactoe.domain.ScoreData;
-import jms.tictactoe.domain.GameSquare;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;

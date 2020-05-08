@@ -1,4 +1,4 @@
-package jms.tictactoe.domain;
+package jms.tictactoe.ui;
 
 import javafx.geometry.Insets;
 import javafx.scene.effect.Bloom;
@@ -15,10 +15,7 @@ import javafx.scene.layout.BorderStroke;
 import javafx.scene.layout.BorderStrokeStyle;
 import javafx.scene.layout.BorderWidths;
 import javafx.scene.layout.CornerRadii;
-
-import jms.tictactoe.ui.GameSize;
-import jms.tictactoe.ui.WinRow;
-
+import jms.tictactoe.domain.ScoreService;
 
 /**
  * Class for creating clickable squares for the game area and checking winning rows.

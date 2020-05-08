@@ -124,17 +124,6 @@ public class GameComponentsTest {
 
     /**
      * Test of getMainpane method, of class GameComponents.
-     * @throws java.lang.Exception
-     */
-    @Test
-    public void testGetAreaReturnsVBox() throws Exception {
-        System.out.println("testGetAreaReturnsVBox");
-        VBox result = this.instance.getArea(this.scoreService);
-        assertNotNull(result);
-    }
-
-    /**
-     * Test of getMainpane method, of class GameComponents.
      */
     @Test
     public void testGetMainpaneReturnsBorderPane() {

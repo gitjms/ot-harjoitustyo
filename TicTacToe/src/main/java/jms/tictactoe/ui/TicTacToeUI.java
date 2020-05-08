@@ -46,6 +46,7 @@ public class TicTacToeUI extends Application {
     private ScoreData scoreData;
     private ScoreService scoreService;
     private GameComponents gameComponents;
+    private GameArea gameArea;
     private Button dbButton;
     private Button newgameButton3x3;
     private Button newgameButton4x4;
@@ -98,7 +99,7 @@ public class TicTacToeUI extends Application {
     @Override
     public void init() throws FileNotFoundException, IOException, Exception {
         this.setDatabaseChoiceButtonActions();
-        this.setNecessities();
+        this.setPanesAndScenes();
         WinRow.X.setWinCode("XXX");
         WinRow.O.setWinCode("OOO");
         GameSize.SIZE.setGameSize(3);
@@ -106,6 +107,7 @@ public class TicTacToeUI extends Application {
         this.setChoiceButtons3x3();
         this.setChoiceButtons4x4();
         this.setChoiceButtons5x5();
+        this.setDaoAndDatabase();
         this.setBoxes3x3();
         this.setBoxes4x4();
         this.setBoxes5x5();
@@ -159,15 +161,21 @@ public class TicTacToeUI extends Application {
     }
     
     /**
-     * Method for setting necesary tools: database, dao, mainpanes and scenes. 
-     * @throws FileNotFoundException throws file not found exception
+     * Method for setting dao, database and game area.
      * @throws Exception throws exception
      */
-    private void setNecessities() throws FileNotFoundException, IOException, Exception {
+    private void setDaoAndDatabase() throws Exception {
         this.setDataBase();
         this.scoreData = new ScoreData(this.connection, this.statement);
         ScoreDataDao scoreDataDao = new ScoreDataDao(this.scoreData, this.connection, this.statement);
         this.scoreService = new ScoreService(scoreDataDao);
+        this.gameArea = new GameArea(this.scoreService);
+    }
+            
+    /**
+     * Method for setting necesary tools: database, mainpanes and scenes.
+     */
+    private void setPanesAndScenes() {
         this.pane3x3 = this.gameComponents.getMainpane();
         this.pane4x4 = this.gameComponents.getMainpane();
         this.pane5x5 = this.gameComponents.getMainpane();
@@ -456,7 +464,7 @@ public class TicTacToeUI extends Application {
      * Method for setting game area (VBox), panes (BorderPane), and scene for 3x3 game.
      */
     private void setAreaPaneAndScene3x3() {
-        this.area3x3 = this.gameComponents.getArea(this.scoreService);
+        this.area3x3 = this.gameArea.createArea();
         this.pane3x3.setTop(this.scoreBox3x3);
         this.pane3x3.setCenter(this.area3x3);
         this.pane3x3.setBottom(this.bottomBox3x3);
@@ -466,7 +474,7 @@ public class TicTacToeUI extends Application {
      * Method for setting game area (VBox), panes (BorderPane), and scene for 4x4 game.
      */
     private void setAreaPaneAndScene4x4() {
-        this.area4x4 = this.gameComponents.getArea(this.scoreService);
+        this.area4x4 = this.gameArea.createArea();
         this.pane4x4.setTop(this.scoreBox4x4);
         this.pane4x4.setCenter(this.area4x4);
         this.pane4x4.setBottom(this.bottomBox4x4);
@@ -476,7 +484,7 @@ public class TicTacToeUI extends Application {
      * Method for setting game area (VBox), panes (BorderPane), and scene for 5x5 game.
      */
     private void setAreaPaneAndScene5x5() {
-        this.area5x5 = this.gameComponents.getArea(this.scoreService);
+        this.area5x5 = this.gameArea.createArea();
         this.pane5x5.setTop(this.scoreBox5x5);
         this.pane5x5.setCenter(this.area5x5);
         this.pane5x5.setBottom(this.bottomBox5x5);
