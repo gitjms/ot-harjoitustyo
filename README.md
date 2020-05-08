@@ -22,7 +22,7 @@ Sovellus on luotu Javan versiolla 11 ja k채ytt채en JavaFX:n versiota 14.
 
 ## Release
 
-[tictactoe.jar / ot-harjoitustyo-1.zip / ot-harjoitustyo-1.tar.gz](https://github.com/gitjms/ot-harjoitustyo/releases)
+[tictactoe.jar / Source code .zip / Source code .tar.gz](https://github.com/gitjms/TicTacToe-Ristinolla/releases/tag/v3)
 
 ## Komentorivitoiminnot
 
@@ -38,13 +38,6 @@ Joskus voi olla tarpeen kirjoittaa (mik채li tulee ongelmia)
 mvn clean test
 ```
 
-***
-Testikattavuusraportti luodaan komennolla
-
-```
-mvn jacoco:report
-```
-
 Kattavuusraporttia voi tarkastella avaamalla selaimella tiedosto target/site/jacoco/index.html
 
 ***
@@ -53,6 +46,14 @@ Projektin koodin voi suorittaa NetBeansin vihre채ll채 napilla tai komentorivill�
 ```
 mvn compile exec:java -Dexec.mainClass=jms.tictactoe.Main
 ```
+
+***
+Testikattavuusraportti luodaan komennolla
+
+```
+mvn jacoco:report
+```
+
 ***
 Projektin koodin tyylivirheet voi tarkistaa suorittamalla komento
 
