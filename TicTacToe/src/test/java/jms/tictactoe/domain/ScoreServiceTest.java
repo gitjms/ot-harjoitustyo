@@ -112,4 +112,28 @@ public class ScoreServiceTest {
         this.instance.setDraws(100);
         assertEquals(100, this.instance.getDraws());
     }
+
+    /**
+     * Test of getDraws method, of class ScoreService.
+     * @throws java.sql.SQLException
+     */
+    @Test
+    public void closeStatement() throws SQLException {
+        System.out.println("testCloseStatement");
+        assertFalse(this.statement.isClosed());
+        this.statement.close();
+        assertTrue(this.statement.isClosed());
+    }
+
+    /**
+     * Test of closeConnection method, of class ScoreService.
+     * @throws java.sql.SQLException
+     */
+    @Test
+    public void testCloseConnection() throws SQLException {
+        System.out.println("testCloseConnection");
+        assertFalse(this.connection.isClosed());
+        this.connection.close();
+        assertTrue(this.connection.isClosed());
+    }
 }

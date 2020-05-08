@@ -1,6 +1,5 @@
 package jms.tictactoe.dao;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.Connection;
@@ -166,6 +165,30 @@ public class ScoreDataDaoTest {
         this.instance.setDraws(100);
         int resultAfter = this.instance.getDraws();
         assertEquals(100, resultAfter);
+    }
+
+    /**
+     * Test of getDraws method, of class ScoreService.
+     * @throws java.sql.SQLException
+     */
+    @Test
+    public void closeStatement() throws SQLException {
+        System.out.println("testCloseStatement");
+        assertFalse(this.statement.isClosed());
+        this.instance.closeStatement(this.statement);
+        assertTrue(this.statement.isClosed());
+    }
+
+    /**
+     * Test of closeConnection method, of class ScoreService.
+     * @throws java.sql.SQLException
+     */
+    @Test
+    public void testCloseConnection() throws SQLException {
+        System.out.println("testCloseConnection");
+        assertFalse(this.connection.isClosed());
+        this.instance.closeConnection(this.connection);
+        assertTrue(this.connection.isClosed());
     }
     
 }
