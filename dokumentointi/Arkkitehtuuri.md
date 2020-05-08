@@ -20,12 +20,18 @@ Kun luodaan uusi peli tai eri kokoinen peli, kutsutaan luokan [GameArea](https:/
 
 Sovelluksen logiikasta vastaa luokka [ScoreData](https://github.com/gitjms/TicTacToe-Ristinolla/blob/master/TicTacToe/src/main/java/jms/tictactoe/domain/ScoreData.java), joka huolehtii peli- ja pistepäivityksistä, tietokannan tauluista, päivityksistä ja kyselyistä, sekä tietokannan sulkemisesta.
 
-Toiminnallisista kokonaisuuksista vastaa luokan [ScoreService](https://github.com/gitjms/TicTacToe-Ristinolla/blob/master/TicTacToe/src/main/java/jms/tictactoe/domain/ScoreService.java) ainoa olio. Luokka tarjoaa kaikille käyttöliittymän toiminnoille oman metodin, kuten esimerkiksi
+Toiminnallisista kokonaisuuksista vastaa luokan [ScoreService](https://github.com/gitjms/TicTacToe-Ristinolla/blob/master/TicTacToe/src/main/java/jms/tictactoe/domain/ScoreService.java) ainoa olio. Luokka tarjoaa kaikille käyttöliittymän toiminnoille oman metodin:
 
 * void createScore(String id, int points)
 * void setScore(String player, int points)
 * void resetPoints()
 * int getPoints(String id)
+* int getAmount()
+* int void setAmount(int amount)
+* int getDraws()
+* void setDraws(int draws)
+* void closeStatement(Statement statement)
+* void closeConnection(Connection connection)
 
 ScoreService pääsee käsiksi pisteisiin tietojen tallennuksesta vastaavan pakkauksen *tictactoe.dao* rajapinnan [*ScoreDao*](https://github.com/gitjms/TicTacToe-Ristinolla/blob/master/TicTacToe/src/main/java/jms/tictactoe/dao/ScoreDao.java) toteuttavan luokan kautta. Luokan toteutus injektoidaan sovelluslogiikalle konstruktorikutsun yhteydessä.
 
@@ -35,7 +41,7 @@ ScoreServicen ja ohjelman muiden osien suhdetta kuvaa seuraava luokka/pakkauskaa
 
 ## Tietojen pysyväistallennus
 
-Pakkauksen *tictactoe.dao* luokka [*ScoreDataDao*](https://github.com/gitjms/TicTacToe-Ristinolla/blob/master/TicTacToe/src/main/java/jms/tictactoe/dao/ScoreDataDao.java) huolehtii tietojen tietojen tallettamisesta tietokantaan ja muista tietokantatoiminnoista.
+Pakkauksen *tictactoe.dao* luokka [*ScoreDataDao*](https://github.com/gitjms/TicTacToe-Ristinolla/blob/master/TicTacToe/src/main/java/jms/tictactoe/dao/ScoreDataDao.java) huolehtii tietojen tietojen tallettamisesta tietokantaan sekä itse tietokantataulujen alustamisesta ja olemassaolon tarkistamisesta.
 
 Luokka noudattaa Data Access Object -suunnittelumallia, ja se on mahdollista vaihtaa mikäli tallennustavaksi halutaan jokin muu kuin tietokanta. Luokka on eristetty rajapinnan *ScoreDao* taakse, eikä sovelluslogiikka käytä luokkaa suoraan.
 
