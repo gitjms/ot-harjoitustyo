@@ -1,6 +1,6 @@
 # työaikakirjanpito
 
-| päivä | aika | mitä tein  |
+| päivä | aika [h] | mitä tein  |
 | :----:|:-----| :-----|
 | 20.3. | 4    | Alustava ohjelma |
 | 21.3. | 5    | Ohjelman korjausta |
@@ -22,5 +22,6 @@
 | 9.4. | 6    | Tietokannan vaihto-ominaisuus |
 | 23.4. | 4    | Javadoc-korjausta ja kaksi enumia pois |
 | 8.5. | 3    | Refaktorointia ja final release |
-| yht   | 100   | | 
+| 8.5. | 1    | tietokannan nimi pysyy laatikossa ja uusi final release |
+| yht   | 101 h  | | 
 

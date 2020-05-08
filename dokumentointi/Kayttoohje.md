@@ -90,4 +90,4 @@ Jokainen "../" vie polulla yhden kansion ylöspäin. Seuraavien kuvien osoittama
 
 <img src="https://user-images.githubusercontent.com/46410240/78976938-e4bcc300-7b1f-11ea-8a6e-434bf396ef52.png" alt="Pelinäkymä: uusi tietokanta" width="450" >
 
-Mikäli käyttäjä kirjoittaa erehdyksessä esimerkiksi ".uusitietokanta", luo ohjelma tietokannan juuri tällä nimellä (".uusitietokanta") työkansioon. Mikäli käyttäjä taas kirjoittaa erehdyksessä esimerkiksi "/uusitietokanta", luo ohjelma tietokannan nimellä "uusitietokanta" työkansioon. Ellei käyttäjä nimenomaan halua luoda tietokantaa eri paikkaan kuin työkansioon, kannattaa käyttää pelkkää nimeä ilman pisteitä ja kauttaviivoja.
+Mikäli käyttäjä kirjoittaa erehdyksessä esimerkiksi ".uusitietokanta", luo ohjelma tietokannan juuri tällä nimellä (".uusitietokanta") työkansioon. Mikäli käyttäjä taas kirjoittaa esimerkiksi "/uusitietokanta", luo ohjelma oikeaoppisesti tietokannan nimellä "uusitietokanta" työkansioon samoin kuin pelkällä nimellä. Ellei käyttäjä nimenomaan halua luoda tietokantaa eri paikkaan kuin työkansioon, kannattaa käyttää pelkkää nimeä ilman pisteitä ja kauttaviivoja.
