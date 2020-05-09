@@ -35,7 +35,7 @@ Tietokantaoperaatioihin pääsee käsiksi luokan [ScoreService](https://github.c
 
 Ohjelman luokkien suhdetta kuvaa seuraava luokka/pakkauskaavio: 
 
-<img src="https://user-images.githubusercontent.com/46410240/81461269-5fc2d900-91b3-11ea-8dca-608a58c4abf6.png" alt="Pakkauskaavio" width="600" >
+<img src="https://user-images.githubusercontent.com/46410240/81462534-c3e99b00-91bb-11ea-867e-6ec99b9b3c07.png" alt="Pakkauskaavio" width="600" >
 
 ## Tietojen pysyväistallennus
 
