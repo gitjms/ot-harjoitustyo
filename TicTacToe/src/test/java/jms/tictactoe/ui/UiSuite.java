@@ -17,7 +17,7 @@ import org.junit.runners.Suite;
     jms.tictactoe.ui.GameComponentsTest.class,
     jms.tictactoe.ui.GameSizeTest.class,
     jms.tictactoe.ui.GameSquareTest.class,
-    jms.tictactoe.ui.ScoreDataTest.class,
+    jms.tictactoe.domain.ScoreDataTest.class,
     jms.tictactoe.ui.WinRowTest.class
 })
 public class UiSuite {

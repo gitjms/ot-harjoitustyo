@@ -1,4 +1,4 @@
-package jms.tictactoe.ui;
+package jms.tictactoe.domain;
 
 import jms.tictactoe.domain.ScoreData;
 import java.io.FileNotFoundException;
