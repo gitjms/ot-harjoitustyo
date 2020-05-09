@@ -22,7 +22,7 @@ Sovellus on luotu Javan versiolla 11 ja käyttäen JavaFX:n versiota 14.
 
 ## Release
 
-[tictactoe.jar / Source code .zip / Source code .tar.gz](https://github.com/gitjms/TicTacToe-Ristinolla/releases/tag/3.2)
+[tictactoe.jar / Source code .zip / Source code .tar.gz](https://github.com/gitjms/TicTacToe-Ristinolla/releases/tag/3.3)
 
 ## Komentorivitoiminnot
 
