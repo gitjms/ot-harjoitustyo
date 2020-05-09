@@ -20,7 +20,7 @@ DAO-pakkauksen *jms.tictactoe.dao* kahdesta luokasta testataan vain toinen luokk
 
 Suurin syy pienelle kattavuudelle on try-catch -olioiden catch-haaroissa, joita ei kyetty testaamaan:
 
-<img src="https://user-images.githubusercontent.com/46410240/81462040-791a5400-91b8-11ea-8316-8db9279a136a.png" alt="Jacoco Dao try-catch -raportti" width="800" >
+<img src="https://user-images.githubusercontent.com/46410240/81462040-791a5400-91b8-11ea-8316-8db9279a136a.png" alt="Jacoco Dao try-catch -raportti" width="600" >
 
 Jacoco-raportin kokonaistestitulos rivikattavuuden osalta on 92% ja haarautumakattavuuden osalta 86%:
 
@@ -44,5 +44,5 @@ Sovellusta on testattu mm. syöttämällä virheellisiä tietokantapolkuja tieto
 
 Ongelmana on lähinnä järjestelemätön ja paikoin ylipitkä koodi. Koodia on varmasti mahdollista supistaa ja tehostaa.
 
-Ongelma joillekin voi myös olla luokan GameComponents pituus. Halusin kuitenkin sijoittaa lähes kaikkien vähemmän tärkeiden komponenttien luontikoodit sinne, jotta järjestely pysyisi itselleni selkeänä.
+Ongelma voi myös olla luokan GameComponents pituus. Halusin kuitenkin sijoittaa lähes kaikkien vähemmän tärkeiden komponenttien luontikoodit sinne, jotta järjestely pysyisi itselleni selkeänä.
 Tärkeimmät sovelluksen käyttämät komponentit ovat omissa luokissaan: GameArea ja GameSquare.
