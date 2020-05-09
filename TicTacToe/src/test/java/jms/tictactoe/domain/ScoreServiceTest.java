@@ -118,8 +118,8 @@ public class ScoreServiceTest {
      * @throws java.sql.SQLException
      */
     @Test
-    public void closeStatement() throws SQLException {
-        System.out.println("testCloseStatement");
+    public void closeStatementDirect() throws SQLException {
+        System.out.println("testCloseStatementDirect");
         assertFalse(this.statement.isClosed());
         this.statement.close();
         assertTrue(this.statement.isClosed());
@@ -130,10 +130,34 @@ public class ScoreServiceTest {
      * @throws java.sql.SQLException
      */
     @Test
-    public void testCloseConnection() throws SQLException {
-        System.out.println("testCloseConnection");
+    public void testCloseConnectionDirect() throws SQLException {
+        System.out.println("testCloseConnectionDirect");
         assertFalse(this.connection.isClosed());
         this.connection.close();
+        assertTrue(this.connection.isClosed());
+    }
+
+    /**
+     * Test of getDraws method, of class ScoreService.
+     * @throws java.sql.SQLException
+     */
+    @Test
+    public void closeStatementIndirect() throws SQLException {
+        System.out.println("testCloseStatementIndirect");
+        assertFalse(this.statement.isClosed());
+        this.instance.closeStatement(this.statement);
+        assertTrue(this.statement.isClosed());
+    }
+
+    /**
+     * Test of closeConnection method, of class ScoreService.
+     * @throws java.sql.SQLException
+     */
+    @Test
+    public void testCloseConnectionIndirect() throws SQLException {
+        System.out.println("testCloseConnectionIndirect");
+        assertFalse(this.connection.isClosed());
+        this.instance.closeConnection(this.connection);
         assertTrue(this.connection.isClosed());
     }
 }
