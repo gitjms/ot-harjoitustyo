@@ -38,8 +38,6 @@ Joskus voi olla tarpeen kirjoittaa (mikäli tulee ongelmia)
 mvn clean test
 ```
 
-Kattavuusraporttia voi tarkastella avaamalla selaimella tiedosto target/site/jacoco/index.html
-
 ***
 Projektin koodin voi suorittaa NetBeansin vihreällä napilla tai komentorivillä komennolla
 
@@ -48,11 +46,24 @@ mvn compile exec:java -Dexec.mainClass=jms.tictactoe.Main
 ```
 
 ***
-Testikattavuusraportti luodaan komennolla
+Jacoco-testikattavuusraportti luodaan komennolla
 
 ```
 mvn jacoco:report
 ```
+
+Kattavuusraporttia voi tarkastella avaamalla selaimella tiedosto target/site/jacoco/index.html
+
+***
+PIT-testikattavuusraportti luodaan komennolla
+
+```
+mvn org.pitest:pitest-maven:mutationCoverage
+```
+
+Kattavuusraporttia voi tarkastella avaamalla selaimella tiedosto target/pit-reports/YYYYMMDDHHMI/index.html
+
+Jos sovellus on käännetty (compile), täytyy sovellus käynnistää ja sulkea kerran, muuten voi käydä niin, ettei PIT osaa tehdä testejä.
 
 ***
 Projektin koodin tyylivirheet voi tarkistaa suorittamalla komento

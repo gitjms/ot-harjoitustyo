@@ -40,16 +40,15 @@ Yllä olevan tuloksen mukaan PIT generoi 370 mutaatiota, joista 103 tapettiin.
 
 Seuraavaksi voimme avata tarkemman raportin esimerkiksi domain-paketista:
 
-<img src="https://user-images.githubusercontent.com/46410240/81495875-29bd4c00-92bc-11ea-98d6-ed162e3adce9.png" alt="PIT-domainraportti" width="800" >
+<img src="https://user-images.githubusercontent.com/46410240/81495875-29bd4c00-92bc-11ea-98d6-ed162e3adce9.png" alt="PIT-domainraportti" width="600" >
 
 Nähdään, että tämän pakkauksen rivikattavuus on hyvä (100%) ja että tähän pakkaukseen luotiin 28 mutaatiota, joista 25 tapettiin. Kolme mutaatiota selvisi testeistä. Katsotaan tarkemmin, mistä on kyse. Avataan Luokan ScoreData tulos, jossa kaksi mutaatiota selvisi testeistä:
 
-<img src="https://user-images.githubusercontent.com/46410240/81495917-7a34a980-92bc-11ea-9caf-6dd3e2672df7.png" alt="PIT-tarkennus1" width="800" >
-<img src="https://user-images.githubusercontent.com/46410240/81496044-5e7dd300-92bd-11ea-93ad-84e8f6aa06db.png" alt="PIT-tarkennus2" width="800" >
+<img src="https://user-images.githubusercontent.com/46410240/81496520-d4d00480-92c0-11ea-8223-46451f5d079e.png" alt="PIT-tarkennus" width="600" >
 
 Kyseessä on molempien taulujen luomismetodit (*createScoreTable* ja *createGameTable*) ja niissä olevien olioiden *preparedStatement* sulkemisesta. Alimmasta kuvasta nähdään, että mutaatio poisti rivit 50 ja 71, eivätkä testit siis kattaneet tällaista bugia.
 
-Tällä kurssilla ei ole vaadittu mutaatioiden testausta, joten en korjaa koodin mutaatio-ongelmia.
+Tällä kurssilla ei ole vaadittu mutaatioiden testausta, joten en korjaa testien mutaatio-ongelmia.
 
 ## Järjestelmätestaus
 
