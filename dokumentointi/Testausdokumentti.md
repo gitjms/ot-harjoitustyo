@@ -4,11 +4,15 @@ Ohjelmaa on testattu JUnit-yksikkötesteillä ja manuaalisesti.
 
 ## Jacoco-testauskattavuus
 
-Pääosa automaattisista yksikkötesteistä on tehty käyttöjärjestelmän luovan pakkauksen *jms.tictactoe.ui* luokille. Testikattavuus on korkea (98%) kuten alla olevasta kuvasta käy ilmi:
+Kokonaistestikattavuus on korkea (92%) kuten alla olevasta kuvasta käy ilmi:
+
+<img src="https://user-images.githubusercontent.com/46410240/81502789-c1389400-92e8-11ea-9713-9fb95393e03f.png" alt="Jacoco-raportti" width="800" >
+
+Pääosa automaattisista yksikkötesteistä on tehty käyttöjärjestelmän rakentavan pakkauksen *jms.tictactoe.ui* luokille, jossa myös on korkea rivikattavuus (98%): 
 
 <img src="https://user-images.githubusercontent.com/46410240/81461894-8aaf2c00-91b7-11ea-98d5-fe2a2ec62af6.png" alt="Jacoco Ui -raportti" width="800" >
 
-Käyttöliittymäkerroksesta jätettiin testeistä pois luokka TicTacToeUI.
+Käyttöliittymäkerroksen testeistä jätettiin pois luokka TicTacToeUI.
 
 Sovelluslogiikkapakkauksen *jms.tictactoe.domain* testataan automaattisesti molemmat luokat, ScoreService ja ScoreData. Kattavuus on korkea (100%), kuten alla olevasta kuvasta nähdään:
 
