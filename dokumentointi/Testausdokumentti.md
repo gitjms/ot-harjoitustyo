@@ -46,7 +46,7 @@ Nähdään, että tämän pakkauksen rivikattavuus on hyvä (100%) ja että täh
 
 <img src="https://user-images.githubusercontent.com/46410240/81496520-d4d00480-92c0-11ea-8223-46451f5d079e.png" alt="PIT-tarkennus" width="600" >
 
-Kyseessä on molempien taulujen luomismetodit (*createScoreTable* ja *createGameTable*) ja niissä olevien olioiden *preparedStatement* sulkemisesta. Alimmasta kuvasta nähdään, että mutaatio poisti rivit 50 ja 71, eivätkä testit siis kattaneet tällaista bugia.
+Kyseessä on molempien tietokantataulujen luomismetodit (*createScoreTable* ja *createGameTable*) ja niissä olevien olioiden *preparedStatement* sulkemisesta. Alimmasta kuvasta nähdään, että mutaatio poisti rivien 50 ja 71 sulkemiskäskyt, eivätkä testit siis kattaneet tällaista bugia.
 
 Tällä kurssilla ei ole vaadittu mutaatioiden testausta, joten en korjaa testien mutaatio-ongelmia.
 
