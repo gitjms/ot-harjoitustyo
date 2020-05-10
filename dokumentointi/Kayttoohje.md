@@ -30,7 +30,7 @@ Windowsissa voi myös tuplaklikata jar-tiedostoa ohjelman käynnistääkseen.
 Jos jar-tiedosto ei toimi, voi ladata lähdekoodin (source code) ja purkaa zip-tiedoston esim komennolla
 
 ```
-unzip ot-harjoitustyo-1.zip
+unzip TicTacToe-Ristinolla-3.5.zip
 ```
 
 tai jollain Windowsin työkalulla.
@@ -38,7 +38,7 @@ tai jollain Windowsin työkalulla.
 Tar-tiedoston voi purkaa Linuxissa komennolla
 
 ```
-tar -zxvf ot-harjoitustyo-1.tar.gz
+tar -zxvf TicTacToe-Ristinolla-3.5.tar.gz
 ```
 
 Sitten voi siirtyä puretun kansion sisään ja eteenpäin kansioon TicTacToe/, jossa voi antaa komennon
