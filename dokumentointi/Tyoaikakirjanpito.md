@@ -23,5 +23,6 @@
 | 23.4. | 4    | Javadoc-korjausta ja kaksi enumia pois |
 | 8.5. | 3    | Refaktorointia ja final release |
 | 8.5. | 1    | tietokannan nimi pysyy laatikossa ja uusi final release |
-| yht   | 101 h  | | 
+| 8.5. | 2    | pit tests, pilkunviilausta ja vihoviimeinen final release |
+| yht   | 103 h  | | 
 
