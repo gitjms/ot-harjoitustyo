@@ -2,7 +2,7 @@
 
 Ohjelmaa on testattu JUnit-yksikkötesteillä ja manuaalisesti.
 
-## Testauskattavuus
+## Jacoco-testauskattavuus
 
 Pääosa automaattisista yksikkötesteistä on tehty käyttöjärjestelmän luovan pakkauksen *jms.tictactoe.ui* luokille. Testikattavuus on korkea (98%) kuten alla olevasta kuvasta käy ilmi:
 
@@ -14,7 +14,7 @@ Sovelluslogiikkapakkauksen *jms.tictactoe.domain* testataan automaattisesti mole
 
 <img src="https://user-images.githubusercontent.com/46410240/81462417-f8108c00-91ba-11ea-8775-542262aa7768.png" alt="Jacoco Domain -raportti" width="800" >
 
-DAO-pakkauksen *jms.tictactoe.dao* kahdesta luokasta testataan vain toinen luokka, ScoreDao, ja sen testikattavuus jää pienimmäksi (53%):
+DAO-pakkauksen *jms.tictactoe.dao* kahdesta luokasta testataan vain toinen luokka, ScoreDataDao, ja sen testikattavuus jää pienimmäksi (53%):
 
 <img src="https://user-images.githubusercontent.com/46410240/81461990-32c4f500-91b8-11ea-85d3-729b432c5c06.png" alt="Jacoco Dao -raportti" width="800" >
 
@@ -25,6 +25,31 @@ Suurin syy pienelle kattavuudelle on try-catch -olioiden catch-haaroissa, joita 
 Jacoco-raportin kokonaistestitulos rivikattavuuden osalta on 92% ja haarautumakattavuuden osalta 86%:
 
 <img src="https://user-images.githubusercontent.com/46410240/81462390-d6170980-91ba-11ea-9b21-edf188b581b7.png" alt="Jacoco-raportti" width="800" >
+
+## PIT-testauskattavuus
+
+[PIT](http://pitest.org/) on automaattinen mutaatiotestausväline, joka suorittaa pieniä muutoksia koodiin ja tarkistaa kattavatko yksikkötestit myös nämä tilanteet.
+
+Koodimutaation tulee aiheuttaa se, että testit eivät onnistu, tällöin mutaatiot tulevat tapetuksi (*killed*). Jos testit eivät kaadu mutaatioihin, eli menevät yhä läpi, mutaatiot elävät (*lived*). Testien laatua voidaan mitata tapettujen mutaatioiden osuudella.
+
+Perinteinen testauskattavuus (kuten Jacoco) mittaa, miten paljon koodia ei ole testattu. PIT tutkii, ovatko koodit testattu merkityksellisesti. Pit ilmoittaa tuloksena rivikattavuutena ja mutaatiokattavuutena prosenteissa samaan tapaan kuin Jacoco. Alla esimerkki ristinollapelin PIT-raportista:
+
+<img src="https://user-images.githubusercontent.com/46410240/81495808-b61b3f00-92bb-11ea-9ec8-e53181a647ae.png" alt="PIT-raportti" width="800" >
+
+Yllä olevan tuloksen mukaan PIT generoi 370 mutaatiota, joista 103 tapettiin.
+
+Seuraavaksi voimme avata tarkemman raportin esimerkiksi domain-paketista:
+
+<img src="https://user-images.githubusercontent.com/46410240/81495875-29bd4c00-92bc-11ea-98d6-ed162e3adce9.png" alt="PIT-domainraportti" width="800" >
+
+Nähdään, että tämän pakkauksen rivikattavuus on hyvä (100%) ja että tähän pakkaukseen luotiin 28 mutaatiota, joista 25 tapettiin. Kolme mutaatiota selvisi testeistä. Katsotaan tarkemmin, mistä on kyse. Avataan Luokan ScoreData tulos, jossa kaksi mutaatiota selvisi testeistä:
+
+<img src="https://user-images.githubusercontent.com/46410240/81495917-7a34a980-92bc-11ea-9caf-6dd3e2672df7.png" alt="PIT-tarkennus1" width="800" >
+<img src="https://user-images.githubusercontent.com/46410240/81496044-5e7dd300-92bd-11ea-93ad-84e8f6aa06db.png" alt="PIT-tarkennus2" width="800" >
+
+Kyseessä on molempien taulujen luomismetodit (*createScoreTable* ja *createGameTable*) ja niissä olevien olioiden *preparedStatement* sulkemisesta. Alimmasta kuvasta nähdään, että mutaatio poisti rivit 50 ja 71, eivätkä testit siis kattaneet tällaista bugia.
+
+Tällä kurssilla ei ole vaadittu mutaatioiden testausta, joten en korjaa koodin mutaatio-ongelmia.
 
 ## Järjestelmätestaus
 
