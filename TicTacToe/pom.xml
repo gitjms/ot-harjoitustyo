@@ -104,19 +104,8 @@
             
             <plugin>
                 <groupId>org.pitest</groupId>
-                    <artifactId>pitest-maven</artifactId>
-                    <version>1.5.1</version>
-                <configuration>
-                    <skip>false</skip>
-                    <reportsDirectory>${project.build.directory}/pit-reports</reportsDirectory>
-                    <sourceDataFormats>
-                        <sourceDataFormat>HTML</sourceDataFormat>
-                    </sourceDataFormats>
-                    <avoidCallsTo>
-                        <avoidCallsTo>jms.tictactoe.Main.java</avoidCallsTo>
-                        <avoidCallsTo>jms.tictactoe.ui.TicTacToeUI.java</avoidCallsTo>
-                    </avoidCallsTo>
-                </configuration>
+                <artifactId>pitest-maven</artifactId>
+                <version>1.5.1</version>
              </plugin>
 
             <plugin>

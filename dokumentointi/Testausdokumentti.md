@@ -34,7 +34,7 @@ Koodimutaation tulee aiheuttaa se, että testit eivät onnistu, tällöin mutaat
 
 Perinteinen testauskattavuus (kuten Jacoco) mittaa, miten paljon koodia ei ole testattu. PIT tutkii, ovatko koodit testattu merkityksellisesti. Pit ilmoittaa tuloksena rivikattavuutena ja mutaatiokattavuutena prosenteissa samaan tapaan kuin Jacoco. Alla esimerkki ristinollapelin PIT-raportista:
 
-<img src="https://user-images.githubusercontent.com/46410240/81495808-b61b3f00-92bb-11ea-9ec8-e53181a647ae.png" alt="PIT-raportti" width="600" >
+<img src="https://user-images.githubusercontent.com/46410240/81497112-04810b80-92c5-11ea-9f77-4b474632da5d.png" alt="PIT-raportti" width="600" >
 
 Yllä olevan tuloksen mukaan PIT generoi 370 mutaatiota, joista 103 tapettiin.
 
