@@ -69,7 +69,7 @@ public class GameSquareTest {
         } catch(SQLException se) {
         }
         try {
-            if(this.connection!=null)  {
+            if(!this.connection.isClosed()) {
                 this.connection.close();
             } 
         } catch(SQLException se) {

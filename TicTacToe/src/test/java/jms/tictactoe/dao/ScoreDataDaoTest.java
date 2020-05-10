@@ -52,13 +52,29 @@ public class ScoreDataDaoTest {
     @After
     public void tearDown() throws SQLException, FileNotFoundException, IOException {
         try {
-            if(!this.statement.isClosed()) this.statement.close(); 
+            if(!this.statement.isClosed()) {
+                this.statement.close();
+            } 
         } catch(SQLException se) {
         }
         try {
-            if(this.connection!=null) this.connection.close(); 
+            if(!this.connection.isClosed()) {
+                this.connection.close();
+            } 
         } catch(SQLException se) {
         }
+    }
+
+    /**
+     * Test of ScoreDataDao, of class ScoreDataDao.
+     * @throws java.sql.SQLException
+     * @throws java.io.IOException
+     */
+    @Test
+    public void testScoreDataDaoWithScoreData() throws  SQLException, IOException, Exception {
+        System.out.println("testScoreDataDaoWithScoreData");
+        ScoreDataDao scoreDataDao = new ScoreDataDao(this.getData, this.connection, this.statement);
+        assertNotNull(String.valueOf(scoreDataDao));
     }
 
     /**

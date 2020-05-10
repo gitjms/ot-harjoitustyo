@@ -22,7 +22,7 @@ Sovellus on luotu Javan versiolla 11 ja käyttäen JavaFX:n versiota 14.
 
 ## Release
 
-[tictactoe.jar / Source code .zip / Source code .tar.gz](https://github.com/gitjms/TicTacToe-Ristinolla/releases/tag/3.4)
+[tictactoe.jar / Source code .zip / Source code .tar.gz](https://github.com/gitjms/TicTacToe-Ristinolla/releases/tag/3.5)
 
 ## Komentorivitoiminnot
 
@@ -63,7 +63,7 @@ mvn org.pitest:pitest-maven:mutationCoverage
 
 Kattavuusraporttia voi tarkastella avaamalla selaimella tiedosto target/pit-reports/YYYYMMDDHHMI/index.html
 
-Jos sovellus on käännetty (compile), täytyy sovellus käynnistää ja sulkea kerran, muuten voi käydä niin, ettei PIT osaa tehdä testejä.
+Jos sovellus on tuoreeltaan käännetty (compile), täytyy ajaa joko sovellusta tai maven testit kertaalleen, muuten voi käydä niin, ettei PIT osaa tehdä testejä.
 
 ***
 Projektin koodin tyylivirheet voi tarkistaa suorittamalla komento
@@ -73,6 +73,7 @@ mvn jxr:jxr checkstyle:checkstyle
 ```
 
 Tulosta voi tarkastella avaamalla selaimella tiedosto target/site/checkstyle.html
+
 ***
 Suorituskelpoisen jar-tiedoston voi luoda komennolla
 
@@ -85,6 +86,7 @@ Ajettava tiedosto löytyy target-kansiosta ja se voidaan ajaa komennolla
 ```
 java -jar tictactoe.jar
 ```
+
 ***
 JavaDoc voidaan generoida komennolla
 
@@ -98,4 +100,5 @@ Tulosta voi tarkastella avaamalla selaimella esimerkiksi jokin seuraavista tiedo
 * target/site/apidocs/allpackages-index.html
 * target/site/apidocs/index-all.html
 * target/site/apidocs/overview-tree.html
+
 ***

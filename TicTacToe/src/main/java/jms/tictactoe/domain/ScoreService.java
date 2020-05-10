@@ -2,6 +2,7 @@ package jms.tictactoe.domain;
 
 import java.sql.Connection;
 import java.sql.Statement;
+
 import jms.tictactoe.dao.ScoreDao;
 
 /**

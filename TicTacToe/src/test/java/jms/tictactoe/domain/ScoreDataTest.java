@@ -1,6 +1,5 @@
 package jms.tictactoe.domain;
 
-import jms.tictactoe.domain.ScoreData;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.Connection;
@@ -21,9 +20,9 @@ import static org.junit.Assert.*;
  */
 public class ScoreDataTest {
     
-    private Connection connection;
-    private Statement statement;
-    private ScoreData instance;
+    private final String testScoreData = "jdbc:h2:~/test";
+    private final String dbUser = "sa"; 
+    private final String dbPass = "";
     
     public ScoreDataTest() {
     }
@@ -34,38 +33,16 @@ public class ScoreDataTest {
     }
     
     @AfterClass
-    public static void tearDownClass() {
+    public static void tearDownClass() throws SQLException {
     }
     
     @Before
     public void setUp() throws FileNotFoundException, IOException, SQLException, Exception {
         System.out.print("    - ");
-        String testScoreData = "jdbc:h2:~/test";
-        final String dbUser = "sa"; 
-        final String dbPass = "";
-        this.connection = DriverManager.getConnection(testScoreData, dbUser, dbPass);
-        this.statement = this.connection.createStatement();
-        this.instance = new ScoreData(this.connection, this.statement);
     }
     
     @After
     public void tearDown() throws SQLException, Exception {
-        this.instance.deleteTable("SCORES");
-        this.instance.deleteTable("GAMES");
-        this.instance.createScoreTable(this.connection);
-        this.instance.createGameTable(this.connection);
-        try {
-            if(!this.statement.isClosed()) {
-                this.statement.close();
-            } 
-        } catch(SQLException se) {
-        }
-        try {
-            if(this.connection!=null) {
-                this.connection.close();
-            } 
-        } catch(SQLException se) {
-        }
     }
     
     /**
@@ -75,8 +52,13 @@ public class ScoreDataTest {
     @Test
     public void testCreateScoreTable() throws Exception {
         System.out.println("testCreateScoreTable");
-        this.instance.createScoreTable(this.connection);
-        assertNotNull(this.instance);
+        Connection connection = DriverManager.getConnection(this.testScoreData, this.dbUser, this.dbPass);
+        Statement statement = connection.createStatement();
+        ScoreData instance = new ScoreData(connection, statement);
+        instance.createScoreTable(connection);
+        assertNotNull(instance);
+        instance.closeStatement(statement);
+        instance.closeConnection(connection);
     }
     
     /**
@@ -86,8 +68,13 @@ public class ScoreDataTest {
     @Test
     public void testCreateGameTable() throws Exception {
         System.out.println("testCreateGameTable");
-        this.instance.createGameTable(this.connection);
-        assertNotNull(this.instance);
+        Connection connection = DriverManager.getConnection(this.testScoreData, this.dbUser, this.dbPass);
+        Statement statement = connection.createStatement();
+        ScoreData instance = new ScoreData(connection, statement);
+        instance.createGameTable(connection);
+        assertNotNull(instance);
+        instance.closeStatement(statement);
+        instance.closeConnection(connection);
     }
     
     /**
@@ -97,11 +84,16 @@ public class ScoreDataTest {
     @Test
     public void testScoreUpdate() throws Exception {
         System.out.println("testScoreUpdate");
-        this.instance.resetUpdate();
-        int pointsBefore = this.instance.pointQuery("X");
-        this.instance.scoreUpdate("X", 100);
-        int pointsAfter = this.instance.pointQuery("X");
+        Connection connection = DriverManager.getConnection(this.testScoreData, this.dbUser, this.dbPass);
+        Statement statement = connection.createStatement();
+        ScoreData instance = new ScoreData(connection, statement);
+        instance.resetUpdate();
+        int pointsBefore = instance.pointQuery("X");
+        instance.scoreUpdate("X", 100);
+        int pointsAfter = instance.pointQuery("X");
         assertEquals(100, pointsAfter - pointsBefore);
+        instance.closeStatement(statement);
+        instance.closeConnection(connection);
     }
     
     /**
@@ -111,11 +103,16 @@ public class ScoreDataTest {
     @Test
     public void testWrongScoreUpdate() throws Exception {
         System.out.println("testWrongScoreUpdate");
-        this.instance.resetUpdate();
-        int pointsBefore = this.instance.pointQuery("X");
-        this.instance.scoreUpdate("Y", 100);
-        int pointsAfter = this.instance.pointQuery("X");
+        Connection connection = DriverManager.getConnection(this.testScoreData, this.dbUser, this.dbPass);
+        Statement statement = connection.createStatement();
+        ScoreData instance = new ScoreData(connection, statement);
+        instance.resetUpdate();
+        int pointsBefore = instance.pointQuery("X");
+        instance.scoreUpdate("Y", 100);
+        int pointsAfter = instance.pointQuery("X");
         assertEquals(0, pointsAfter - pointsBefore);
+        instance.closeStatement(statement);
+        instance.closeConnection(connection);
     }
 
     /**
@@ -125,12 +122,17 @@ public class ScoreDataTest {
     @Test
     public void testResetUpdate() throws Exception {
         System.out.println("testResetUpdate");
-        this.instance.resetUpdate();
-        this.instance.scoreUpdate("X", 100);
-        int pointsBefore = this.instance.pointQuery("X");
-        this.instance.resetUpdate();
-        int pointsAfter = this.instance.pointQuery("X");
+        Connection connection = DriverManager.getConnection(this.testScoreData, this.dbUser, this.dbPass);
+        Statement statement = connection.createStatement();
+        ScoreData instance = new ScoreData(connection, statement);
+        instance.resetUpdate();
+        instance.scoreUpdate("X", 100);
+        int pointsBefore = instance.pointQuery("X");
+        instance.resetUpdate();
+        int pointsAfter = instance.pointQuery("X");
         assertEquals(100, pointsBefore - pointsAfter);
+        instance.closeStatement(statement);
+        instance.closeConnection(connection);
     }
 
     /**
@@ -140,11 +142,16 @@ public class ScoreDataTest {
     @Test
     public void testGameUpdate() throws Exception {
         System.out.println("testGameUpdate");
-        this.instance.resetUpdate();
-        int gamesBefore = this.instance.gameQuery();
-        this.instance.gameUpdate(100);
-        int gamesAfter = this.instance.gameQuery();
+        Connection connection = DriverManager.getConnection(this.testScoreData, this.dbUser, this.dbPass);
+        Statement statement = connection.createStatement();
+        ScoreData instance = new ScoreData(connection, statement);
+        instance.resetUpdate();
+        int gamesBefore = instance.gameQuery();
+        instance.gameUpdate(100);
+        int gamesAfter = instance.gameQuery();
         assertEquals(100, gamesAfter - gamesBefore);
+        instance.closeStatement(statement);
+        instance.closeConnection(connection);
     }
 
     /**
@@ -154,100 +161,105 @@ public class ScoreDataTest {
     @Test
     public void testDrawUpdate() throws Exception {
         System.out.println("testDrawUpdate");
-        this.instance.resetUpdate();
-        int drawsBefore = this.instance.drawQuery();
-        this.instance.drawUpdate(100);
-        int drawsAfter = this.instance.drawQuery();
+        Connection connection = DriverManager.getConnection(this.testScoreData, this.dbUser, this.dbPass);
+        Statement statement = connection.createStatement();
+        ScoreData instance = new ScoreData(connection, statement);
+        instance.resetUpdate();
+        int drawsBefore = instance.drawQuery();
+        instance.drawUpdate(100);
+        int drawsAfter = instance.drawQuery();
         assertEquals(100, drawsAfter - drawsBefore);
+        instance.closeStatement(statement);
+        instance.closeConnection(connection);
     }
     
     /**
      * Test of closeStatement method, of class ScoreData.
-     * @throws java.sql.SQLException
-     * @throws java.io.IOException
+     * @throws java.lang.Exception
      */
     @Test
-    public void testCloseStatement() throws  SQLException, IOException {
+    public void testCloseStatement() throws Exception {
         System.out.println("testCloseStatement");
-        this.statement = this.connection.createStatement();
-        boolean isStatementClosed = this.statement.isClosed();
+        Connection connection = DriverManager.getConnection(this.testScoreData, this.dbUser, this.dbPass);
+        Statement statement = connection.createStatement();
+        ScoreData instance = new ScoreData(connection, statement);
+        statement = connection.createStatement();
+        boolean isStatementClosed = statement.isClosed();
         assertFalse(isStatementClosed);
-        this.instance.closeStatement(this.statement);
-        isStatementClosed = this.statement.isClosed();
+        instance.closeStatement(statement);
+        isStatementClosed = statement.isClosed();
         assertTrue(isStatementClosed);
-        this.statement = this.connection.createStatement();
     }
 
     /**
      * Test of closeStatement method, of class ScoreData.
-     * @throws java.sql.SQLException
+     * @throws java.lang.Exception
      */
     @Test
-    public void testCloseClosedStatement() throws SQLException {
+    public void testCloseClosedStatement() throws Exception {
         System.out.println("testCloseClosedStatement");
-        this.statement = this.connection.createStatement();
-        boolean isStatementClosed = this.statement.isClosed();
+        Connection connection = DriverManager.getConnection(this.testScoreData, this.dbUser, this.dbPass);
+        Statement statement = connection.createStatement();
+        ScoreData instance = new ScoreData(connection, statement);
+        statement = connection.createStatement();
+        boolean isStatementClosed = statement.isClosed();
         assertFalse(isStatementClosed);
-        this.instance.closeStatement(this.statement);
-        isStatementClosed = this.statement.isClosed();
+        instance.closeStatement(statement);
+        isStatementClosed = statement.isClosed();
         assertTrue(isStatementClosed);
-        this.instance.closeStatement(this.statement);
-        isStatementClosed = this.statement.isClosed();
+        instance.closeStatement(statement);
+        isStatementClosed = statement.isClosed();
         assertTrue(isStatementClosed);
-        this.statement = this.connection.createStatement();
     }
 
     /**
      * Test of closeConnection method, of class ScoreData.
-     * @throws java.sql.SQLException
-     * @throws java.io.FileNotFoundException
+     * @throws java.lang.Exception
      */
     @Test
-    public void testCloseConnection() throws SQLException, FileNotFoundException, IOException {
+    public void testCloseConnection() throws Exception {
         System.out.println("testCloseConnection");
-        String testScoreData = "jdbc:h2:~/test";
-        final String dbUser = "sa"; 
-        final String dbPass = "";
-        this.connection = DriverManager.getConnection(testScoreData, dbUser, dbPass);
-        boolean isConnectionClosed = this.connection.isClosed();
+        Connection connection = DriverManager.getConnection(this.testScoreData, this.dbUser, this.dbPass);
+        Statement statement = connection.createStatement();
+        ScoreData instance = new ScoreData(connection, statement);
+        boolean isConnectionClosed = connection.isClosed();
         assertFalse(isConnectionClosed);
-        this.instance.closeConnection(this.connection);
-        isConnectionClosed = this.connection.isClosed();
+        instance.closeConnection(connection);
+        isConnectionClosed = connection.isClosed();
         assertTrue(isConnectionClosed);
-        this.connection = DriverManager.getConnection(testScoreData, dbUser, dbPass);
     }
 
     /**
      * Test of closeStatement method, of class ScoreData.
-     * @throws java.sql.SQLException
-     * @throws java.io.FileNotFoundException
+     * @throws java.lang.Exception
      */
     @Test
-    public void testCloseClosedConnection() throws SQLException, FileNotFoundException, IOException {
+    public void testCloseClosedConnection() throws Exception {
         System.out.println("testCloseClosedConnection");
-        String testScoreData = "jdbc:h2:~/test";
-        final String dbUser = "sa"; 
-        final String dbPass = "";
-        this.connection = DriverManager.getConnection(testScoreData, dbUser, dbPass);
-        boolean isConnectionClosed = this.connection.isClosed();
+        Connection connection = DriverManager.getConnection(testScoreData, dbUser, dbPass);
+        Statement statement = connection.createStatement();
+        ScoreData instance = new ScoreData(connection, statement);
+        boolean isConnectionClosed = connection.isClosed();
         assertFalse(isConnectionClosed);
-        this.instance.closeConnection(this.connection);
-        isConnectionClosed = this.connection.isClosed();
+        instance.closeConnection(connection);
+        isConnectionClosed = connection.isClosed();
         assertTrue(isConnectionClosed);
-        this.instance.closeConnection(this.connection);
-        isConnectionClosed = this.connection.isClosed();
+        instance.closeConnection(connection);
+        isConnectionClosed = connection.isClosed();
         assertTrue(isConnectionClosed);
-        this.connection = DriverManager.getConnection(testScoreData, dbUser, dbPass);
     }
 
     /**
      * Test of closeConnection method, of class ScoreData.
-     * @throws java.sql.SQLException
+     * @throws java.lang.Exception
      */
     @Test
-    public void testDeleteTable() throws SQLException, Exception {
+    public void testDeleteTable() throws Exception {
         System.out.println("testDeleteTable");
-        ResultSet resultTable = this.connection.getMetaData().getTables(null, null, "SCORES", new String[] {"TABLE","VIEW"});
+        Connection connection = DriverManager.getConnection(testScoreData, dbUser, dbPass);
+        Statement statement = connection.createStatement();
+        ScoreData instance = new ScoreData(connection, statement);
+        ResultSet resultTable = connection.getMetaData().getTables(null, null, "SCORES", new String[] {"TABLE","VIEW"});
         boolean tableExists = false;
         while (resultTable.next()) {
             String tableName = resultTable.getString("TABLE_NAME");
@@ -257,8 +269,8 @@ public class ScoreDataTest {
             }
         }
         assertTrue(tableExists);
-        this.instance.deleteTable("SCORES");
-        resultTable = this.connection.getMetaData().getTables(null, null, "SCORES", new String[] {"TABLE","VIEW"});
+        instance.deleteTable("SCORES");
+        resultTable = connection.getMetaData().getTables(null, null, "SCORES", new String[] {"TABLE","VIEW"});
         tableExists = false;
         while (resultTable.next()) {
             String tableName = resultTable.getString("TABLE_NAME");
@@ -267,8 +279,10 @@ public class ScoreDataTest {
                 break;
             }
         }
-        this.instance.createScoreTable(this.connection);
+        instance.createScoreTable(connection);
         assertFalse(tableExists);
+        instance.closeStatement(statement);
+        instance.closeConnection(connection);
     }
     
 }
